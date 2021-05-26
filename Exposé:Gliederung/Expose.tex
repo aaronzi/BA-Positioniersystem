@@ -1,0 +1,269 @@
+\documentclass[12pt, a4paper, twoside]{article} %Dokumentenklasse Setzen
+
+\usepackage[a4paper, left=2.5cm, right=2.5cm]{geometry} %Seitenrand setzen
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage{xpatch}
+\usepackage{xspace} % setzten von Leerzeichen nach Abkürzungen
+\usepackage{microtype} % für glättere Seitenränder
+
+%Mathe Pakete
+\usepackage{amsmath}
+\usepackage{thmtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%Listenumgebungen
+\usepackage{listings}
+\usepackage{paralist}
+\usepackage{enumitem}
+
+%Demo Text
+\usepackage{blindtext}
+
+% Farb-Pakete
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+% Für erweiterte Tabellen
+\usepackage{longtable}
+
+% Für Einheiten
+\usepackage[exponent-product = \cdot]{siunitx}
+\sisetup{locale=DE}
+
+\makeatletter
+\renewcommand\@dotsep{5}
+\makeatother
+
+% Pakete für Grafiken
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{epstopdf}
+\usepackage{subcaption}
+%\captionsetup[subfigure]{list=true, font=normalsize, labelformat=brace, position=top} %setup für subfigure captions
+\usepackage{pstricks}
+\usepackage{pst-plot,pst-bar} %Balkendiagramme
+
+% Paket für Literaturverzeichnis
+\usepackage[
+    style=alphabetic,
+    sorting=nty,
+    sortcites=true,
+    autopunct=true,
+    autolang=hyphen,
+    hyperref=true,
+    abbreviate=false,
+    backref=true,
+    backend=biber,
+    block=space
+    ]{biblatex}
+
+\addbibresource{bib/bib.bib} %Einfügen der Literaturbibliothek
+\defbibheading{bibempty}{}
+
+
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\urlstyle{same}
+
+%Abkürzungen durch Kommandos setzen
+\newcommand{\bspw}{bspw.\xspace}
+\newcommand{\bzw}{bzw.\xspace}
+\newcommand{\etc}{etc.\xspace}
+\newcommand{\zB}{z.\,B.\xspace}
+\newcommand{\EV}{e.\,V.\xspace}
+\newcommand{\zT}{z.\,T.\xspace}
+\newcommand{\iVm}{i.\,V.\,m.\xspace}
+\newcommand{\idR}{i.\,d.\,R.\xspace}
+\newcommand{\ihv}{i.\,H.\,v.\xspace}
+\newcommand{\ua}{u.\,a.\xspace}
+\newcommand{\dH}{d.\,h.\xspace}
+\newcommand{\vgl}{vgl.\xspace}
+\newcommand{\ca}{ca.\xspace}
+\newcommand{\dV}{d.\,Verf.}
+\newcommand{\RNr}{Rn.\xspace}
+\newcommand{\oa}{o.\,{ä}.\xspace}
+\newcommand{\vC}{v.\,Chr.\xspace}
+\newcommand{\nC}{n.\,Chr.\xspace}
+\newcommand{\vA}{v.\,a.\xspace}
+
+\usepackage{tocbibind} %damit Verzeichnisse im Inhaltsverzeichnis aufgeführt werden
+%\usepackage[notoc]{tocbibind} %damit Inhaltsverzeichnis nicht im Inhaltsverzeichnis vorkommt
+
+\pagenumbering{Roman} %Römische Seitennummerierung für Verzeichnisse
+
+\begin{document}
+
+%TITELSEITE
+\begin{titlepage}
+	\begin{center}
+	\vspace*{0.2cm}
+	
+	\huge
+	\textbf{Konzeption, Projektierung und Inbetriebnahme eines mehrachsigen Positionsystems}
+	
+	\vspace*{2.0cm}
+	\Large
+	\textbf{Exposé zur Bachelorarbeit}
+	
+	\vspace*{1.2cm}
+	\normalsize
+	im Studiengang\\
+	\Large
+	Elektrotechnik
+	
+	\vspace*{0.9cm}
+	\normalsize
+	am Fachbereich\\
+	\Large
+	Ingenieurwissenschaften - Energie und Information
+	
+	\vspace*{0.9cm}
+	\normalsize
+	an der\\
+	\Large
+	Hochschule für Technik und Wirtschaft Berlin
+	
+	\vspace*{1.6cm}
+	\normalsize
+	vorgelegt von\\
+	\Large
+	Aaron Zielstorff
+	
+	\vspace*{0.7cm}
+	\normalsize
+	Berlin, 15.02.2021
+	
+	\vspace*{1.6cm}
+	\normalsize
+	Betreuer:\\
+	Herr Prof. Dr. Vorname Schäfer\\
+	Herr Dipl.-Ing. Dirk Schöttke
+	
+	\end{center}
+\end{titlepage}
+
+
+%INHALTSVERZEICHNIS
+\setcounter{tocdepth}{2} %Inhaltsverzeichnis zeigt 2 Gliederungsebenen
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+
+%ABBILDUNGSVERZEICHNIS
+%\listoffigures
+
+%TABELLENVERZEICHNIS
+%\listoftables
+%\clearpage
+
+\pagenumbering{arabic} %Arabische Seitennummerierung nach den ab Textbeginn
+
+\section{Problemstellung}
+Seit einigen Jahren zeichnet sich eine vierte industrielle Revolution ab. Hervorgerufen durch das Voranschreiten der Digitalisierung und der damit einhergehenden Vernetzung auf der einen Seite, und der immer größer werdende Nachfrage nach Personalisierung, Effizienz und Qualität industrieller Produkte auf der anderen Seite, findet ein globaler Paradigmenwechsel statt \cite[S. 33]{Bauernhansl2014} Für Deutschland stellt diese Entwicklung eine große Chance dar, um die industrielle Produktion ausbauen zu können \cite[S. 1]{Pistorius2020}.\\
+Im Zentrum des industriellen Ausbaus stehen CPS (Cyber-physische Systeme), die als Produktionsmittel die Möglichkeit besitzen, die Anforderungen des Marktes zu erfüllen und Wertschöpfung zu generieren \cite[S. 10]{Pistorius2020}. Entscheidend dafür ist die industrielle Kommunikation über das Internet, welche es ermöglicht \glqq intelligente\grqq{} Produktionsanlagen umzusetzen \cite[S. 30]{Bauernhansl2014}.
+
+\section{Zielsetzung und Erkenntnisse}
+Ziel dieser Bachelorarbeit ist es, den Konzeptionsprozess, die Projektierung und Inbetriebnahme eines CPS darzustellen. Dabei wird die Frage beantwortet, wie ein mehrachsiges Positionsystem umgesetzt werden muss, um als Cyber-physisches System gelten zu können. \\
+\textbf{Ziele der Arbeit:}
+\begin{compactitem}
+	\item Klärung der Begriffe Cyber-physisches System und Industrie 4.0
+	\item Darstellen des Konzeptionsprozesses eines mehrachsigen Positionsystems
+	\item Projektierung und Inbetriebnahme des Systems aufzeigen
+	\item Anhand der Erkenntnisse eine Einordnung in das Konzept Industrie 4.0 als Cyber-physisches System vornehmen
+	\item Mit Hilfe der Ergebnisse die folgende Forschungsfrage beantworten: \textit{Wie sollte ein mehrachsiges Positionsystems konzipiert, projektiert und in Betrieb genommen werden, um als Cyber-physisches System nach dem Leitbild Industrie 4.0 gelten zu können?}
+\end{compactitem}
+Es wird erwartet, dass die Ergebnisse der Forschung zeigen, dass die Umsetzung des mehrachsigen Positionsystems die Grundprinzipien von CPS nach dem Leitbild Industrie 4.0 widerspiegeln. Weiterhin ist damit zu rechnen, dass die Projektierung analog auch bei anderen Systemen und Anlagen nach selbem Leitbild umzusetzen ist. Außerdem steht in Aussicht, dass die Informations- und Kommunikationstechnik eine entscheidende Rolle bei der Realisierung der Systemfunktionalität spielt. 
+
+\section{Forschungsstand und theoretische Grundlage}
+Der Begriff Industrie 4.0 ist im Rahmen eines Zukunftprojekts der deutschen Bundesregierung entstanden. Durch die Digitalisierung klassischer Industrieunternehmen wird auf eine Steigerung der Automatisierung und Vernetzung in der Produktion abgezielt, um die Wettbewerbsfähigkeit auf dem globalen Markt sicherstellen zu können \cite[S. 63]{Winkelhake2021}. Cyber-physische Systeme (CPS) gelten als Basisinnovation für die vierte industrielle Revolution. In Zukunft werden Unternehmen ihre Einrichtungen, Anlagen, Maschinen und Betriebsmittel mithilfe von CPS global vernetzen \cite[S. 5]{Wissenschaft2013}. CPS können definiert werden als eingebettete Systeme, die
+\begin{compactitem}
+	\item durch Unterstützung von Sensoren physikalische Daten generieren und mittels Aktoren reale Vorgänge beeinflussen,
+	\item Daten sichern als auch verarbeiten und daraus Handlungen ableiten,
+	\item über Kommunikationsschnittstellen untereinander verbunden sind, egal ob lokal oder global sowie drahtlos oder drahtgebunden,
+	\item bereitstehende Dienste und Daten ortsunabhängig nutzen und anbieten,
+	\item unterschiedliche Möglichkeiten zur Kommunikation und Steuerung in Form von
+Mensch-Maschine-Schnittstellen zur Verfügung stellen \cite[S. 22]{Geisberger2012}.
+\end{compactitem}
+Inwiefern die Konzeption, Projektierung und Inbetriebnahme eines mehrachsigen Positionsystems als Cyber-physisches System eine Grundlage zur Umsetzung von Industrieanlagen auf Basis von Industrie 4.0 darstellt, wurde in der Literatur noch nicht behandelt.
+%Der Hauptteil der Bachelorarbeit, die Konzeption, Projektierung und Inbetriebnahme eines mehrachsigen Positionsystems wird in der Literatur behandelt, dient dieser Arbeit jedoch nicht als Grundlage. Es existieren vergleichbare Anlagen größerer Dimension in der Logistikbranche. Ein Beispiel wäre das automatisierte Hochregallager, welches unter anderem in den Logistikzentren von Amazon anzutreffen ist.
+
+\section{Forschungskonzept}
+Die folgenden Fragen sollen beantwortet werden:
+\begin{compactitem}
+	\item Erfüllt die projektierte Anlage die Definitionskriterien eines CPS?
+	\item Was ist für die Konzeption eines CPS nötig?
+	\item Welche Sensoren und Aktoren benötigt das Positionsystem, um die Anforderungen aus dem Konzept zu erfüllen?
+	\item Wie wird das System betrieben und versorgt?
+	\item Wie ist die Kommunikation zwischen den einzelnen Komponenten zu realisieren?
+	\item Welche Maßnahmen müssen für die Sicherheit von Mensch und Anlage getroffen werden?
+\end{compactitem}
+Die Forschungsarbeit beinhaltet die Umsetzung des Positionsystems von der Konzeption bis zur Inbetriebnahme in einem Hochschul-Labor. Die Konzeptionsphase beinhaltet die Festlegung der Funktionalität, welche Use-Cases behandelt werden und wie das System dem Leitbild Industrie 4.0 folgen kann. In der Projektierung wird der Umsetzungsprozess konkretisiert, indem die benötigten Komponenten ermittelt und dimensioniert werden. Darauf folgt die Planung der Energieversorgung, welche gefolgt wird von der Montage des Mehrachssystems. Vor der Inbetriebnahme muss die Sicherheit des Systems mit besonderer Priorität behandelt werden und verlangt eine eigenständige Planung, Umsetzung und Integration in das Positionsystem. Die Inbetriebnahme zeichnet sich durch das Etablieren der Kommunikation zwischen den Komponenten und möglichen Schnittstellen zu externen Systemen aus. Weiterhin verlangt die Nutzung des Achssystems eine Programmierung, die Anfangs noch rudimentär ist, später jedoch beliebig erweitert werden kann, um Aspekte der einer Industrie 4.0 Umgebung zu testen und demonstrieren. 
+
+\section{Vorläufige Gliederung}
+\begin{itemize}
+	\item[1] Einleitung
+	\item[] \textit{Teil I - Theoretische Grundlagen}
+	\item[2] Industrie 4.0
+	\begin{enumerate}[label*=\arabic*.]
+		\item Begriffsklärung
+		\item Leitbild
+		\item Umsetzung 
+	\end{enumerate}
+	\item[3] Cyber-physische Systeme
+	\begin{enumerate}[label*=\arabic*.]
+		\item Definition
+		\item Einordnung in das Themenfeld Industrie 4.0
+		\item Cyber-physische Systeme in der Automatisierungstechnik
+	\end{enumerate}
+	\item[] \textit{Teil II - Umsetzung des Positionsystem als Cyber-physisches System}
+	\item[4] Konzeption
+	\item[5] Projektierung
+	\item[6] Inbetriebnahme
+	\item[7] Fazit
+	\item[8] Ausblick
+\end{itemize}
+
+\section{Zeitplan}
+\textbf{Dauer:} 10 Wochen (Start- und Abgabetermin noch nicht bekannt)\\
+Bis 01.03.: Literaturrecherche\\
+Bis 08.3.: Thematische Hinführung + Hypothesen\\
+Bis 22.03.: Rohfassung Hauptteil\\
+Bis 29.03.: Rohfassung Umsetzung des Systems\\
+Bis 05.04.: Rohfassung Einleitung + Schluss\\
+Bis 12.04.: Überarbeitung und Korrektur\\
+Bis 19.04.: Druck \\
+Bis 21.04.: Abgabe\\
+\textit{Zeitplan ist zum Ende hin eher ungenau aufgrund mangelnder Informationen bezüglich der terminlichen Umstände.}
+
+\newpage
+\section*{Literatur}
+\addcontentsline{toc}{section}{Literatur}
+
+\nocite{Winkelhake2021}
+\nocite{Geisberger2012}
+\nocite{Bauernhansl2014}
+\nocite{Pistorius2020}
+
+\printbibliography[
+	heading=subbibintoc,
+	type=book,
+	title={Bücher}
+]
+	
+%\addcontentsline{toc}{section}{Literatur}
+
+\nocite{Wissenschaft2013}
+
+\printbibliography[
+	heading=subbibintoc,
+	type=article,
+	title={Artikel}
+]
+
+\end{document}
