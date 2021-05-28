@@ -1,0 +1,190 @@
+\documentclass[12pt, a4paper, twoside]{article} %Dokumentenklasse Setzen
+
+\usepackage[a4paper, left=2.5cm, right=2.5cm]{geometry} %Seitenrand setzen
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage{xpatch}
+\usepackage{xspace} % setzten von Leerzeichen nach Abkürzungen
+\usepackage{microtype} % für glättere Seitenränder
+
+%Mathe Pakete
+\usepackage{amsmath}
+\usepackage{thmtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%Listenumgebungen
+\usepackage{listings}
+\usepackage{paralist}
+\usepackage{enumitem}
+
+%Demo Text
+\usepackage{blindtext}
+
+% Farb-Pakete
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+% Für erweiterte Tabellen
+\usepackage{longtable}
+
+% Für Einheiten
+\usepackage[exponent-product = \cdot]{siunitx}
+\sisetup{locale=DE}
+
+\makeatletter
+\renewcommand\@dotsep{5}
+\makeatother
+
+% Pakete für Grafiken
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{epstopdf}
+\usepackage{subcaption}
+%\captionsetup[subfigure]{list=true, font=normalsize, labelformat=brace, position=top} %setup für subfigure captions
+\usepackage{pstricks}
+\usepackage{pst-plot,pst-bar} %Balkendiagramme
+
+% Paket für Literaturverzeichnis
+\usepackage[
+    style=alphabetic,
+    sorting=nty,
+    sortcites=true,
+    autopunct=true,
+    autolang=hyphen,
+    hyperref=true,
+    abbreviate=false,
+    backref=true,
+    backend=biber,
+    block=space
+    ]{biblatex}
+
+\addbibresource{bib/bib.bib} %Einfügen der Literaturbibliothek
+\defbibheading{bibempty}{}
+
+
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\urlstyle{same}
+
+%Abkürzungen durch Kommandos setzen
+\newcommand{\bspw}{bspw.\xspace}
+\newcommand{\bzw}{bzw.\xspace}
+\newcommand{\etc}{etc.\xspace}
+\newcommand{\zB}{z.\,B.\xspace}
+\newcommand{\EV}{e.\,V.\xspace}
+\newcommand{\zT}{z.\,T.\xspace}
+\newcommand{\iVm}{i.\,V.\,m.\xspace}
+\newcommand{\idR}{i.\,d.\,R.\xspace}
+\newcommand{\ihv}{i.\,H.\,v.\xspace}
+\newcommand{\ua}{u.\,a.\xspace}
+\newcommand{\dH}{d.\,h.\xspace}
+\newcommand{\vgl}{vgl.\xspace}
+\newcommand{\ca}{ca.\xspace}
+\newcommand{\dV}{d.\,Verf.}
+\newcommand{\RNr}{Rn.\xspace}
+\newcommand{\oa}{o.\,{ä}.\xspace}
+\newcommand{\vC}{v.\,Chr.\xspace}
+\newcommand{\nC}{n.\,Chr.\xspace}
+\newcommand{\vA}{v.\,a.\xspace}
+
+\usepackage{tocbibind} %damit Verzeichnisse im Inhaltsverzeichnis aufgeführt werden
+%\usepackage[notoc]{tocbibind} %damit Inhaltsverzeichnis nicht im Inhaltsverzeichnis vorkommt
+
+\pagenumbering{Roman} %Römische Seitennummerierung für Verzeichnisse
+
+\begin{document}
+
+%TITELSEITE
+\begin{titlepage}
+	\begin{center}
+	\vspace*{0.2cm}
+	
+	\huge
+	\textbf{Konzeption, Projektierung und Inbetriebnahme eines mehrachsigen Positioniersystems}
+	
+	\vspace*{1.8cm}
+	\normalsize
+	im Studiengang\\
+	\Large
+	Elektrotechnik
+	
+	\vspace*{1.2cm}
+	\normalsize
+	am Fachbereich\\
+	\Large
+	Ingenieurwissenschaften - Energie und Information
+	
+	\vspace*{1.2cm}
+	\normalsize
+	an der\\
+	\Large
+	Hochschule für Technik und Wirtschaft Berlin
+	
+	\vspace*{2.0cm}
+	\normalsize
+	vorgelegt von\\
+	\Large
+	Aaron Zielstorff
+	
+	\vspace*{0.9cm}
+	\normalsize
+	Berlin, 04.06.2021
+	
+	\vspace*{2.0cm}
+	\normalsize
+	Betreuer:\\
+	Herr Prof. Dr. Stephan Schäfer\\
+	Herr Dipl.-Ing. Dirk Schöttke
+	
+	\end{center}
+\end{titlepage}
+
+
+%INHALTSVERZEICHNIS
+\setcounter{tocdepth}{2} %Inhaltsverzeichnis zeigt 2 Gliederungsebenen
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+
+%ABBILDUNGSVERZEICHNIS
+%\listoffigures
+
+%TABELLENVERZEICHNIS
+%\listoftables
+%\clearpage
+
+\pagenumbering{arabic} %Arabische Seitennummerierung nach den ab Textbeginn
+
+
+\newpage
+\section*{Literatur}
+\addcontentsline{toc}{section}{Literatur}
+
+\nocite{Winkelhake2021}
+\nocite{Geisberger2012}
+\nocite{Bauernhansl2014}
+\nocite{Pistorius2020}
+
+\printbibliography[
+	heading=subbibintoc,
+	type=book,
+	title={Bücher}
+]
+	
+%\addcontentsline{toc}{section}{Literatur}
+
+\nocite{Wissenschaft2013}
+
+\printbibliography[
+	heading=subbibintoc,
+	type=article,
+	title={Artikel}
+]
+
+\end{document}

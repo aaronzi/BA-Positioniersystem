@@ -8,8 +8,8 @@ Bachelorarbeit von Aaron Zielstorff (Student an der HTW Berlin)
 
 ## Projektstruktur
 - **Literatur:** Sämtliche Quellen, die für die Arbeit verwendet oder in Betracht gezogen wurden
-- **Expose/Gliederung:** Vorarbeit zur BA
+- **Expose:** Vorarbeit zur BA
 - **Zeitplan:** Terminliche Planung der Fortschritte und Absprachen
-- **Infos/Richtlinien:** Formale Vorgaben der HTW bezüglich der BA
+- **Regularien:** Formale Vorgaben der HTW bezüglich der BA
 - **P-Amt Dokumente:** Schriftverkehr mit dem Prüfungsamt, organisatorische Dokumente bezüglich der BA
 - **Bachelorarbeit:** Enthält die unkompilierten LATEX Dateien und die fertig kompilierte BAchelorarbeit
