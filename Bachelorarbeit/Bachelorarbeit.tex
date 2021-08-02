@@ -4,6 +4,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{textcomp}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{csquotes}
@@ -11,23 +12,25 @@
 \usepackage{xspace} % setzten von Leerzeichen nach Abkürzungen
 \usepackage{microtype} % für glättere Seitenränder
 
-%Mathe Pakete
+% Mathe Pakete
 \usepackage{amsmath}
 \usepackage{thmtools}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 
-%Listenumgebungen
+% Listenumgebungen
 \usepackage{listings}
 \usepackage{paralist}
 \usepackage{enumitem}
 
-%Demo Text
+% Demo Text
 \usepackage{blindtext}
 
 % Farb-Pakete
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{colortbl}
+% Farbedefinitionen
+\definecolor{htw}{RGB}{120, 184, 2}
 
 % Für erweiterte Tabellen
 \usepackage{longtable}
@@ -96,55 +99,59 @@
 \usepackage{tocbibind} %damit Verzeichnisse im Inhaltsverzeichnis aufgeführt werden
 %\usepackage[notoc]{tocbibind} %damit Inhaltsverzeichnis nicht im Inhaltsverzeichnis vorkommt
 
+\usepackage{subfiles} % Best loaded last in the preamble
+
 \pagenumbering{Roman} %Römische Seitennummerierung für Verzeichnisse
 
 \begin{document}
 
 %TITELSEITE
 \begin{titlepage}
+
+	\vspace*{-2.0cm}
+
+	\begin{figure}[h]\centering
+		\includegraphics[width=5cm]{Images/HTW_Logo.png}
+	\end{figure}
+
 	\begin{center}
-	\vspace*{0.2cm}
-	
+	\vspace*{-1.59cm}
+
+	\par\noindent\rule{\textwidth}{0.4pt}
 	\huge
-	\textbf{Konzeption, Projektierung und Inbetriebnahme eines mehrachsigen Positioniersystems}
-	
+	\textcolor{htw}{\textbf{Konzeption, Projektierung und Inbetriebnahme eines mehrachsigen Positioniersystems}}
+	\par\noindent\rule{\textwidth}{0.4pt}
 	\vspace*{2.0cm}
 	\Large
-	\textbf{Bachelorarbeit}
+	Bachelorarbeit
 	
-	\vspace*{1.2cm}
 	\normalsize
-	im Studiengang\\
+	Name des Studiengangs\\
+	\vspace*{0.4cm}
 	\Large
 	Elektrotechnik
 	
-	\vspace*{0.9cm}
-	\normalsize
-	am Fachbereich\\
+	\vspace*{0.6cm}
 	\Large
-	Ingenieurwissenschaften - Energie und Information
+	\textcolor{htw}{Fachbereich 1}
 	
-	\vspace*{0.9cm}
-	\normalsize
-	an der\\
-	\Large
-	Hochschule für Technik und Wirtschaft Berlin
-	
-	\vspace*{1.6cm}
+	\vspace*{0.6cm}
 	\normalsize
 	vorgelegt von\\
+	\vspace*{0.4cm}
 	\Large
-	Aaron Zielstorff
+	Aaron Zielstorf
 	
-	\vspace*{0.7cm}
+	\vspace*{3.0cm}
+	\small
+	Datum:\\
 	\normalsize
 	Berlin, 04.06.2021
 	
 	\vspace*{1.6cm}
 	\normalsize
-	Betreuer:\\
-	Herr Prof. Dr. Stephan Schäfer\\
-	Herr Dipl.-Ing. Dirk Schöttke
+	Erstgutachter\textunderscore in: Herr Prof. Dr. Stephan Schäfer\\
+	Zweitgutachter\textunderscore in: Herr Dipl.-Ing. Dirk Schöttke
 	
 	\end{center}
 \end{titlepage}
@@ -165,6 +172,68 @@
 
 \pagenumbering{arabic} %Arabische Seitennummerierung nach den ab Textbeginn
 
+% Einleitung
+\subfile{sections/einleitung.tex}
+
+% Theoretische Grundlagen
+\newpage
+\subfile{sections/theoGrundlReqEng.tex}
+
+\newpage
+\subfile{sections/theoGrundlAnlProj.tex}
+
+% Konzeption
+\newpage
+\subfile{sections/konzeptionLaboranlage.tex}
+
+\newpage
+\subfile{sections/konzeptionAnforderungsAna.tex}
+
+\newpage
+\subfile{sections/konzeptionKontextAna.tex}
+
+\newpage
+\subfile{sections/konzeptionAnwfallSpez.tex}
+
+\newpage
+\subfile{sections/konzeptionVerhaltensSpez.tex}
+
+\newpage
+\subfile{sections/konzeptionPartitionierung.tex}
+
+\newpage
+\subfile{sections/konzeptionTestSpez.tex}
+
+% Projektierung
+\newpage
+\subfile{sections/projektierungAufbau.tex}
+
+\newpage
+\subfile{sections/projektierungImplementierung.tex}
+
+\newpage
+\subfile{sections/projektierungPeripherie.tex}
+
+\newpage
+\subfile{sections/projektierungAnwender.tex}
+
+% Inbetriebnahme
+\newpage
+\subfile{sections/inbetrnahmeImplementierung.tex}
+
+\newpage
+\subfile{sections/inbetrnahmeTesten.tex}
+
+\newpage
+\subfile{sections/inbetrnahmeUeberarbeitung.tex}
+
+% Fazit
+\newpage
+\subfile{sections/fazit.tex}
+
+% Ausblick
+\newpage
+\subfile{sections/ausblick.tex}
 
 \newpage
 \section*{Literatur}
@@ -180,8 +249,6 @@
 	type=book,
 	title={Bücher}
 ]
-	
-%\addcontentsline{toc}{section}{Literatur}
 
 \nocite{Wissenschaft2013}
 
@@ -190,5 +257,13 @@
 	type=article,
 	title={Artikel}
 ]
+
+% Anhang
+\newpage
+\subfile{sections/anhang.tex}
+
+% Eidesstattliche Erklärung
+\newpage
+\subfile{sections/eidesstattlicheErklaerung.tex}
 
 \end{document}
