@@ -166,66 +166,61 @@
 \pagenumbering{arabic} %Arabische Seitennummerierung nach den ab Textbeginn
 
 \section{Problemstellung}
-Seit einigen Jahren zeichnet sich eine vierte industrielle Revolution ab. Hervorgerufen durch das Voranschreiten der Digitalisierung und der damit einhergehenden Vernetzung auf der einen Seite, und der immer größer werdende Nachfrage nach Personalisierung, Effizienz und Qualität industrieller Produkte auf der anderen Seite, findet ein globaler Paradigmenwechsel statt \cite[S. 33]{Bauernhansl2014} Für Deutschland stellt diese Entwicklung eine große Chance dar, um die industrielle Produktion ausbauen zu können \cite[S. 1]{Pistorius2020}.\\
-Im Zentrum der Digitalisierung Industrieller Systeme steht die Wandelbarkeit von Fabriken und deren Anlagen (Smart Applications), die Vorhersage von Wartungsnotwenigkeiten (Predictive Maintenance), die Kosten- und Energieoptimierung, sowie die Monetarisierung von gewonnenen Daten. Entscheidend dabei ist die industrielle Kommunikation, die sich durch den Datenaustausch über internetbasierte Kommunikationsstandards auszeichnet. Als Basisentwicklung für diese Anforderungen gelten Cyber-physische Systeme (CPS).
+Im Rahmen meiner Tätigkeiten als Praktikant an der Hochschule für Technik und Wirtschaft Berlin (im Folgenden abgekürzt mit HTW) ist über einen Zeitraum von einem Jahr ein Positioniersystem in einem Laborraum der Hochschule konstruiert worden. Dieses besteht aus zwei Achsen, und soll über einen Motioncontroller betrieben werden. Vor Beginn der Bearbeitungsperiode der Bachelorthesis konnte die Anlage physisch fertiggestellt werden.\\
+Die entstehende Arbeit befasst sich mit der Konzeption eines Automatisierungssystemes, mit dessen Projektierung und der Inbetriebnahme, bei welchem es sich um eine mehrachsige Positioniereinheit handelt. Dabei soll die Anlage anforderungsorientiert konzipiert werden.
 
 \section{Zielsetzung und Erkenntnisse}
-Ziel dieser Bachelorarbeit ist es, den Konzeptionsprozess, die Projektierung und Inbetriebnahme einer Automatisierungssoftware am Beispiel eines mehrachsigen Positioniersystems darzustellen. Dabei wird das Positioniersystem als bereits physisch/elektrisch einsatzbereit angenommen. Es gilt im Bezug auf seine Hardware als vollständig bestückt mit allen notwendigen Komponenten, die für die Umsetzung eines CPS notwenig sind. \\
+Ziel der Bachelorarbeit ist es, ein Positioniersystem umzusetzen, welches von jedem Laborplatz aus genutzt werden kann, um verschiedenste anlagenspezifische Testszenarien zu erproben, wie beispielsweise das Fahren von Trajektorien. Dabei sollen aus dem Prozessablauf Daten zur Wertschöpfung generiert werden. Das bedeutet konkret, dass über einen oder mehrere Kommunikationskanäle von der Anlage aus Daten zur Verfügung gestellt werden, die extern weiterverarbeitet werden können.\\
 \textbf{Ziele der Arbeit:}
 \begin{compactitem}
-	\item Klärung der Begriffe Cyber-physisches System und Industrie 4.0
-	\item Definition von Aufgaben und Ableitung der Anforderungen an das Positioniersystem und dessen Software
-	\item Entwickeln von Testkriterien/Testsystemen für die definierten Anforderungen
-	\item Darstellen des Konzeptionsprozesses der Automatisierungssoftware 
-	\item Projektierung und Modellierung der Systemsoftware für das mehrachsige Positioniersystem
+	\item Analyse der Anforderungen an das Positioniersystem
+	\item Auftsellen von Testkriterien für die ermittelten Anforderungen
+	\item Die wichtigstens Anforderungen als Key Performance Indicators (KPI's) zusammentragen
+	\item Entwickeln eines Konzeptes nach Handlungsempfehlungen bezüglich des Requierements Engineerings
+	\item Darstellen der Anlagenprojektierung unter Nutzung von Modellen (UML)
+	\item Implementieren der Modelle als Automatisierungssoftware mit dem \glqq Machine Expert Logic Builder\grqq{}
 	\item Inbetriebnahme des Systems unter Prüfung der festgelegten Testkriterien
-	\item Bereitstellen von Prozess- und Maschinendaten für die Weiterverarbeitung und Monetarisierung dieser
-	\item Mit Hilfe der Ergebnisse die folgende Forschungsfrage beantworten: \textit{Wie sollte eine Automatisierungssoftware für ein mehrachsiges Positioniersystem konzipiert, projektiert und in Betrieb genommen werden, um dieses als Cyber-physisches System nach dem Leitbild Industrie 4.0 einsetzen zu können?}
+	\item Bereitstellen von Prozess- und Maschinendaten für die Weiterverarbeitung
+	\item Bereitstellen von Schnittstellen für die Bedienung und Programmierung von jedem Laborplatz
+	\item Mit Hilfe der Ergebnisse die folgende Problemfrage beantworten: \textit{Wie muss das Positioniersystem aufbereitet werden, um alle Anforderungen zu erfüllen?}
 \end{compactitem}
-Es wird erwartet, dass die Ergebnisse der Forschung zeigen, dass die Umsetzung der Automatisierungssoftware unter den dem Leitbild Industrie 4.0 die Grundprinzipien von CPS im Beispiel des mehrachsigen Positioniersystems widerspiegeln. Weiterhin ist damit zu rechnen, dass die Projektierung analog auch bei anderen Industrieystemen und Anlagen nach selbem Leitbild umzusetzen ist. Außerdem steht in Aussicht, dass durch das Bereitstellen von Prozessdaten sowohl ein finanzieller als auch qualitativer Mehrwert durch das CPS gewonnen werden kann. 
+Es wird erwartet, dass die Ergebnisse der Arbeit zeigen, dass mit Hilfe von Handlungsempfehlungen bezüglich des Requierements Engineerings (VDI) und der Anlagenprojektierung ein Positioniersystem aufbereitet werden kann, dass die Anforderungen an selbes erfüllt.\\
+Dabei werden die Zugriffsmöglichkeit auf die Anlage von jedem Laborplatz und das Generieren sowie Bereitstellen von anlagenspezifischen Daten als KPI's ermittelt.\\
+Die Inbetriebnahme am Ende der Arbeitsphase beinhaltet das erfolgreiche Verifizieren der Testkriterien nach eventuellen Verbesserungen der implementierten Modelle aus der Projektierungsphase.
 
 \section{Forschungsstand und theoretische Grundlage}
-Der Begriff Industrie 4.0 ist im Rahmen eines Zukunftprojekts der deutschen Bundesregierung entstanden. Durch die Digitalisierung klassischer Industrieunternehmen wird auf eine Steigerung der Automatisierung und Vernetzung in der Produktion abgezielt, um die Wettbewerbsfähigkeit auf dem globalen Markt sicherstellen zu können \cite[S. 63]{Winkelhake2021}. Cyber-physische Systeme (CPS) gelten als Basisinnovation für die vierte industrielle Revolution. In Zukunft werden Unternehmen ihre Einrichtungen, Anlagen, Maschinen und Betriebsmittel mithilfe von CPS global vernetzen \cite[S. 5]{Wissenschaft2013}. CPS können definiert werden als eingebettete Systeme, die
-\begin{compactitem}
-	\item durch Unterstützung von Sensoren physikalische Daten generieren und mittels Aktoren reale Vorgänge beeinflussen,
-	\item Daten sichern als auch verarbeiten und daraus Handlungen ableiten,
-	\item über Kommunikationsschnittstellen untereinander verbunden sind, egal ob lokal oder global sowie drahtlos oder drahtgebunden,
-	\item bereitstehende Dienste und Daten ortsunabhängig nutzen und anbieten,
-	\item unterschiedliche Möglichkeiten zur Kommunikation und Steuerung in Form von
-Mensch-Maschine-Schnittstellen zur Verfügung stellen \cite[S. 22]{Geisberger2012}.
-\end{compactitem}
-Wie die Software für ein mehrachsiges Positioniersystem konzipiert, Projektiert und in Betrieb genommen wird, wurde in der Literatur noch nicht behandelt.
-%Der Hauptteil der Bachelorarbeit, die Konzeption, Projektierung und Inbetriebnahme eines mehrachsigen Positionsystems wird in der Literatur behandelt, dient dieser Arbeit jedoch nicht als Grundlage. Es existieren vergleichbare Anlagen größerer Dimension in der Logistikbranche. Ein Beispiel wäre das automatisierte Hochregallager, welches unter anderem in den Logistikzentren von Amazon anzutreffen ist.
+Die Methodik des Requierements Engineerings wurde in der Literatur bereits behandelt und es existieren einige Quellen, die Handlungsempfehlungen zur Anwendung der Methodik beinhalten. Dennoch wird das Requierements Engineering noch zu selten angewendet, trotz der bekannten monetären und zeitlichen Vorteile \cite[xvii]{Laplante2014}. Die Methodik gilt als erfolgreiches Mittel, um mögliche Nachbearbeitungen von Software zu vermindern und die Kosteneffizienz zu verbessern \cite[1]{
+Laplante2014}.\\
+Grundlegend kann die Vorgehensweise in zwei Schritte unterteilt werden, die \glqq Artificial Development Sequence\grqq{} (künstliche Entwicklungssequenz) und die \glqq Engineering Activity Sequence\grqq{} (Aktivitätsentwicklungssequenz). Erste beschäftigt sich mit dem Aufstellen der Nutzer- und Systemanforderungen, sowie mit dem Systemdesign-Spezifikationen. Letztere beinhaltet das Testen der Anforderungen nach der Systementwicklung \cite[6]{
+Laplante2014}.
+Auch die Anlagenprojektierung ist in der Literatur bereits thematisiert worden und es existieren Empfehlungen für die Umsetzung dieser. Die Projektierung ist die Gesamtheit aller Entwurfs-, Planungs- und Koordiniriengsmaßnahmen, mit denen die Umsetzung eines Automatisierungsprojektes vorbereitet wird \cite[8]{Bindel2017}.\\
+Die Umsetzung eines mehrachsigen Positioniersystems wurde in der Litaratur noch nicht behandelt. Diese Arbeit wird den Entwicklungsprozess vom Konzept bis zur Inbetriebnahme des Systems darstellen. 
 
-\section{Forschungskonzept}
+\section{Arbeitskonzept}
 Die folgenden Fragen sollen beantwortet werden:
 \begin{compactitem}
-	\item Warum sollten Industrielle Anlagen digitalisiert werden?
-	\item Erfüllt die projektierte Anlage unter Ausführung der entwickelten Software die Definitionskriterien eines CPS?
-	\item Wie sollte die Automatisierungssoftware modelliert werden, welche es ermöglicht Daten zur Weiterverarbeitung bereitzustellen?
-	\item Wie müssen die Sensoren und Aktoren des Positioniersystems eingebunden werden, um die Anforderungen aus dem Konzept zu erfüllen?
-	\item Wie können die systemrelevanten Daten für die externe Verarbeitung bereitgestellt werden?
+	\item Nach welchem Vorgehen kann ein Automatisierungsprojekt umgesetzt werden?
+	\item Welche Anforderungen existieren für das Positioniersystem?
+	\item Wie muss ein mehrachsiges Positioniersystem Aufbereitet werden, um die Anforderungen zu erfüllen?
+	\item Wie kann des Erfüllen der Anforderungen geprüft werden?
+	\item Welche KPI's werden für das System erhoben?
+	\item Wie können Prozessdaten zur Wertschöpfung bereitgestellt werden?
+	\item Welche Schritte sind nötig, um die Anlage von jedem Laborplatz aus nutzen zu können?
+	\item Wie müssen die Sensoren und Aktoren des Positioniersystems eingebunden werden?
 	\item Welche Maßnahmen müssen für die Sicherheit von Mensch und Anlage getroffen werden?
-	\item Wie kann für einen sicheren Datenaustausch zwischen Anlage und Peripherie gesorgt werden?
-	\item Welche Vorteile ergeben sich durch die Entwicklung einer Software, welche das System zu einem CPS werden lässt?
-	\item Ausblick: Welche weiterführenden Möglichkeiten und Funktionen kann das Positioniersystem bereitstellen?
+	\item Ausblick: Welche Vorteile bietet die gewählte Aufbereitung des Positioniersystems in bezug auf die Thematik Digitalisierung und Industrie 4.0?
 \end{compactitem}
-Die Literaturarbeit umfasst eine Zusammenfassung des Konzeptes Industrie 4.0 und die Definition eines Leitbildes für CPS.
-Dabei soll insbesondere auch auf das industrielle Internet der Dinge (IIoT) eingegangen werden. Aus dieser Analyse wird anhand des Beispiels eines mehrachsigen Positioniersystems der Entwicklungsprozess einer Automatisierungssoftware dargestellt.\\
-Die Forschungsarbeit beinhaltet die Modellierung dieser Automatisierungssoftware von der Konzeption bis zur Inbetriebnahme in einem Hochschul-Labor. Die Konzeptionsphase betrachtet den Prozess von der Analyse der Systemaufgaben, über die Definition der Anforderungen, bis zur Festlegung von Testkriterien für letztere. Dabei werden die Use-Cases untersucht, die Anforderungen aller das Positioniersystem betreffenden Stakeholder zusammengetragen und Schnittstellen des System berücksichtigt.\\
-Hauptteil der Bachelorarbeit soll es sein den Softwareentwicklungsprozess von der Idee bis zum Betrieb darzustellen. Dabei soll weniger auf die konstruktionelle Natur des mehrachsigen Positioniersystem eingegangen werden, sondern auf die Modellierung der Automatisierungssoftware. Als Ergebnis soll eine Handlungsempfehlung vorliegen, die aufzeigen soll, welche Schritte bei der Entwicklung der Software durchlaufen werden und welche Anforderungen erfüllt werden müssen, um eine Anlage als CPS nach dem Leitbild Industrie 4.0 zu Qualifizieren, Daten bereitzustellen, die in einem anknüpfendem Projekt weiterverarbeitet und monetarisiert werden können.\\
-Abschließend soll die Arbeit einen Ausblick bieten, wie die gewonnenen Daten weiterverarbeitet, monetarisiert und zur Optimierung der Anlage genutzt werden können.
-
-% Festlegung der Funktionalität, welche Use-Cases behandelt werden und wie das System dem Leitbild Industrie 4.0 folgen kann. In der Projektierung wird der Umsetzungsprozess konkretisiert, indem die benötigten Komponenten ermittelt und dimensioniert werden. Darauf folgt die Planung der Energieversorgung, welche gefolgt wird von der Montage des Mehrachssystems. Vor der Inbetriebnahme muss die Sicherheit des Systems mit besonderer Priorität behandelt werden und verlangt eine eigenständige Planung, Umsetzung und Integration in das Positionsystem. Die Inbetriebnahme zeichnet sich durch das Etablieren der Kommunikation zwischen den Komponenten und möglichen Schnittstellen zu externen Systemen aus. Weiterhin verlangt die Nutzung des Achssystems eine Programmierung, die Anfangs noch rudimentär ist, später jedoch beliebig erweitert werden kann, um Aspekte der einer Industrie 4.0 Umgebung zu testen und demonstrieren. 
+Die Abschlussarbeit beinhaltet die Aufbereitung des mehrachsigen Positioniersystems von der Konzeption bis zur Inbetriebnahme. Die Konzeptionsphase beinhaltet die Analyse der Anforderungen der Stakeholder, das Aufstellen von KPI's und das Entwickeln von Testkriterien und Testmethoden für diese. Dabei wird ein besonderer Wert auf die Schnittstellen  des Systems gelegt, um zu gewährleisten, dass im Betrieb Prozessdaten der Positioniereinheit bereitgestellt werden, und diese von jedem Laborplatz aus Programmiert werden kann, um Beispielsweise Trajektorien Testen zu können.\\
+Die Entwicklungsphase der Anlagenprojektierung beschäftigt sich mit der Modellierung der Systemfunktionen unter Nutzung der Unified Modeling Language (UML) und unter Berücksichtigung der IEC Norm 61131. Die entstandenen Modelle werden anschließend unter der von Schneider Electric zur verfügung gestellten Codesys-Entwicklungsumgebung \glqq Machine Expert Logic Builder\grqq{} implementiert.\\
+Am Ende des Aufbereitungsprozesses steht die Inbetriebnahme des Positioniersystems, bei dem die Anforderungen an dieses mit Hilfe von Tests überprüft werden, und mögliche Fehler oder Versäumnisse ausgebessert werden. Als Resultat soll eine Anlage für den Laborbetrieb bereitstehen, die von den Studenten der HTW genutzt werden kann, um für das System typische Funktionen zu Testen und aus dem Betrieb Daten zu gewinnen, die in anderen Projekten weiterverarbeitet werden können und es ermöglichen, die Positioniereinheit in größere Strukturen einzubinden. Diese Strukturen sollen nur ausblickhaft erwähnt werden, da sie nicht Teil der Bachelorthesis sind, sondern sich in den Themenkomplex Industrie 4.0 eingliedern.
 
 \section{Vorläufige Gliederung}
 \begin{itemize}
 	\item[1] Einleitung
 	\item[2] Theoretische Grundlagen
 	\begin{enumerate}[label*=\arabic*.]
-		\item Industrie 4.0
-		\item CPS
-		\item IIoT
+		\item Requierements Engineering
+		\item Anlagenprojektierung
 	\end{enumerate}
 	\item[3] Konzeption
 	\begin{enumerate}[label*=\arabic*.]
@@ -239,7 +234,7 @@ Abschließend soll die Arbeit einen Ausblick bieten, wie die gewonnenen Daten we
 	\end{enumerate}
 	\item[4] Projektierung
 	\begin{enumerate}[label*=\arabic*.]
-		\item Genereller Aufbau der Software
+		\item Genereller Aufbau der Automatisierungssoftware
 		\item Implementierung der Modelle
 		\item Peripherie Schnittstelle(n)
 		\item Anwenderschnittstelle
@@ -259,23 +254,21 @@ Abschließend soll die Arbeit einen Ausblick bieten, wie die gewonnenen Daten we
 Bis 30.04.: Literaturrecherche\\
 Bis 20.05.: Thematische Hinführung + Hypothesen\\
 Bis 20.06.: Rohfassung Modellierung des Systems (Konzeptteil)\\
-Bis 04.07.: Fertigstellung der Software (Projektierung)\\
+Bis 04.07.: Fertigstellung der Automatisierungssoftware (Projektierung)\\
 Bis 18.07.: Rohfassung Einleitung + Schluss\\
 Bis 01.08.: Fertigstellen des physischen Baus des Positioniersystems
 Bis 15.08.: Rohfassung der Inbetriebnahme (Nachtragungen Einleitung und Schluss)
 Bis 29.08.: Überarbeitung und Korrektur\\
 Bis 30.08.: Druck \\
-Bis 31.04.: Abgabe\\
+Bis 31.08.: Abgabe\\
 \textit{Zeitplan ist zum Ende hin eher ungenau aufgrund mangelnder Informationen bezüglich der terminlichen Umstände.}
 
 \newpage
 \section*{Literatur}
 \addcontentsline{toc}{section}{Literatur}
 
-\nocite{Winkelhake2021}
-\nocite{Geisberger2012}
-\nocite{Bauernhansl2014}
-\nocite{Pistorius2020}
+\nocite{Laplante2014}
+\nocite{Bindel2017}
 
 \printbibliography[
 	heading=subbibintoc,
@@ -285,12 +278,12 @@ Bis 31.04.: Abgabe\\
 	
 %\addcontentsline{toc}{section}{Literatur}
 
-\nocite{Wissenschaft2013}
+% \nocite{Wissenschaft2013}
 
-\printbibliography[
-	heading=subbibintoc,
-	type=article,
-	title={Artikel}
-]
+% \printbibliography[
+% 	heading=subbibintoc,
+% 	type=article,
+% 	title={Artikel}
+% ]
 
 \end{document}
