@@ -2,25 +2,35 @@
 \begin{document}
 
 \section{Konzeption}
-Dieses Kapitel unterteilt sich in sieben Abschnitte. Die Konzeptionierung der Laboranlage erfolgt nach dem Requierement Engineering, welches als theoretische Grundlage im ersten Kapitel behandelt wurde.\\
-Im ersten Unterkapitel wird die Laboranlage vorgestellt. Daran anschließen tuen sich die Anforderungsanalyse und die Kontextanalyse.
-
+Dieses Kapitel unterteilt sich in acht Abschnitte. Die Konzeptionierung der Laboranlage erfolgt nach dem Requierement Engineering, welches als theoretische Grundlage im ersten Kapitel behandelt wurde.\\
+Im ersten Unterkapitel wird die Laboranlage vorgestellt. Daran anschließend steht im Mittelpunkt der Entwicklungsprozess zum Entwurf des mehrachsigen Positioniersystems. Schwerpunkt der Arbeit liegt dabei auf dem Software- und Systementwicklungsprozess, während der Hardware- und Hardwareentwicklungsprozess in verkürzter Form Erwähnung findet (jeweils am Ende des Unterkapitels).\\
+Der Entwicklungsprozess unter dem Gesichtspunkt der Konzeption des Systems umfasst dabei sieben Kernabschnitte, welche sich in die Anforderungsphase des Entwicklungsprozesses eingliedern. Bei den Kernabschnitten handelt es sich um folgende Analyseschwerpunkte.\\
+\begin{itemize}
+    \item \textbf{Anforderungsanalyse:} Es wird unterschieden zwischen funktionalen und nicht-funktionalen Anforderungen an das System.
+    \item \textbf{Identifikation der Stakeholder:} Ermittlung aller an der Systementwicklung und Systemnutzung beteiligten Personen zur Feststellung von Randbedingungen an die Anforderungen.
+    \item \textbf{Kontextanalyse:} Finden der Systemgrenzen und Ermittlung von Nachbarsystemen.
+    \item \textbf{Anwendungsfallspezifikation:} Identifizierung der Systemprozesse und anschließende Präzisierung.
+    \item \textbf{Verhaltensspezifikation:} Modellierung des Systemverhaltens.
+    \item \textbf{Partitionierung:} Untergliederung des Systems in logische Sinnesabschnitte zur Verringerung der Komplexität.
+    \item \textbf{Testspezifikationen:} Festlegung von Prüfkriterien zur Bestätigung der Anforderungsumsetzung.
+\end{itemize}
 \subsection{Vorstellung der Laboranlage}
 In diesem Unterkapitel wird zunächst die Laboranlage vorgestellt, die im Verlauf der Arbeit unter den Gesichtspunkten des Requierement Engineerings und der Anlagenprojektierung konzipiert, projektiert und in Betrieb genommen werden soll. Im ersten Abschnitt wird das bereits elektrisch fertiggestellte Positioniersystem dargestellt. Im Mittelpunkt steht hierbei die Erleuterung des Aufbaus und die Beschreibung der Funktionalität der Anlage. Der zweite Abschnitt behandelt die Eingliederung des Systems in seine Arbeitsumgebung. Dabei soll ein erster Überblick zum Einsatz der Positioniereinheit gegeben werden. Zuletzt werden die Betriebsmodi der Laboranlage vorgestellt, wobei genauer auf den Workflow im jeweiligen Modus eingegangen werden soll.
 
 \subsubsection{Aufbau des Positioniersystems}
 Wie bereits aus dem Thema der Bachelorthesis erkenntlich ist, handelt es sich bei der behandelten Laboranlage um ein mehrachsiges Positioniersystem. Dieses besitzt zum Zeitpunkt der ersten Inbetriebnahme zwei Achsen (siehe Bild).\\
+% TODO: Bild Anlage Einfügen
 Die horizontale Achse des Systems ist fest an der Wand montiert und hat eine Länge von rund 1600mm (effektiver Fahrtweg). Vertikal montiert auf dieser befindet sich die beweglich gelagerte zweite Achse der Positioniereinheit. Diese besitzt die Möglichkeit lineare Bewegungen zwischen den Endlagesensoren der Horizontalachse durchzuführen. Bei der Befestigung an der waagerechten Achse handelt es sich um ein doppeltes Schlittensystem auf Rollen. Die Bewegung der Achse erfolgt über ein Gummiriemen, der fest an der Vertikalachse befestigt ist, und über Umlenkrollen und einen Servomotor an der Horizontalachse bewegt werden kann. Auf der senkrechten Achse befindet sich ein weiterer Schlitten, der ebenso beweglich gelagert ist und sich auf einem Fahrtweg von rund 2000mm zwischen zwei Endlagen bewegen kann. Auf diesem ist ein simples Greifsystem angebracht, welches horizontale 180 Grad Schwenkbewegungen durchführen kann, und in der Lage ist, grundlegende Greifoperationen durchzuführen.\\
 Für die Zuleitungen zu den auf den bewegten Anlagenteilen montierten Aktoren und Sensoren wurden Energieketten verbaut, sodass Kabel Prozesssicher miteführt und eine dauerhafte Strom-, sowie Datenversorgung aller Systemkomponenten gewährleistet werden kann. An den beiden äußersten Profilen (sowohl auf der linken als auch auf der rechten Seite der Anlage) sind Ablagepositionen vorgesehen, von \bzw auf welche simple Transportgüter aufgenommen und abgelegt werden können.\\
 Auf der rechten Seite direkt neben der Positioniereinheit sind der Schaltschrank sowie die Speicherprogrammierbare Steuerung (im Folgenden als SPS bezeichnet) an der Wand montiert. Die Kabel der Aktoren und Sensoren des Systems münden an der Unterseite des Schrankes, sowie die Stromzuleitung und sämtliche Aus- und Eingangsverbindungen zu bzw. von der SPS und dem sich neben dieser befindenden Servoantrieb. Auf der Vorderseite an der Tür des Schaltschrankes sind Bedienelemente aufgeschraubt, die für die Grundlegende Steuerung der Anlage benutzt werden können.\\
 Zur gewährleistung der Sicherheit von Mensch und Anlage sind am Eingang des Positioniersystems sowohl ein Lichtvorhang als auch Not-Halt Bedienelemente montiert. Stromfrei kann die Anlage über den Hauptschalter an der rechten Seite des Schaltschrankes geschaltet werden.
-
+% TODO: Bild Labor einfügen
 \subsubsection{Betriebsumgebung}
 Nachdem im vorhergehenden Abschnitt bereits die Grundlegenden Funktionen und der Aufbau der Positioniereinheit dargestellt wurden, beschäftigt sich dieses Unterkapitel mit der Darstellung der Eingliederung des Systems in dessen Arbeitsumgebung.\\
 Aufgebaut befindet sich das mehrachsige Positioniersystem im Laborraum G422 der HTW Berlin am Campus Wilhelminenhofstraße. Dort wurde die Anlage im Rahmen meines Praktikums errichtet. Nachfolgen ist es Ziel der Bachelorthesis, diese Anlage für den Lehrzweck in Betrieb zu nehmen. Konkret soll die Positioniereinheit für zwei Anwendungen eingesetzt werden.\\
 Erstere gliedert sich direkt in die Unterrichtseinheiten des Laborbetriebs im späten Bachelor- und das gesamte Masterstudium im Themenfeld Automatisierungstechnik ein. Jeder studentische Laborplatz besitzt die Möglichkeit sich mit dem System zu verbinden, um es mit Automatisierungssoftware, die in den Lehreinheiten entwickelt wird zu bespielen und diese an der Anlage zu testen. Es soll die Möglichkeit bestehen, Trajektorien zu fahren, bei denen virtuelle Hindernisse umgangen werden, und Objekte von einem Ausgangspunkt zu einem Zielpunkt transportiert werden können. Die Nutzung der realen Anlage dient dabei als Prüfmöglichkeit der vorher von den Studierenden nur simulativ getesteten Automatisierungssoftware. Ziel ist es den Laboranten eine LAboranlage zur Verfügung zu stellen, die in der Industrie in ähnlicher Weise aufzufinden ist, um bereits im Studium spätere Arbneitsabläufe aufzuzeigen.\\
 Die zweite Anwendung des mehrachsigen Positioniersystems ist Teil eines Laborübergreifenden Projektes, welches nicht in dieser Arbeit behandelt wird. Aus dessen Zielen ergeben sich weitere Anforderungen an die Laboranlage. Es sollen Daten aus dem Prozessablauf bereitgestellt werden, aus denen eine Wertschöpfung für das Projekt generiert werden kann. Die gewonnenen Daten sollen extern weiterverarbeitet werden. Dazu müssen weitere Schnittstellen im System bereitgestellt werden, um generierte Daten mit Peripheriegeräten austauschen zu können.
-
+% TODO: Übersichtsgrafik Betriebsmodi einfügen
 \subsubsection{Betriebsmodi}
 Die Nutzung der Laboranlage erfolgt in zwei verschiedenen Betriebsmodi. Um den Produktivbetrieb des Positioniersystems einzuleiten, muss der Nutzer zwischen dem Automatikmodus und dem Handmodus auswählen, die Im Folgenden detailliert beschrieben werden.
 \bigskip
