@@ -12,4 +12,4 @@ Bachelorarbeit von Aaron Zielstorff (Student an der HTW Berlin)
 - **Zeitplan:** Terminliche Planung der Fortschritte und Absprachen
 - **Regularien:** Formale Vorgaben der HTW bezüglich der BA
 - **P-Amt Dokumente:** Schriftverkehr mit dem Prüfungsamt, organisatorische Dokumente bezüglich der BA
-- **Bachelorarbeit:** Enthält die unkompilierten LATEX Dateien und die fertig kompilierte BAchelorarbeit
+- **Bachelorarbeit:** Enthält die unkompilierten LATEX Dateien und die fertig kompilierte PDF der Bachelorarbeit
