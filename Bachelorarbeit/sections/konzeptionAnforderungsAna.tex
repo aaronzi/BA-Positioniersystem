@@ -13,8 +13,55 @@ Aus der theoretischen Grundlagen bereits erkenntlich, bestehen Anforderungen aus
 Ausgangspunkt für die Entwicklung des mehrachsigen Positioniersystems sind folgende Anforderungen \bzw Ziele. Es wird gefordert, eine Laboranlage zu entwerfen, die simple Transportgüter sicher von einem Ablagepunkt zu einem anderen Ablagepunkt transportieren kann. Dies soll über zunächst zwei Achsen geschehen, die es ermöglichen Bewegungen in horizontale Richtung (X-Achse) und vertikale Richtung (Z-Achse) durchzuführen. Dabei ist es relavant, dass verschiedene Trajektorien von der Anlage gefahren werden können, welche durch den Nutzer programmatisch vorgegeben werden. Die Bewegung der Achsen erfolgt über zwei getrennt ansteuerbare Servomotoren, die über einen Servoantrieb mit einer Industriesteuerung verbunden sind. Die Steuerungskomponenten sind bereits vorhanden. Konkret handelt es sich um den LMC101 (Logic Motion Controller) von Schneider Electric, das LXM 62P Powersupply (ebenfalls von Schneider Electric) und den LXM 62D Double Drive. Zusätzlich soll eine PFC200 Steuerung von Wago zum einsatz kommen, mit der Betriebsströme gemessen und für die Weiterverarbeitung bereit gestellt werden können. Weiterhin sollen auch Prozessdaten aus dem Programmablauf des LMC101 für die externe Verarbeitung zur Verfügung stehen. Es ist vorgegeben, dass diese Daten per OPC Schnittstelle ausgelesen werden können. Kernziel bei der Entwicklung des Laborsystems ist es die Möglichkeit bereitzustellen, dass die Positioniereinheit von jedem Laborplatz programmiert und als Testsystem für den Lehrzweck eingesetzt werden kann. Für den Betrieb der Anlage sind zwei Betriebsmodi vorgesehen. Ersterer, der Automatikbetrieb soll einen Vollautomatischen Prozessablauf ermöglichen, bei welchem eine konkrete Positionieraufgabe zyklisch durchgeführt wird. Zweiterer, der Handbetrieb, nimmt manuelle Steuerbefehle vom Nutzer entgegen, bei welchen über Tastereingaben an der Laboranlage, Fahrbewegungen entlang der beiden Achsen durchzuführt werden. Ein Wechsel der Betriebsmodi ist über einen Wahltaster zu implementieren. Außerdem ist ein Schutz für die Anlage und deren Nutzer, sowie sich um das Positioniersystem befindende Personen vorgesehen. Der Schutz ist manuell auslösbar über Not-Halt Taster an der Laboranlage und durch ein Lichtvorhang vor dem Fahrbereich der beiden Achsen. Es soll zu einem späteren Zeitpunkt noch Möglich sein das System um weitere Achsen und Peripheriegeräte wie beispielsweise Förderbänder zu erweitern.
 
 \subsubsection{Funktionale Anforderungen}
+Das erste Unterkapitel der Anforderungsanalyse bahndelt die Modellierung der funktionalen Anforderungen des Prozesses. Im Requierements Engineering beschreiben Funktionale Anforderungen gewünschte Funktionalitäten des Systems. Konkret steht im Mittelpunkt der Analyse, welche Fähigkeiten das System besitzen soll \bzw was es tun kann. Die Auflistung der Anforderungen ist eine Beschreibung von Systemspezifischen Daten und dessen Verhalten.\\ % Quelle
+Die Dokumentation der funktionellen Anforderungen erfolgt typischerweise in Tabellenform. Bereits in den Anforderungen wird ein Abnahmekriterium für diese formuliert, um bei der Inbetriebnahme des Systems die Erfüllung der Anforderung bestätigen oder wiederlegen zu können.\\ % Quelle
+Die Nachfolgenden Tabellen zu den funktionalen Anforderungen sind wie folgt strukturiert. In der \textbf{Beschreibung} wird zunächst in kurzer Textform die Anforderung an das System formuliert. Im nächsten Punkt, dem \textbf{Abnahmekriterium} findet eine Erklärung zur Überprüfung der Umsetzung behandelter Anforderung statt. Die Tabbellenzeile \textbf{Quelle} verweist auf einen oder mehrere Einträge in der Stakeholdertabelle, welche im Kapitel 3.3 vorgestellt wird. % Verlinkung einfügen
+Bei Nachfragen zu der jeweils behandelten funktionalen Anforderunge ist die Tabelle von äußerster Relevanz für die Klärung durch den Prozessentwickler. Der Eintrag \textbf{Begründung} erhält Informationen zur Relevanz der Anforderung, die in der Tabelle beschrieben wird. Dem Punkt\textbf{Abhängigkeit} unterliegt eine besondere Wichtigkeit, da hier alle Anforderungen aufgelistet sind, die auf der in der Tabelle beschriebenen Anforderung basieren \bzw in direkter Abhängigkeit zu dieser stehen. Der letzte Eintrag, die \textbf{Identifikationsnummer} (kurz ID) dient zur späteren Reverenzierung und leichterem Nachschlagen einer Anforderung. Es ist notwendig Mehrdeutigkeiten zu vermeiden, um eine eindeutige Identifizierung sicherzustellen.\\ % Quelle
+Die Nachfolgenden Tabellen folgen dem beschriebenen Muster und beinhalten alle funktionalen Anforderungen des mehrachsigen Positioniersystems, welches im verlauf dieser Arbeit Entwickelt wird. Die Anforderungen an die Hardware des Systems sind nur Beispielhaft am Ende des Unterkapitels erwähnt. Die vollständige Auflistung kann im Anhang nachgeschlagen werden.
 
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{| p{0.35\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Beschreibung} & Das Positioniersystem soll über einen dedizierten Einschalter unter Spannung gesetzt werden können. \\ \hline
+        \textbf{Abnahmekriterium} & Test des gekennzeichneten Einschalters unter Prüfung der Systemspannung nach Betätigung des Schalters. \\ \hline
+        \textbf{Quelle} & Laborpersonal siehe Stakeholderliste \\ \hline
+        \textbf{Begründung} & Es wird verlangt bei Nichtnutzung des Systems dieses zu deaktivieren um das Gefahrenrisiko zu minimieren. \\ \hline
+        \textbf{Abhängigkeit} & Die Positioniereinheit kann erst nach dem Einschalten genutzt werden. Es sind Schutzmaßnahmen für Anwender und und Anlage vorzusehen, um das Gefahrenrisiko zu minimieren. \\ \hline
+        \textbf{Identifikationsnummer} & 1.1.1 \\ \hline
+    \end{tabular}
+    \caption{Ein-Schalter}
+    \label{tab:my-table}
+\end{table}
+
+% TODO: erweitern um alle restlichen funktionalen Anforderungen
 
 \subsubsection{Nicht-funktionale Anforderungen}
+Dieses Unterkapitel behandelt die Modellierung der nicht-funktionalen Anforderungen in der Anforderungsanalyse. Nicht-funktionale Anforderungen sind Forderungen an die Qualität in welcher Funktionalitäten zu erbringen sind. Auch Randbedingungen für das System \bzw den Prozess werden mit bei den nicht-funktionalen Anforderungen berücksichtigt.\\ % Quelle
+Die \textbf{Qualitätsanforderungen} gliedern sich in Zeitanforderungen, Sicherheit für Leib und Leben und Zuverlässigkeit, sowie Verfügbarkeit. Bei \textit{Zeitanforderungen} handelt es sich meist um Reaktionszeiten eines Systems. Dabei wird unterschieden zwischen harten und weichen Zeitanforderungen. Der Verstoß gegen harte Zeitanforderungen kann mitunter sehr gravierend sein, wohingegen das Nichteinhalten von weichen Zeitanforderungen meist nur als Störfaktor gesehen werden kann. Zeitanforderungen finden sich im Entwicklungsprozess überwiegend in der Beschreibung von Systemprozessen oder in Aktivitäten des Zustandsdiagrammes wieder.\\
+Anforderungen bezüglich \textit{Zuverlässigkeit und Verfügbarkeit} treten in der Modellierung in den Knoten des Verteilungsdiagrammes oder fließen in die Systembeschreibung ein.\\
+In die Klasse der Anforderungen bezüglich \textit{Sicherheit für Leib und Leben} fällt die Risikovermeidung von Schäden an Menschen, Produkten und die Umwelt.\\
+Abschließend werden die \textit{Randbedingungen} das System betreffend als Sonderklasse der nicht-funktionalen Anforderungen betrachtet. Man unterteilt diese in zwei Kategorien. Es wird unterschieden zwischen Bedingungen, die sich auf das System und Bedingungen, die sich auf den Entwicklungsprozess auswirken.\\
+Erstere sind Technologievorgaben, physikalische Anforderungen, Umweltanforderungen und Vorgaben für die Einbettung und Verteilung des Systems. Sowohl Technologievorgaben, als auch Vorgaben an die Einbettung und Verteilung fließen direkt in die Modellierung ein. So weren \bspw Nachbarsysteme im Kontextdiagramm und Forderungen nach bestimmter Hardware im Verteilungsdiagramm aufgeführt. Zu den physikalischen Anforderungen zählen \zB Aussagen über das Gehäuse \bzw die Räumlichkeit, in die das Produkt am ende der Entwicklung passen muss. Unter Umweltanforderungen versteht man \bspw klimatische Bedingungen, unter denen das System arbeiten muss.\\
+Randbedingungen für den (Entwicklungs-) Prozess basieren auf Vorschriften und Traditionen. Dabei meinen Traditionen Vorschriften, die sich aus bereits früheren Entwicklungen einer Firma ergeben haben.\\ % Quelle
+Zuletzt soll an dieser Stelle noch eine entscheidende Problematik, die durch die Modellierung nicht-funktionaler Anforderungen auftritt, erwähnung finden. Es besteht die Möglichkeit, dass nicht- funktionale Anforderungen entgegensätzliche Dinge verlangen. Um diese Problematik zu beseitigen oder zumindest zu minimieren, hat sich in der Praxis die Vergabe von Prioritäten bewährt. So kann in Tabellenform eine Prioritätsreihenfolge erstellt werden. Diese hilft dem Entwickler zu entscheiden, wie er sich beim Auftreten eines Konfliktes verhält.\\ % Quelle
+Da nun auch die theoretische Grundlage zu den nicht-funktionalen Anforderungen ausreichend beleuchtet ist, folgt die tabellarische Auflistung aller nicht-funktionalen Anforderungen des mehrachsigen Positioniersystems. Dazu wird die selbe Form wie auch schon bei den funktionalen Anforderungen genutzt. Wie auch schon im vorherigen Unterkapitel angewendet, werden die Anforderungen den Hardwareprozess betreffend nur Beispielhaft erwähnt.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{| p{0.35\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Beschreibung} & Die Gefahr, dass ein Anwender oder eine sich in Anlagennähe befindene Person durch die Bewegung der Positioniereinheit verletzt wird, soll bestmöglich minimiert werden. Dazu sind Not-Halt Taster vorgesehen, die durch den Anwender betätigt werden können. Zusätzlich ist ein Lichtvorhang verbaut, der die Anlage stoppen soll, falls eine Person durch diesen in den Gefahrenbereich eindringt. \\ \hline
+        \textbf{Abnahmekriterium} & Durch die Simulation einer Notsituation in Form des Auslösens eines Not-Halt Tasters oder eines Lichtvorhangs muss die Laboranlage unverzüglich Bremsen und in einen haltenden Zustand übergehen, bis die Gefahrensituation behoben ist. \\ \hline
+        \textbf{Quelle} & Anwender siehe Stakeholderliste \\ \hline
+        \textbf{Begründung} & Sicherheit für den Anwender und sich in der Nähe der Anlage befindende Personen. \\ \hline
+        \textbf{Abhängigkeit} & Erfordert einen Eingriff in den Funktionsablauf des Positioniersystems. \\ \hline
+        \textbf{Identifikationsnummer} & 2.1.1 \\ \hline
+    \end{tabular}
+    \caption{Qualitätsanforderung zu Sicherheit für Leib und Leben}
+    \label{tab:my-table2}
+\end{table}
+
+% TODO: erweitern um alle restlichen nicht-funktionalen Anforderungen!
 
 \end{document}

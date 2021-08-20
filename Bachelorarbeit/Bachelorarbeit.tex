@@ -13,6 +13,18 @@
 \usepackage{xspace} % setzten von Leerzeichen nach Abkürzungen
 \usepackage{microtype} % für glättere Seitenränder
 
+\usepackage{fancyhdr} % für schöne Header
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\rightmark}
+\fancyfoot[LE]{\thepage}
+\fancyfoot[RO]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Abkürzungspaket
+\usepackage[printonlyused]{acronym}
+
 % Mathe Pakete
 \usepackage{amsmath}
 \usepackage{thmtools}
@@ -35,6 +47,10 @@
 
 % Für erweiterte Tabellen
 \usepackage{longtable}
+\setlength{\tabcolsep}{0.5em} % for the horizontal padding
+{\renewcommand{\arraystretch}{1.8} % for the vertical padding
+\usepackage{ragged2e}
+\newcolumntype{R}[1]{>{\RaggedRight}p{#1}}
 
 % Für Einheiten
 \usepackage[exponent-product = \cdot]{siunitx}
@@ -97,8 +113,9 @@
 \newcommand{\nC}{n.\,Chr.\xspace}
 \newcommand{\vA}{v.\,a.\xspace}
 
-\usepackage{tocbibind} %damit Verzeichnisse im Inhaltsverzeichnis aufgeführt werden
-%\usepackage[notoc]{tocbibind} %damit Inhaltsverzeichnis nicht im Inhaltsverzeichnis vorkommt
+\usepackage[nottoc,numbib]{tocbibind}
+% \usepackage{tocbibind} % damit Verzeichnisse im Inhaltsverzeichnis aufgeführt werden
+% \usepackage[nottoc]{tocbibind} % damit Inhaltsverzeichnis nicht im Inhaltsverzeichnis vorkommt
 
 \usepackage{subfiles} % Best loaded last in the preamble
 
@@ -159,18 +176,34 @@
 
 
 %INHALTSVERZEICHNIS
-\setcounter{tocdepth}{3} %Inhaltsverzeichnis zeigt 2 Gliederungsebenen
+\pagestyle{empty}
+\setcounter{tocdepth}{3} %Inhaltsverzeichnis zeigt 3 Gliederungsebenen
 \tableofcontents
-\thispagestyle{empty}
 \clearpage
 
-%ABBILDUNGSVERZEICHNIS
-%\listoffigures
+% Aufgabenstellung
+\section*{Aufgabenstellung}
+\addcontentsline{toc}{section}{Aufgabenstellung}
+\clearpage
 
-%TABELLENVERZEICHNIS
-%\listoftables
-%\clearpage
+% ABBILDUNGSVERZEICHNIS
+\listoffigures
+\clearpage
 
+% TABELLENVERZEICHNIS
+\listoftables
+\clearpage
+
+% ABKÜRZUNGSVERZEICHNIS
+\section*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+\begin{acronym}[EuGH]
+	\acro{eugh}[EuGH]{Europäischer Gerichtshof}
+	\acro{eu}[EU]{Europäische Union}
+\end{acronym}
+\clearpage
+
+\pagestyle{fancy}
 \pagenumbering{arabic} %Arabische Seitennummerierung nach den ab Textbeginn
 
 % Einleitung
@@ -240,8 +273,8 @@
 \subfile{sections/ausblick.tex}
 
 \newpage
-\section*{Literatur}
-\addcontentsline{toc}{section}{Literatur}
+\section*{Literaturverzeichnis}
+\addcontentsline{toc}{section}{Literaturverzeichnis}
 
 \nocite{Winkelhake2021}
 \nocite{Geisberger2012}
