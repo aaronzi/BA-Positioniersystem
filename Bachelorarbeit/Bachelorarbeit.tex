@@ -23,7 +23,7 @@
 \renewcommand{\footrulewidth}{0.4pt}
 
 % Abkürzungspaket
-\usepackage[printonlyused]{acronym}
+\usepackage{acronym}
 
 % Mathe Pakete
 \usepackage{amsmath}
@@ -67,6 +67,13 @@
 \usepackage{subcaption}
 %\captionsetup[subfigure]{list=true, font=normalsize, labelformat=brace, position=top} %setup für subfigure captions
 \usepackage{pstricks}
+\usepackage{tikz}
+\usepackage{tikz-uml}
+\usepackage{pgfkeys}
+\usepackage{pgfopts}
+\usepackage{ifthen}
+\usepackage{xstring}
+\usepackage{calc}
 \usepackage{pst-plot,pst-bar} %Balkendiagramme
 
 % Paket für Literaturverzeichnis
@@ -112,6 +119,7 @@
 \newcommand{\vC}{v.\,Chr.\xspace}
 \newcommand{\nC}{n.\,Chr.\xspace}
 \newcommand{\vA}{v.\,a.\xspace}
+\newcommand{\eng}{engl.\xspace}
 
 \usepackage[nottoc,numbib]{tocbibind}
 % \usepackage{tocbibind} % damit Verzeichnisse im Inhaltsverzeichnis aufgeführt werden
@@ -197,9 +205,9 @@
 % ABKÜRZUNGSVERZEICHNIS
 \section*{Abkürzungsverzeichnis}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-\begin{acronym}[EuGH]
-	\acro{eugh}[EuGH]{Europäischer Gerichtshof}
-	\acro{eu}[EU]{Europäische Union}
+\begin{acronym}[Anford]
+	\acro{fa}[FA]{Funktionale Anforderung}
+	\acro{nfa}[NFA]{Nicht-Funktionale Anforderung}
 \end{acronym}
 \clearpage
 
