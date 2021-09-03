@@ -1,7 +1,7 @@
 \documentclass[../Bachelorarbeit.tex]{subfiles}
 \begin{document}
 
-\subsection{Kontextanalyse}
+\subsection{Kontextanalyse} \label{kontextana}
 Ziel der Kontextanalyse ist die Abgrenzung des Kontexts \bzw das Finden von Systemgrenzen. Bei dem mehrachsigen Positioniersystem handelt es sich um ein sogenanntes eingebettetes System (\eng Embedded System). Diese kommunizieren meist stark mit ihrer Umwelt \bzw sind meist stark mit dieser verankert. % Quelle
 So auch hat das Positioniersystem Schnittstellen, über die eine Kommunikation mit Nachbarsystemen stattfindet. In der Systemkonzeption muss folglich geklärt werden, wo genau die Systemgrenzen liegen. Weiterhin findet in der Kontextabgrenzung auch die Identifizierung von Nachbarsystemen statt.\\ % Quelle
 Zuerst muss geklärt werden, ob die Systemumgebung dynamischer natur ist, das heißt, dass Nachbarsysteme wechseln \bzw das System nicht umgebungstreu ist. Handelt es sich im Gegensatz dazu um ein System mit stabiler Umgebung, ist die Darstellung von Nachbarsystemen simpel und kann nachfolgend im entsprechenden Diagramm dokumentiert werden. Da das mehrachsige Positioniersystem fest in den Laborraum integriert ist, und alle Nachbarsysteme bereits bekannt sind, wird in der Analyse von einer statischen Umgebung ausgegangen. Die sich anschließende Liste zeigt alle derzeitigen Nachbarsysteme, in die das mehrachsige Positioniersystem eingebettet ist.\\
@@ -23,7 +23,7 @@ Für die Dokumentation der logischen Kontextabgrenzung bietet sich sich das Anwe
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{Images/kontextana.pdf}
-    \caption[Logische Kontextabgrenzung]{Logische Kontextabgrenzung des mehrachsigen Positioniersystems}
+    \caption[Logische Kontextabgrenzung]{Logische Kontextabgrenzung des mehrachsigen Positioniersystems als Anwendungsfalldiagramm}
     \label{fig:my-img1}
 \end{figure}
 
@@ -35,11 +35,11 @@ Nach der Aufstellung des logischen Kontexts der Laboranlage wird nun darauf aufb
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{Images/phys_abgrenzung.pdf}
-    \caption[Physikalische Kontextabgrenzung]{Physikalische Kontextabgrenzung des mehrachsigen Positioniersystems}
+    \caption[Physikalische Kontextabgrenzung]{Physikalische Kontextabgrenzung des mehrachsigen Positioniersystems als Verteilungsdiagramm}
     \label{fig:my-img2}
 \end{figure}
 
-Im unterschied zu \autoref{fig:my-img2} werden nun an den Verbindungen zwischen den Systemen Stereotypen mit aufgeführt, falls die Hardware und Kommunikation der untersuchten Systeme bereits bekannt ist. Mit Hilfe des Verteilungsdiagrammes wird die Frage beantwortet, wie die Akteure auf das Positioniersystem Einfluss nehmen. Es kann hier bereits aus den Anforderungen entnommen werden, wie der Anlagennutzer mit dem System interagiert und wie Datenaustausch zwischen der internen Steuerung und externen Industriesteuerungen stattfindet. Auch die Programmierschnittstelle ist bereits vorgegeben. Aus den Anforderungen der Labormitarbeiter geht weiterhin hervor, dass für Verwaltungsschalen aber auch den \ac{ar} Server Prozessdaten via OPC UA Schnittstelle bereitgestellt werden sollen.\\
+Im unterschied zu \autoref{fig:my-img1} werden nun an den Verbindungen zwischen den Systemen Stereotypen mit aufgeführt, falls die Hardware und Kommunikation der untersuchten Systeme bereits bekannt ist. Mit Hilfe des Verteilungsdiagrammes wird die Frage beantwortet, wie die Akteure auf das Positioniersystem Einfluss nehmen. Es kann hier bereits aus den Anforderungen entnommen werden, wie der Anlagennutzer mit dem System interagiert und wie Datenaustausch zwischen der internen Steuerung und externen Industriesteuerungen stattfindet. Auch die Programmierschnittstelle ist bereits vorgegeben. Aus den Anforderungen der Labormitarbeiter geht weiterhin hervor, dass für Verwaltungsschalen aber auch den \ac{ar} Server Prozessdaten via OPC UA Schnittstelle bereitgestellt werden sollen.\\
 Die Stereotypen für \zB den Anlagennutzer als Akteur sind somit \glqq Tasten\grqq{} und \glqq \acs{hmi} \grqq{}, da dieser auf diesem weg mit der Laboranlage kommuniziert \bzw interagiert. \ac{hmi} ist zu deutsch eine \ac{mms}. Für die Interaktion mit dem Positioniersystem ist zum Einen die grundlegende Steuerung über Taster an der Front des Schaltschranks geplant, weiterhin soll diese erweitert werden um eine Kommunikationsschnittstelle, die auf touch-basierten Displays beruht. Dabei handelt es sich zum einen um ein fest angebundenen Monitor. Aus den Anforderungen geht zusätzlich hervor, dass die Steuerung auch per Smortphone oder Tablet erfolgen sollte.\\
 \bigskip
 \newline
