@@ -47,6 +47,9 @@
 
 % Für erweiterte Tabellen
 \usepackage{longtable}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{cellspace}
 \setlength{\tabcolsep}{0.5em} % for the horizontal padding
 {\renewcommand{\arraystretch}{1.8} % for the vertical padding
 \usepackage{ragged2e}
@@ -120,6 +123,7 @@
 \newcommand{\nC}{n.\,Chr.\xspace}
 \newcommand{\vA}{v.\,a.\xspace}
 \newcommand{\eng}{engl.\xspace}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
 \usepackage[nottoc,numbib]{tocbibind}
 % \usepackage{tocbibind} % damit Verzeichnisse im Inhaltsverzeichnis aufgeführt werden
@@ -207,7 +211,9 @@
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \begin{acronym}[FA]
 	\acro{fa}[FA]{Funktionale Anforderung}
+	\acroplural{fa}[FAs]{Funktionale Anforderungen}
 	\acro{nfa}[NFA]{Nicht-Funktionale Anforderung}
+	\acroplural{nfa}[NFAs]{Nicht-Funktionale Anforderungen}
 \end{acronym}
 \begin{acronym}[VR]
 	\acro{ar}[AR]{Augmented Reality}
@@ -220,6 +226,10 @@
 \begin{acronym}[LMC]
 	\acro{lmc}[LMC]{Logic Motion Controller}
 	\acro{lxm}[LXM]{Lexium}
+\end{acronym}
+\begin{acronym}[OPC]
+	\acro{opc}[OPC]{Open Plattform Communications}
+	\acro{ua}[UA]{Unified Architecture}
 \end{acronym}
 \clearpage
 
