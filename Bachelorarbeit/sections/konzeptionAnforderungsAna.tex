@@ -11,25 +11,131 @@ Aus der theoretischen Grundlagen bereits erkenntlich, bestehen Anforderungen aus
 Ausgangspunkt für die Entwicklung des mehrachsigen Positioniersystems sind folgende Kernanforderungen \bzw Ziele. Es wird gefordert, eine Laboranlage zu entwickeln, die simple Transportgüter sicher von einer Aufnahmeposition zu einem Ablageort transportieren kann. Dies soll über zunächst zwei Achsen geschehen, die es ermöglichen Bewegungen in horizontale Richtung (X-Achse) und vertikale Richtung (Z-Achse) durchzuführen. Dabei ist es relavant, dass verschiedene Trajektorien von der Anlage gefahren werden können, welche durch den Nutzer programmatisch vorgegeben werden. Die Bewegung der Achsen erfolgt über zwei getrennt ansteuerbare Servomotoren, die über einen Servoregler mit einer Industriesteuerung verbunden sind. Die Steuerungskomponenten sind bereits vorhanden und müssen verwendet werden. Konkret handelt es sich um den \acs{lmc}101 (Logic Motion Controller) von Schneider Electric, das \acs{lxm} 62 P Netzgerät (\eng Powersupply, ebenfalls von Schneider Electric) und den \acs{lxm} 62 D Doppelantrieb (\eng Double Drive). Zusätzlich soll eine PFC200 Steuerung von Wago zum einsatz kommen, mit der Betriebsströme gemessen und für die Weiterverarbeitung bereit gestellt werden können. Weiterhin sollen auch ausgewählte Prozessdaten aus dem Systemablauf für die externe Verarbeitung zur Verfügung gestellt werden. Es ist vorgegeben, dass diese Daten per \ac{opc} \ac{ua} Schnittstelle ausgelesen werden können. Kernziel bei der Entwicklung des Laborsystems ist es die Möglichkeit bereitzustellen, dass die Positioniereinheit von jedem Laborplatz programmiert und als Testsystem für den Lehrzweck eingesetzt werden kann. Für den Betrieb der Anlage sind zwei Betriebsmodi vorgesehen. Ersterer, der Automatikbetrieb soll einen Vollautomatischen Prozessablauf ermöglichen, bei welchem eine konkrete Positionieraufgabe zyklisch durchgeführt wird. Zweiterer, der Handbetrieb, nimmt manuelle Steuerbefehle vom Nutzer entgegen, bei welchen über Tastereingaben an der Laboranlage, Fahrbewegungen entlang der beiden Achsen durchgeführt werden können. Die Auswahl \bzw ein Wechsel zwischen den Betriebsmodi, ist über einen Wahltaster zu implementieren. Außerdem ist ein Schutz für die Anlage und deren Nutzer, sowie sich um das Positioniersystem befindende Personen zu implementieren Der Schutz ist manuell auslösbar über Not-Halt Taster an der Laboranlage und durch einen Lichtvorhang vor dem Fahrbereich der beiden Achsen. Abschließend wird gefordert, dass es zu einem späteren Zeitpunkt noch Möglich ist, das System um weitere Achsen und Peripheriegeräte wie \bspw Förderbänder zu erweitern. % TODO: Quelle einfügen
 
 \subsubsection{Funktionale Anforderungen}
-Das erste Unterkapitel der Anforderungsanalyse bahndelt die Modellierung der funktionalen Anforderungen des Prozesses. Im Requierements Engineering beschreiben Funktionale Anforderungen gewünschte Funktionalitäten des Systems. Konkret steht im Mittelpunkt der Analyse, welche Fähigkeiten das System besitzen soll \bzw was es tun kann. Die Auflistung der Anforderungen ist eine Beschreibung von Systemspezifischen Daten und dessen Verhalten.\\ % Quelle
-Die Dokumentation der funktionellen Anforderungen erfolgt typischerweise in Tabellenform. Bereits in den Anforderungen wird ein Abnahmekriterium für diese formuliert, um bei der Inbetriebnahme des Systems die Erfüllung der Anforderung bestätigen oder wiederlegen zu können.\\ % Quelle
-Die Nachfolgenden Tabellen zu den funktionalen Anforderungen sind wie folgt strukturiert. In der \textbf{Beschreibung} wird zunächst in kurzer Textform die Anforderung an das System formuliert. Im nächsten Punkt, dem \textbf{Abnahmekriterium} findet eine Erklärung zur Überprüfung der Umsetzung behandelter Anforderung statt. Die Tabbellenzeile \textbf{Quelle} verweist auf einen oder mehrere Einträge in der Stakeholdertabelle, welche im Kapitel 3.3 vorgestellt wird. % Verlinkung einfügen
-Bei Nachfragen zu der jeweils behandelten funktionalen Anforderunge ist die Tabelle von äußerster Relevanz für die Klärung durch den Prozessentwickler. Der Eintrag \textbf{Begründung} erhält Informationen zur Relevanz der Anforderung, die in der Tabelle beschrieben wird. Dem Punkt\textbf{Abhängigkeit} unterliegt eine besondere Wichtigkeit, da hier alle Anforderungen aufgelistet sind, die auf der in der Tabelle beschriebenen Anforderung basieren \bzw in direkter Abhängigkeit zu dieser stehen. Der letzte Eintrag, die \textbf{Identifikationsnummer} (kurz ID) dient zur späteren Reverenzierung und leichterem Nachschlagen einer Anforderung. Es ist notwendig Mehrdeutigkeiten zu vermeiden, um eine eindeutige Identifizierung sicherzustellen.\\ % Quelle
-Die Nachfolgenden Tabellen folgen dem beschriebenen Muster und beinhalten alle funktionalen Anforderungen des mehrachsigen Positioniersystems, welches im verlauf dieser Arbeit Entwickelt wird. Die Anforderungen an die Hardware des Systems sind nur Beispielhaft am Ende des Unterkapitels erwähnt. Die vollständige Auflistung kann im Anhang nachgeschlagen werden.
+Der erste Unterabschnitt der Anforderungsanalyse behandelt die Modellierung der funktionalen Anforderungen des Prozesses. Im Requierements Engineering beschreiben Funktionale Anforderungen gewünschte Funktionalitäten des Systems. Konkret steht im Mittelpunkt der Analyse, welche Fähigkeiten das System besitzen soll \bzw was es umgangssprachlich tun kann. Die Auflistung der Anforderungen ist eine Sammlung von systemspezifischen Daten, sowie eine grundlegende Beschreibung des Systemverhaltens. \\ % Quelle
+Die Dokumentation der funktionalen Anforderungen erfolgt typischerweise in Tabellenform. Bereits in den Anforderungen wird ein Abnahmekriterium für diese formuliert, um bei der Inbetriebnahme des Systems die Erfüllung der Anforderung bestätigen oder wiederlegen zu können.\\ % Quelle
+Die Nachfolgenden Tabellen zu den funktionalen Anforderungen sind wie folgt strukturiert. Im ersten Eintrag, der \textbf{Beschreibung}, wird zunächst in kurzer Textform die Anforderung an das System formuliert. Im nächsten Punkt, dem \textbf{Abnahmekriterium} findet eine Erklärung zur Überprüfung der Umsetzung behandelter Anforderung statt. Die Tabbellenzeile \textbf{Quelle} verweist auf einen oder mehrere Einträge in der Stakeholdertabelle, welche im \autoref{stakeholder} vorgestellt wird. Bei Nachfragen zu der jeweils behandelten funktionalen Anforderunge ist die Tabelle zur Klärung durch den Prozessentwickler heranzuziehen. Der Eintrag \textbf{Begründung} enthält Informationen zur Relevanz der Anforderung, die in der Tabelle beschrieben wird. Dem Punkt\textbf{Abhängigkeit} unterliegt eine besondere Wichtigkeit, da hier alle Anforderungen aufgelistet sind, die auf der in der Tabelle beschriebenen Anforderung basieren \bzw in direkter Abhängigkeit zu dieser stehen. Der letzte Eintrag, die \textbf{Identifikationsnummer} (kurz \acs{id}) dient zur späteren Referenzierung und leichterem Nachschlagen einer Anforderung. Sie ist hilfreich, um Mehrdeutigkeiten zu vermeiden und eine eindeutige Identifizierung sicherzustellen.\\ % Quelle
+Die Nachfolgenden Tabellen folgen dem beschriebenen Muster und beinhalten alle funktionalen Anforderungen des mehrachsigen Positioniersystems. Die Anforderungen an die Hardware des Systems sind nur Beispielhaft am Ende des Unterabschnittes erwähnt. Alle nicht erwähnten Anforderungen können im Anhang nachgeschlagen werden.
 
-\begin{table}[ht]
+\begin{table}[H]
     \centering
-    \begin{tabular}{| p{0.35\linewidth} | p{0.6\linewidth} |}
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
         \hline
         \textbf{Beschreibung} & Das Positioniersystem soll über einen dedizierten Einschalter unter Spannung gesetzt werden können. \\ \hline
         \textbf{Abnahmekriterium} & Test des gekennzeichneten Einschalters unter Prüfung der Systemspannung nach Betätigung des Schalters. \\ \hline
         \textbf{Quelle} & Laborpersonal siehe Stakeholderliste \\ \hline
-        \textbf{Begründung} & Es wird verlangt bei Nichtnutzung des Systems dieses zu deaktivieren um das Gefahrenrisiko zu minimieren. \\ \hline
-        \textbf{Abhängigkeit} & Die Positioniereinheit kann erst nach dem Einschalten genutzt werden. Es sind Schutzmaßnahmen für Anwender und und Anlage vorzusehen, um das Gefahrenrisiko zu minimieren. \\ \hline
+        \textbf{Begründung} & Es wird verlangt, bei Nichtnutzung des Systems dieses zu deaktivieren um das Gefahrenrisiko zu minimieren. \\ \hline
+        \textbf{Abhängigkeit} & {\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                    \item Die Positioniereinheit kann erst nach dem Einschalten genutzt werden (Auswahl des Betriebsmodus).
+                                    \item Es sind Schutzmaßnahmen für Anwender und Anlage umzusetzen, um das Gefahrenrisiko zu minimieren.
+                                \end{itemize}} \\ \hline
         \textbf{Identifikationsnummer} & 1.1.1 \\ \hline
     \end{tabular}
     \caption[\acs{fa} - EIN-Schalter]{Funktionale Anforderung - Ein-Schalter}
     \label{tab:my-table}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Beschreibung} & Über einen Wahlschalter soll der Betriebsmodus des mehrachsigen Positioniersystems vorgegeben werden können. \\ \hline
+        \textbf{Abnahmekriterium} & Auswahl des Betriebsmodus wird über die jeweilige Indikatorenleuchte bestätigt. Der ausgewählte Betriebsmodus kann genutzt werden. \\ \hline
+        \textbf{Quelle} & Prozessentwickler siehe Stakeholderliste \\ \hline
+        \textbf{Begründung} & Es ist hilfreich die Auswahl zwischen dem Normalbetrieb (Automatikbetrieb) und dem Handbetrieb zu haben, um das System besser Testen und kalibrieren zu können. \\ \hline
+        \textbf{Abhängigkeit} & {\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+            \item Abarbeitung der Schritte des Automatikbetriebs
+            \item Laboranlage befindet sich in Bereitschaft für Eingaben im Handmodus
+        \end{itemize}} \\ \hline
+        \textbf{Identifikationsnummer} & 1.1.2 \\ \hline
+    \end{tabular}
+    \caption[\acs{fa} - Wahlschalter Betriebsmodus]{Funktionale Anforderung - Wahlschalter Betriebsmodus}
+    \label{tab:my-table2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Beschreibung} & Das Positioniersystem soll zwei bewegbare Achsen besitzen, die sich getrennt Steuerbar horizontal und vertikal auf ihrem jeweiligen Profil bewegen können. \\ \hline
+        \textbf{Abnahmekriterium} & Die beiden Achsen bewegen sich bei Tastereingaben im Handmodus und vollautomatisch im Automatikmodus. \\ \hline
+        \textbf{Quelle} & Lehrpersonal siehe Stakeholderliste \\ \hline
+        \textbf{Begründung} & Um Positionieraufgaben durchführen zu können, müssen Achsen zum einsatz kommen, auf denen \bzw durch welche Bewegungen durchgeführt werden können. \\ \hline
+        \textbf{Abhängigkeit} & {\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+            \item Fahren von Trajektorievorgaben
+            \item Joggen der beiden Achsen durch Nutzereingaben
+        \end{itemize}} \\ \hline
+        \textbf{Identifikationsnummer} & 1.1.3 \\ \hline
+    \end{tabular}
+    \caption[\acs{fa} - Positionieren auf zwei Achsen]{Funktionale Anforderung - Positionieren auf zwei Achsen}
+    \label{tab:my-table3}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Beschreibung} & Bewegungen auf den zwei Achsen sollen gebremst werden können. \\ \hline
+        \textbf{Abnahmekriterium} & Sowohl ein Erreichen von Endlagepositionen, sowie Start- und Zielpositionen, die Nichtbetätigung von Bewegungstastern im Handmodus und das Auslösen des Not-Halts führen zu einem Bremsen und abschließendem Halten der Achsbewegungen. \\ \hline
+        \textbf{Quelle} & Lehrpersonal siehe Stakeholderliste \\ \hline
+        \textbf{Begründung} & Bewegungen entlang der Achsen müssen auch wieder gestoppt werden können, um Beschädigungen der Anlage oder Verletzungen von Menschen zu verhindern. \\ \hline
+        \textbf{Abhängigkeit} & {\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+            \item Verhindern des Runterfallens des beweglichen Schlittens auf der vertikalen Achse (Z-Achse)
+            \item Einhalten der Sicherheit für Leib und Leben
+        \end{itemize}} \\ \hline
+        \textbf{Identifikationsnummer} & 1.1.4 \\ \hline
+    \end{tabular}
+    \caption[\acs{fa} - Bremsen der Achsbewegungen]{Funktionale Anforderung - Bremsen der Achsbewegungen}
+    \label{tab:my-table4}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Beschreibung} & Die Geschwindigkeit, mit der die Positioniereinheit Bewegungen durchführt, soll reguliert werden können. \\ \hline
+        \textbf{Abnahmekriterium} & Das Einstellen von Geschwindigkeiten über ein Potentiometer an der Schaltschrankfront führt zur Änderung der Fahrgeschwindigkeit der Achsen. \\ \hline
+        \textbf{Quelle} & Prozessentwickler siehe Stakeholderliste \\ \hline
+        \textbf{Begründung} & Das Regulieren der Fahrgeschwindigkeit erleichtert auf der einen Seite die Identifikation von Fehlern (langsames Fahren), auf der anderen Seite kann die Dauer von Positionieraufgaben verringert werden (schnelleres Fahren). \\ \hline
+        \textbf{Abhängigkeit} & {\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+            \item Positionieren auf Zwei Achsen
+            \item Verringerung der Beschleunigung und Fahrgeschwindigkeit in Endlagennähe
+        \end{itemize}} \\ \hline
+        \textbf{Identifikationsnummer} & 1.1.5 \\ \hline
+    \end{tabular}
+    \caption[\acs{fa} - Regulierung der Fahrgeschwindigkeit]{Funktionale Anforderung - Regulierung der Fahrgeschwindigkeit}
+    \label{tab:my-table5}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Beschreibung} & Durch einen Schwenkbaren Greifarm soll es möglich sein zu transportierende Objekte aufzunehmen und wieder abzulegen. \\ \hline
+        \textbf{Abnahmekriterium} & Transportobjekt befindet sich in Obhut des Systems und kann bewegt werden. \\ \hline
+        \textbf{Quelle} & Prozessentwickler siehe Stakeholderliste \\ \hline
+        \textbf{Begründung} & Das Ausführen von Positionieraufgaben wird erst dann ein praxisnahes Beispiel, wenn auch typische Anwendungen aus der Praxis durchgeführt werden (\zB Transportaufgaben in Hochregallagern). \\ \hline
+        \textbf{Abhängigkeit} & {\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+            \item Bestückung und Abtransport von Auf- und Ablagepositionen mit Transportobjekten (Erweiterung - \zB Förderbänder)
+        \end{itemize}} \\ \hline
+        \textbf{Identifikationsnummer} & 1.1.6 \\ \hline
+    \end{tabular}
+    \caption[\acs{fa} - Greifen von Transportobjekten]{Funktionale Anforderung - Greifen von Transportobjekten}
+    \label{tab:my-table6}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Beschreibung} & Über Tastereingaben soll es möglich sein die beiden Achsen im Handmodus zu bewegen (joggen) und die Greifaktionen manuell zu auszulösen (triggern). \\ \hline
+        \textbf{Abnahmekriterium} & Tasteingaben auf dem Vierwegeschalter führen im Handbetrieb zu Achsbewegungen. Durch die Betätigung der vorgesehenen Taster schwenkt der Greifarm um 180° werden und der Greifer wird geöffnet \bzw geschlossen. \\ \hline
+        \textbf{Quelle} & Lehrpersonal siehe Stakeholderliste \\ \hline
+        \textbf{Begründung} & Es sind Taster an unter anderem der Schaltschrankfront erforderlich, um das mehrachsige Positioniersystem im Handmodus nutzen zu können. \\ \hline
+        \textbf{Abhängigkeit} & -\xspace -\xspace -\\ \hline
+        \textbf{Identifikationsnummer} & 1.1.7 \\ \hline
+    \end{tabular}
+    \caption[\acs{fa} - Tastersteuerung im Handmodus]{Funktionale Anforderung - Tastersteuerung im Handmodus}
+    \label{tab:my-table7}
 \end{table}
 
 % TODO: erweitern um alle restlichen funktionalen Anforderungen
@@ -45,9 +151,9 @@ Randbedingungen für den (Entwicklungs-) Prozess basieren auf Vorschriften und T
 Zuletzt soll an dieser Stelle noch eine entscheidende Problematik, die durch die Modellierung nicht-funktionaler Anforderungen auftritt, erwähnung finden. Es besteht die Möglichkeit, dass nicht- funktionale Anforderungen entgegensätzliche Dinge verlangen. Um diese Problematik zu beseitigen oder zumindest zu minimieren, hat sich in der Praxis die Vergabe von Prioritäten bewährt. So kann in Tabellenform eine Prioritätsreihenfolge erstellt werden. Diese hilft dem Entwickler zu entscheiden, wie er sich beim Auftreten eines Konfliktes verhält.\\ % Quelle
 Da nun auch die theoretische Grundlage zu den nicht-funktionalen Anforderungen ausreichend beleuchtet ist, folgt die tabellarische Auflistung aller nicht-funktionalen Anforderungen des mehrachsigen Positioniersystems. Dazu wird die selbe Form wie auch schon bei den funktionalen Anforderungen genutzt. Wie auch schon im vorherigen Unterkapitel angewendet, werden die Anforderungen den Hardwareprozess betreffend nur Beispielhaft erwähnt.
 
-\begin{table}[ht]
+\begin{table}[H]
     \centering
-    \begin{tabular}{| p{0.35\linewidth} | p{0.6\linewidth} |}
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
         \hline
         \textbf{Beschreibung} & Die Gefahr, dass ein Anwender oder eine sich in Anlagennähe befindene Person durch die Bewegung der Positioniereinheit verletzt wird, soll bestmöglich minimiert werden. Dazu sind Not-Halt Taster vorgesehen, die durch den Anwender betätigt werden können. Zusätzlich ist ein Lichtvorhang verbaut, der die Anlage stoppen soll, falls eine Person durch diesen in den Gefahrenbereich eindringt. \\ \hline
         \textbf{Abnahmekriterium} & Durch die Simulation einer Notsituation in Form des Auslösens eines Not-Halt Tasters oder eines Lichtvorhangs muss die Laboranlage unverzüglich Bremsen und in einen haltenden Zustand übergehen, bis die Gefahrensituation behoben ist. \\ \hline
@@ -57,7 +163,7 @@ Da nun auch die theoretische Grundlage zu den nicht-funktionalen Anforderungen a
         \textbf{Identifikationsnummer} & 2.1.1 \\ \hline
     \end{tabular}
     \caption[\acs{nfa} - Sicherheit für Leib und Leben]{Qualitätsanforderung zu Sicherheit für Leib und Leben}
-    \label{tab:my-table2}
+    \label{tab:my-table20}
 \end{table}
 
 % TODO: erweitern um alle restlichen nicht-funktionalen Anforderungen!
