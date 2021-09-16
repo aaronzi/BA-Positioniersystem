@@ -20,9 +20,9 @@ Neu daszugekommen sind die Anwendungsfälle, die durch den Anlagennutzer ausgel�
 \end{figure}
 
 \subsubsection{Präzisierung der Systemprozesse} \label{AnwfallSpezPraez}
-Dieses Unterkapitel greift die Systemprozesse aus der Anwendungsfallanalyse des vorhergegangenen Unterkapitels noch einmal auf und verfeinert diese. Im Folgenden wird zunächst genutzte Methodik zur spezifizierung der Systemeprozesse vorgestellt.\\
+Dieser Unterabschnitt greift die Systemprozesse aus der Anwendungsfallanalyse des vorhergegangenen Unterabschnittes noch einmal auf und verfeinert diese. Im Folgenden wird zunächst die genutzte Methodik zur spezifizierung der Systemeprozesse vorgestellt.\\
 Für die Spezifikation von Systemprozessen empfiehlt es sich die Anwendungsfallbeschreibung als Mittel zur Dokumentation zu nutzen. Diese sollte in Form von Tabellen erfolgen. Dabei wird jeder einzelne Akteur in seiner eigenen Tabelle dargestellt. Bei den relevanten Tabelleneinträgen handelt es sich um die Zeilen Name, Akteur, auslösendes Ereignis, Kurzbeschreibung, Vorbedingungen, essenzielle Schritte, Ausnahmefälle, Nachbedingungen, Zeitverhalten, Verfügbarkeit und Kommentare/Fragen.\\ % Quelle
-Sowohl der \textbf{Name} als auch der \textbf{Akteur} wird dabei aus dem Anwendungsfalldiagramm aus \autoref{fig:my-img3} übernommen. Es sind am Ende alle Akteure aus dem Anwendungsfalldiagramm tabellarisch aufgenommen. Das Feld \textbf{auslösendes Ereignis} beschreibt den Initiator des Anwendungsfalls. Der nächste Eintrag, die \textbf{Kurzbeschreibung} ist eine in zwei bis vier Sätzen dokumentierte wörtliche Beschreibung des Prozesses und dient zur Darstellung seines Kerns. Das Feld \textbf{Vorbedingungen} enthält zusammengefasst alle Voraussetzungen, die für die Ausführung des Anwendungsfalls nötig sind. Der nächste Eintrag stellt den wichtigsten Schritt in der Dokumentation des Anwendungsfalls dar. Dieser wird unterteilt in zwei weitere Felder, die im direkten Bezug zueinander stehen. Es werden Auf der einen Seite Ereignisse aufgenommen, die während der Standardausführung des Prozesses auftreten \bzw. auftreten können und auf der anderen Seite die Reaktionen des Systems auf diese Ereignisse. Das Feld \textbf{Ausnahmefälle} betrachtet alle Fehler und Ausnahmesituationen, die Abweichend von der Standardausführung auftreten können. Die \textbf{Nachbedingunen} sind analog zu den Vorbedingungen zu dokumentieren und beschreiben den Endzustand des Prozesses nach einer Standardausführung. In den Punkten \textbf{Zeitverhalten} und \textbf{Verfügbarkeit} können \acp{nfa} des Anwendungsfalls festgehalten werden. Zuletzt, im Feld \textbf{Kommentare/Fragen}, können Anmerkungen und Probleme aufgenommen werden, falls diese existieren. Es gilt diese bis zur Fertigstellung des Systems zu eliminieren, so dass dieses Feld leer bleiben kann. Es handelt sich folglich um ein temporäres Hilsmittel.\\
+Sowohl der \textbf{Name} als auch der \textbf{Akteur} wird dabei aus dem Anwendungsfalldiagramm aus \autoref{fig:my-img3} übernommen. Es sind am Ende alle Akteure aus dem Anwendungsfalldiagramm tabellarisch aufgenommen. Das Feld \textbf{auslösendes Ereignis} beschreibt den Initiator des Anwendungsfalls. Der nächste Eintrag, die \textbf{Kurzbeschreibung} ist eine in zwei bis vier Sätzen dokumentierte wörtliche Beschreibung des Prozesses und dient zur Darstellung seines Kerns. Das Feld \textbf{Vorbedingungen} enthält zusammengefasst alle Voraussetzungen, die für die Ausführung des Anwendungsfalls nötig sind. Der nächste Eintrag stellt den wichtigsten Schritt in der Dokumentation des Anwendungsfalls dar. Dieser wird unterteilt in zwei weitere Felder, die im direkten Bezug zueinander stehen. Es werden Auf der einen Seite Ereignisse aufgenommen, die während der Standardausführung des Prozesses auftreten \bzw. auftreten können und auf der anderen Seite die Reaktionen des Systems auf diese Ereignisse. Das Feld \textbf{Ausnahmefälle} betrachtet alle Fehler und Ausnahmesituationen, die Abweichend von der Standardausführung auftreten können. Die \textbf{Nachbedingungen} sind analog zu den Vorbedingungen zu dokumentieren und beschreiben den Endzustand des Prozesses nach einer Standardausführung. In den Punkten \textbf{Zeitverhalten} und \textbf{Verfügbarkeit} können \acp{nfa} des Anwendungsfalls festgehalten werden. Zuletzt, im Feld \textbf{Kommentare/Fragen}, können Anmerkungen und Probleme aufgenommen werden, falls diese existieren. Es gilt diese bis zur Fertigstellung des Systems zu eliminieren, so dass dieses Feld leer bleiben kann. Es handelt sich folglich um ein temporäres Hilsmittel.\\
 Es bietet sich im Normallfall an zwei Abstraktionsebenen in der Darstellung der Systemprozesse zu nutzen. Dazu gehört eine detaillierte Dokumentation für die Prozessentwickler und ein abstrahierter Überblick für Manager und weniger stark involvierte Personen. Auf dieses Überblick wird jedoch an dieser Stelle verzichtet, da alle für das System relevanten Personen und Stakeholder ausreichend mit der Positioniereinheit und der Umsetzung eines solchen Systems vertraut sind. Im Anhang kann jedoch trotzdem zu jedem Akteur auch ein Überblick gefunden werden.\\
 Es folgen nun die tabellarischen Darstellungen zu den Anwendungsfällen nach beschriebenem Muster.\\
 
@@ -30,27 +30,109 @@ Es folgen nun die tabellarischen Darstellungen zu den Anwendungsfällen nach bes
     \hline
     \textbf{Name}                   &   \multicolumn{2}{| l |}{Objeckt transportieren}                                      \\ \hline
     \textbf{Akteur}                 &   \multicolumn{2}{| l |}{Aufnahmeposition}                                            \\ \hline
-    \textbf{Auslösendes Ereignis}   &   \multicolumn{2}{| l |}{Neues Transportobjeckt liegt auf Aufnahmeposition bereit}    \\ \hline
+    \textbf{Auslösendes Ereignis}   &   \multicolumn{2}{| l |}{Ein neues Transportobjeckt liegt auf Aufnahmeposition bereit}    \\ \hline
     \textbf{Kurzbeschreibung}       &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Das Objekt wird mit einem Greifer von der Aufnahmeposition hochgenommen. Anschließend fährt das Positioniersystem eine Hindernissausweichende Trajektorie zur Ablageposition. Dort wird das Objekt wieder losgelassen.}                                                                                                    \\ \hline
-    \textbf{Vorbedingungen}         &   \multicolumn{2}{| l |}{Aufnahmeschale ist mit einem Transportobjekt bestückt}       \\ \hline
-    \multirow{7}{=}{\textbf{Essenzielle Schritte}}  &   \textbf{Intention der Systemumgebung}   &   \textbf{Reaktion des Systems}   \\ \cline{2-3}
+    \textbf{Vorbedingungen}         &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                                    \item der Automatikmodus wurde ausgewählt
+                                                                    \item Aufnahmeschale ist mit Transportobjekt bestückt
+                                                                \end{itemize}}       \\ \hline
+    \multirow{6}{=}{\textbf{Essenzielle Schritte}}  &   \textbf{Intention der Systemumgebung}   &   \textbf{Reaktion des Systems}   \\ \cline{2-3}
                                                     &   Anlagennutzer will das System einschalten   &   Systemkomponenten werden mit Spannung versorgt und sind betriebsbereit  \\ \cline{2-3}
                                                     &   Anlagennutzer will, dass die Positioniereinheit vollautomatisch Transportgüter von der Aufnahmeposition zur Ablageposition befördert    &   Laboranlage beginnt Objekte von der Aufnahmeposition zu greifen und zu transportieren   \\ \cline{2-3}
-                                                    &   Anlagennutzer will händisch Prozessschritte triggern um Positionieraufgaben durchzuführen   &   Das Positioniersystem erwartet Tastereingaben, die zu Achsbewegungen (Joggen von Achsen) führen \\ \cline{2-3}
                                                     &   Anlagennutzer will das System auf Grund einer Gefahrensituation anhalten    &   Die Laboranlage bremst bis zum Stillstand ab und erwartet eine Bestätigung, dass die Gefahren- \bzw Fehlersituation beseitigt ist   \\ \cline{2-3}
                                                     &   Anlagennutzer will die Fahrgeschwindigkeit regulieren   &   Die Achsen des Systems bewegen sich entsprechend der analogen Nutzereingabe schneller \bzw langsamer \\ \cline{2-3}
-                                                    &   Anlagennutzer will die Laboranlage stoppen  &   Der aktive Betriebsmodus wird unter dessen Abbruchbedingungen beendet, woraufhin die Anlage stoppt  \\ \hline
+                                                    &   Anlagennutzer will die Laboranlage stoppen  &   Der Automatikbetrieb beendet seinen aktiven Zyklus und wird dann abgewählt, woraufhin die Anlage stoppt  \\ \hline
     \textbf{Ausnahmefälle}          &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
                                             % \item Sicherheitsbedingtes Auslösen der Not-Halt Funktionalität
                                             \item Defektbedingte Abschaltung der Anlage
                                         \end{itemize}}                                                                  \\ \hline
-    \textbf{Nachbedingungen}        &   \multicolumn{2}{| l |}{Anlage ist abgeschaltet}                                     \\ \hline
+    \textbf{Nachbedingungen}        &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Der Automatikmodus ist beendet und die Anlage kann abgeschaltet werden.}                                     \\ \hline
     \textbf{Zeitverhalten}          &   \multicolumn{2}{| l |}{schnell und effizient}                                       \\ \hline
     \textbf{Verfügbarkeit}          &   \multicolumn{2}{| l |}{maximal ein Systemausfall in 10.000h}                        \\ \hline
     \textbf{Kommentare/Fragen}      &   \multicolumn{2}{| l |}{-\xspace -\xspace -}                                         \\ \hline
     
     \caption[Systemprozess - Objekttransport]{Anwendungsfallbeschreibung - Systemprozess: Objekttransport}
     \label{tab:my-table41} 
+\end{longtable}
+
+\begin{longtable}[c]{| p{0.28\linewidth} | p{0.32\linewidth} | p{0.32\linewidth} |}
+    \hline
+    \textbf{Name}                   &   \multicolumn{2}{| l |}{Joggen der zwei Achsen}                                      \\ \hline
+    \textbf{Akteur}                 &   \multicolumn{2}{| l |}{Anlagennutzer}                                            \\ \hline
+    \textbf{Auslösendes Ereignis}   &   \multicolumn{2}{| l |}{Der Vierwegetaster an der Schaltschrankfront wird betätigt}    \\ \hline
+    \textbf{Kurzbeschreibung}       &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Die dem betätigten Taster zugehörige Achse bewegt sich entsprechend der angezeigten Richtung auf diesem Taster.}                                                                                                    \\ \hline
+    \textbf{Vorbedingungen}         &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                                    \item der Handmodus wurde ausgewählt
+                                                                    \item mindestens einer der vier Richtungstaster auf dem Vierwegetaster wird gedrückt
+                                                                \end{itemize}}       \\ \hline
+    \multirow{6}{=}{\textbf{Essenzielle Schritte}}  &   \textbf{Intention der Systemumgebung}   &   \textbf{Reaktion des Systems}   \\ \cline{2-3}
+                                                    &   Anlagennutzer will das System einschalten   &   Systemkomponenten werden mit Spannung versorgt und sind betriebsbereit  \\ \cline{2-3}
+                                                    &   Anlagennutzer will händisch Prozessschritte triggern um Positionieraufgaben durchzuführen   &   Das Positioniersystem erwartet Tastereingaben, die zu Achsbewegungen (Joggen von Achsen) führen \\ \cline{2-3}
+                                                    &   Anlagennutzer will das System auf Grund einer Gefahrensituation anhalten    &   Die Laboranlage bremst bis zum Stillstand ab und erwartet eine Bestätigung, dass die Gefahren- \bzw Fehlersituation beseitigt ist   \\ \cline{2-3}
+                                                    &   Anlagennutzer will die Fahrgeschwindigkeit regulieren   &   Die Achsen des Systems bewegen sich entsprechend der analogen Nutzereingabe schneller \bzw langsamer \\ \cline{2-3}
+                                                    &   Anlagennutzer will die Laboranlage stoppen  &   Die Anlage ist gestoppt und der Handmodus wird abgewählt  \\ \hline
+    \textbf{Ausnahmefälle}          &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                            % \item Sicherheitsbedingtes Auslösen der Not-Halt Funktionalität
+                                            \item Defektbedingte Abschaltung der Anlage
+                                        \end{itemize}}                                                                  \\ \hline
+    \textbf{Nachbedingungen}        &   \multicolumn{2}{| l |}{Anlage ist abgeschaltet}                                     \\ \hline
+    \textbf{Zeitverhalten}          &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Keine Ansprüche an das Zeitverhalten (Handmodus wird nur zu Testzwecken genutzt)}                                       \\ \hline
+    \textbf{Verfügbarkeit}          &   \multicolumn{2}{| l |}{maximal ein Systemausfall in 10.000h}                        \\ \hline
+    \textbf{Kommentare/Fragen}      &   \multicolumn{2}{| l |}{-\xspace -\xspace -}                                         \\ \hline
+    
+    \caption[Systemprozess - Joggen der Achsen]{Anwendungsfallbeschreibung - Systemprozess: Joggen der zwei Achsen}
+    \label{tab:my-table42} 
+\end{longtable}
+
+\begin{longtable}[c]{| p{0.28\linewidth} | p{0.32\linewidth} | p{0.32\linewidth} |}
+    \hline
+    \textbf{Name}                   &   \multicolumn{2}{| l |}{Programmänderungen Vornehmen}                                      \\ \hline
+    \textbf{Akteur}                 &   \multicolumn{2}{| l |}{Laborcomputer}                                            \\ \hline
+    \textbf{Auslösendes Ereignis}   &   \multicolumn{2}{| l |}{System wird mit neuem Programmcode bespielt}    \\ \hline
+    \textbf{Kurzbeschreibung}       &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Über eine Ethernetschnittstelle ist das Positioniersystem mit dem Labornetzwerk verbunden. Von Geräten aus dem selben Netzwerk kann auf das System zugegriffen werden \bzw Änderungen an dessem Programmcode vorgenommen werden.}                                                                                                    \\ \hline
+    \textbf{Vorbedingungen}         &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                                    \item Steuerungskomponenten des Systems sind eingeschalten und im Labornetzwerk findbar
+                                                                    \item Computer des Programmentwicklers befindet sich im selben Netzwerk wie das Positioniersystem
+                                                                \end{itemize}}       \\ \hline
+    \multirow{4}{=}{\textbf{Essenzielle Schritte}}  &   \textbf{Intention der Systemumgebung}   &   \textbf{Reaktion des Systems}   \\ \cline{2-3}
+                                                    &   Anlagennutzer will das System einschalten   &   Systemkomponenten werden mit Spannung versorgt und sind betriebsbereit  \\ \cline{2-3}
+                                                    &   Anlagennutzer will die Steuerung des Systems mit neuem Programmcode bespielen   &   In Maschinencode übersetzter Programmcode wird über die Ethernetschnittstelle zur Steuerung übertragen  \\ \cline{2-3}
+                                                    &   Anlagennutzer das neue Programm aktivieren/ausführen   &   System startet neu und ist betriebsbereit  \\ \cline{2-3}
+    \textbf{Ausnahmefälle}          &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                            \item Labornetzwerk ist ausgefallen oder verhindert die Kommunikation
+                                            \item Defektbedingte Abschaltung der Anlage
+                                        \end{itemize}}                                                                  \\ \hline
+    \textbf{Nachbedingungen}        &   \multicolumn{2}{| l |}{Anlage ist erneut betriebsbereit}                                     \\ \hline
+    \textbf{Zeitverhalten}          &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{-\xspace -\xspace -}                                       \\ \hline
+    \textbf{Verfügbarkeit}          &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Das System sollte jederzeit von jedem Computer im selben Netzwerk erreichbar sein}                        \\ \hline
+    \textbf{Kommentare/Fragen}      &   \multicolumn{2}{| l |}{-\xspace -\xspace -}                                         \\ \hline
+    
+    \caption[Systemprozess - Programmänderungen vornehmen]{Anwendungsfallbeschreibung - Systemprozess: Programmänderungen vornehmen}
+    \label{tab:my-table43} 
+\end{longtable}
+
+\begin{longtable}[c]{| p{0.28\linewidth} | p{0.32\linewidth} | p{0.32\linewidth} |}
+    \hline
+    \textbf{Name}                   &   \multicolumn{2}{| l |}{Prozessdaten bereitstellen}                                      \\ \hline
+    \textbf{Akteur}                 &   \multicolumn{2}{| l |}{OPC UA Server}                                            \\ \hline
+    \textbf{Auslösendes Ereignis}   &   \multicolumn{2}{| l |}{System ist aktiv}    \\ \hline
+    \textbf{Kurzbeschreibung}       &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Die Steuerung des Positioniersystems übernimmt zusätzlich die Aufgabe als OPC UA Server, über welchen per OPC Schnittstelle (ethernetbasiert) Daten aus dem Systemprozess bereitgestellt werden.}                                                                                                    \\ \hline
+    \textbf{Vorbedingungen}         &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Steuerungskomponenten des Systems sind eingeschalten}       \\ \hline
+    \multirow{4}{=}{\textbf{Essenzielle Schritte}}  &   \textbf{Intention der Systemumgebung}   &   \textbf{Reaktion des Systems}   \\ \cline{2-3}
+                                                    &   Anlagennutzer will das System einschalten   &   Systemkomponenten werden mit Spannung versorgt und sind betriebsbereit  \\ \cline{2-3}
+                                                    &   Anlagennutzer will Prozessdaten der Laboranlage erhalten   &   Die Steuerung stellt Daten via OPC UA Schnittstelle bereit (ein OPC Client kann diese entgegenehmen)  \\ \cline{2-3}
+                                                    &   Anlagennutzer will Prozessdaten extern weiterverwenden   &   System kommuniziert mit \zB dem AR Server oder einer Verwaltungsschale, welche als OPC Client Daten entgegennehmen  \\ \cline{2-3}
+    \textbf{Ausnahmefälle}          &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                            \item Labornetzwerk ist ausgefallen oder verhindert die Kommunikation
+                                            \item Defektbedingte Abschaltung der Anlage
+                                        \end{itemize}}                                                                  \\ \hline
+    \textbf{Nachbedingungen}        &   \multicolumn{2}{| l |}{System ist weiterhin aktiv}                                     \\ \hline
+    \textbf{Zeitverhalten}          &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Prozessdaten sollen in echtzeit abgefragt werden können}                                       \\ \hline
+    \textbf{Verfügbarkeit}          &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Prozessdaten sollten zu jeder Zeit abgefragt werden können}                        \\ \hline
+    \textbf{Kommentare/Fragen}      &   \multicolumn{2}{| l |}{-\xspace -\xspace -}                                         \\ \hline
+    
+    \caption[Systemprozess - Prozessdaten bereitstellen]{Anwendungsfallbeschreibung - Systemprozess: Prozessdaten bereitstellen}
+    \label{tab:my-table44} 
 \end{longtable}
 
 \end{document}
