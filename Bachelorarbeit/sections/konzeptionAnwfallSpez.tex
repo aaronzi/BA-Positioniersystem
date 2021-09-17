@@ -28,7 +28,7 @@ Es folgen nun die tabellarischen Darstellungen zu den Anwendungsfällen nach bes
 
 \begin{longtable}[c]{| p{0.28\linewidth} | p{0.32\linewidth} | p{0.32\linewidth} |}
     \hline
-    \textbf{Name}                   &   \multicolumn{2}{| l |}{Objeckt transportieren}                                      \\ \hline
+    \textbf{Name}                   &   \multicolumn{2}{| l |}{Objekt transportieren}                                      \\ \hline
     \textbf{Akteur}                 &   \multicolumn{2}{| l |}{Aufnahmeposition}                                            \\ \hline
     \textbf{Auslösendes Ereignis}   &   \multicolumn{2}{| l |}{Ein neues Transportobjeckt liegt auf Aufnahmeposition bereit}    \\ \hline
     \textbf{Kurzbeschreibung}       &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Das Objekt wird mit einem Greifer von der Aufnahmeposition hochgenommen. Anschließend fährt das Positioniersystem eine Hindernissausweichende Trajektorie zur Ablageposition. Dort wird das Objekt wieder losgelassen.}                                                                                                    \\ \hline
@@ -57,17 +57,20 @@ Es folgen nun die tabellarischen Darstellungen zu den Anwendungsfällen nach bes
 
 \begin{longtable}[c]{| p{0.28\linewidth} | p{0.32\linewidth} | p{0.32\linewidth} |}
     \hline
-    \textbf{Name}                   &   \multicolumn{2}{| l |}{Joggen der zwei Achsen}                                      \\ \hline
+    \textbf{Name}                   &   \multicolumn{2}{| l |}{manuelle Funktionsausführung}                                      \\ \hline
     \textbf{Akteur}                 &   \multicolumn{2}{| l |}{Anlagennutzer}                                            \\ \hline
-    \textbf{Auslösendes Ereignis}   &   \multicolumn{2}{| l |}{Der Vierwegetaster an der Schaltschrankfront wird betätigt}    \\ \hline
-    \textbf{Kurzbeschreibung}       &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Die dem betätigten Taster zugehörige Achse bewegt sich entsprechend der angezeigten Richtung auf diesem Taster.}                                                                                                    \\ \hline
+    \textbf{Auslösendes Ereignis}   &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Der Vierwegetaster oder die Greifertaster an der Schaltschrankfront werden betätigt}    \\ \hline
+    \textbf{Kurzbeschreibung}       &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{Die dem betätigten Taster zugehörige Achse bewegt sich entsprechend der angezeigten Richtung auf diesem Taster. Wird einer der dem Greider zugehörigen Taster gedrückt, Schwenkt der Greeifarm um \bzw der Greifer öffnet/schließt}                                                                                                    \\ \hline
     \textbf{Vorbedingungen}         &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
                                                                     \item der Handmodus wurde ausgewählt
-                                                                    \item mindestens einer der vier Richtungstaster auf dem Vierwegetaster wird gedrückt
+                                                                    \item mindestens einer der vier Richtungstaster auf dem Vierwegetaster wird gedrückt oder einer der beiden dem Greifer zugehörigen Taster
                                                                 \end{itemize}}       \\ \hline
-    \multirow{6}{=}{\textbf{Essenzielle Schritte}}  &   \textbf{Intention der Systemumgebung}   &   \textbf{Reaktion des Systems}   \\ \cline{2-3}
+    \multirow{9}{=}{\textbf{Essenzielle Schritte}}  &   \textbf{Intention der Systemumgebung}   &   \textbf{Reaktion des Systems}   \\ \cline{2-3}
                                                     &   Anlagennutzer will das System einschalten   &   Systemkomponenten werden mit Spannung versorgt und sind betriebsbereit  \\ \cline{2-3}
-                                                    &   Anlagennutzer will händisch Prozessschritte triggern um Positionieraufgaben durchzuführen   &   Das Positioniersystem erwartet Tastereingaben, die zu Achsbewegungen (Joggen von Achsen) führen \\ \cline{2-3}
+                                                    &   Anlagennutzer will auf der horizontalen Achse positionieren   &   Das Positioniersystem erwartet Tastereingabe, die zum Joggen der X-Achse führt \\ \cline{2-3}
+                                                    &   Anlagennutzer will auf der vertikalen Achse positionieren   &   Das Positioniersystem erwartet Tastereingabe, die zum Joggen der Z-Achse führt \\ \cline{2-3}
+                                                    &   Anlagennutzer will den Greifarm umschwenken   &   Das Positioniersystem erwartet Tastereingabe, die zum Schwenken des Greifarms führt \\ \cline{2-3}
+                                                    &   Anlagennutzer will ein Objekt greifen loslassen  &   Das Positioniersystem erwartet Tastereingabe, die zum Öffen \bzw Schließen des Greifers führt \\ \cline{2-3}
                                                     &   Anlagennutzer will das System auf Grund einer Gefahrensituation anhalten    &   Die Laboranlage bremst bis zum Stillstand ab und erwartet eine Bestätigung, dass die Gefahren- \bzw Fehlersituation beseitigt ist   \\ \cline{2-3}
                                                     &   Anlagennutzer will die Fahrgeschwindigkeit regulieren   &   Die Achsen des Systems bewegen sich entsprechend der analogen Nutzereingabe schneller \bzw langsamer \\ \cline{2-3}
                                                     &   Anlagennutzer will die Laboranlage stoppen  &   Die Anlage ist gestoppt und der Handmodus wird abgewählt  \\ \hline
@@ -80,7 +83,7 @@ Es folgen nun die tabellarischen Darstellungen zu den Anwendungsfällen nach bes
     \textbf{Verfügbarkeit}          &   \multicolumn{2}{| l |}{maximal ein Systemausfall in 10.000h}                        \\ \hline
     \textbf{Kommentare/Fragen}      &   \multicolumn{2}{| l |}{-\xspace -\xspace -}                                         \\ \hline
     
-    \caption[Systemprozess - Joggen der Achsen]{Anwendungsfallbeschreibung - Systemprozess: Joggen der zwei Achsen}
+    \caption[Systemprozess - manuelle Funktionsausführung]{Anwendungsfallbeschreibung - Systemprozess: manuelle Funktionsausführung}
     \label{tab:my-table42} 
 \end{longtable}
 
@@ -97,7 +100,7 @@ Es folgen nun die tabellarischen Darstellungen zu den Anwendungsfällen nach bes
     \multirow{4}{=}{\textbf{Essenzielle Schritte}}  &   \textbf{Intention der Systemumgebung}   &   \textbf{Reaktion des Systems}   \\ \cline{2-3}
                                                     &   Anlagennutzer will das System einschalten   &   Systemkomponenten werden mit Spannung versorgt und sind betriebsbereit  \\ \cline{2-3}
                                                     &   Anlagennutzer will die Steuerung des Systems mit neuem Programmcode bespielen   &   In Maschinencode übersetzter Programmcode wird über die Ethernetschnittstelle zur Steuerung übertragen  \\ \cline{2-3}
-                                                    &   Anlagennutzer das neue Programm aktivieren/ausführen   &   System startet neu und ist betriebsbereit  \\ \cline{2-3}
+                                                    &   Anlagennutzer das neue Programm aktivieren/ausführen   &   System startet neu und ist betriebsbereit  \\ \hline
     \textbf{Ausnahmefälle}          &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
                                             \item Labornetzwerk ist ausgefallen oder verhindert die Kommunikation
                                             \item Defektbedingte Abschaltung der Anlage
@@ -121,7 +124,7 @@ Es folgen nun die tabellarischen Darstellungen zu den Anwendungsfällen nach bes
     \multirow{4}{=}{\textbf{Essenzielle Schritte}}  &   \textbf{Intention der Systemumgebung}   &   \textbf{Reaktion des Systems}   \\ \cline{2-3}
                                                     &   Anlagennutzer will das System einschalten   &   Systemkomponenten werden mit Spannung versorgt und sind betriebsbereit  \\ \cline{2-3}
                                                     &   Anlagennutzer will Prozessdaten der Laboranlage erhalten   &   Die Steuerung stellt Daten via OPC UA Schnittstelle bereit (ein OPC Client kann diese entgegenehmen)  \\ \cline{2-3}
-                                                    &   Anlagennutzer will Prozessdaten extern weiterverwenden   &   System kommuniziert mit \zB dem AR Server oder einer Verwaltungsschale, welche als OPC Client Daten entgegennehmen  \\ \cline{2-3}
+                                                    &   Anlagennutzer will Prozessdaten extern weiterverwenden   &   System kommuniziert mit \zB dem AR Server oder einer Verwaltungsschale, welche als OPC Client Daten entgegennehmen  \\ \hline
     \textbf{Ausnahmefälle}          &   \multicolumn{2}{|p{\dimexpr0.64\linewidth+4\tabcolsep}|}{\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
                                             \item Labornetzwerk ist ausgefallen oder verhindert die Kommunikation
                                             \item Defektbedingte Abschaltung der Anlage

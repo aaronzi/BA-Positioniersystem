@@ -2,20 +2,24 @@
 \begin{document}
 
 \subsection{Partitionierung}
-Die Partitionierung ist der letzte Schritt der detaillierten Systemanalyse und stellt somit auch das Ende der Analysephase dar. Es schließt sich dennoch ein weiterres letztes Kapitel nachfolgend an, welches die Testspezifikationen, die im laufe der Analysephase entstanden sind, zusammenfassend dokumentiert. \\
+Die Partitionierung ist der letzte Schritt der detaillierten Systemanalyse und stellt somit auch das Ende der Analysephase dar. Es schließt sich dennoch ein weiteres Unterkapitel nachfolgend an, welches die Testspezifikationen, die im laufe der Analysephase entstanden sind, zusammenfassend dokumentiert. \\
 Ziel der Partitionierung ist die Unterteilung des Systems in logische Sinnesabschnitte, um die Komplexität der Darstellung und Entwicklung zu verringern. Logische Sinnesabschnitte meint an dieser stelle jedoch nicht die logische Kontextabgrenzung aus \autoref{kontextana}, sondern ganz im Gegenteil, die physikalische Kontextabgrenzung, wie sie in \autoref{fig:my-img2} als Verteilungsdiagramm dargestellt ist. Das Verteilungsdiagramm dient als Ausgangspunkt für die Partitionierung. Nachfolgend wird die Partitionierung in drei Sinnesabschnitte unterteilt, welche in dieser Arbeit ihren eigenen Unterabschnitt erhalten. \\ % Quelle
 
 \subsubsection{Erster Partitionierungsschritt}
-In der bisherigen Betrachtung wurde das zu entwickelnde System als Black Box dargestellt. Zu erkennen sind bereits die Nachbarsysteme und die Kommunikationspfade zu diesen. \autoref{fig:my-img2} zeigt bereits Stereotypen an den Kommunikationspfaden. Dabei handelt es sich um konkrete Umsetzungen \bzw Realisierungen der Kommunikation. Aus den Realisierungen der Kommunikationspfade werden in der Partitionierung nun Schnittstellenknoten des Systems definiert. Diese sind im Folgenden in \autoref{fig:my-img10} zu erkennen. Im bisherigen Stand der Entwicklung sind nur die Stereotypen der Kommunikationspfade spezifiziert und beschreiben die Schnittstelle zu diesem. 
+In der bisherigen Betrachtung wurde das zu entwickelnde System als Black Box dargestellt. Zu erkennen sind bereits die Nachbarsysteme und die Kommunikationspfade zu diesen. In \autoref{fig:my-img2} sind schon einige Stereotypen an den Kommunikationspfaden zu erkennen. Dabei handelt es sich um konkrete Umsetzungen \bzw Realisierungen der Kommunikation. Aus den Realisierungen der Kommunikationspfade werden in der Partitionierung nun Schnittstellenknoten des Systems definiert. Diese sind im Folgenden in \autoref{fig:my-img10} zu erkennen. Im bisherigen Stand der Entwicklung sind nur die Stereotypen der Kommunikationspfade spezifiziert und beschreiben die Schnittstelle zu diesem. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Images/phys_abgrenzung.pdf}
+    \includegraphics[width=\textwidth]{Images/erster_schritt.pdf}
     \caption[Erster Partitionierungsschritt]{Erster Partitionierungsschritt}
     \label{fig:my-img10}
 \end{figure}
 
-\autoref{fig:my-img10} ergänzt zu den bereits bekannten Stereotypen, welche nun in ihren eigenen Knoten aufgeführt werden, die konkreten Knoten als Komponenten des Systems. Wichtig ist hierbei die jeweiligen Anforderungen aus \autoref{anforderungsana} zu den Knoten zu beachten.
+\autoref{fig:my-img10} ergänzt zu den bereits bekannten Stereotypen, welche nun in ihren eigenen Knoten aufgeführt werden, die konkreten Knoten als Komponenten des Systems. Wichtig ist hierbei die jeweiligen Anforderungen aus \autoref{anforderungsana} zu den Knoten zu beachten.\\
+Die Interaktion des Anlagennutzers mit dem mehrachsigen Positioniersystem erfolgt grundsätzlich über Taster an der SChaltschrankfront der Anlage. Die Menge aller Taster ist im obigen Diagramm zusammengefasst unter dem Begriff Bedienfeld. Auf diesem befinden sich zusätzlich zu den Tastern auch Statusleuchten (Anzeige des ausgewählten Betriebsmodus). Weiterhin ist auch eine Signalampel am äußeren Profil der Laboranlage montiert, wie aus der Beschreibung des Aufbaus der Anlage im \autoref{aufbau} hervorgeht. Sowohl die Leuchten als auch die Ampel fallen nicht unter den Stereotyp Tasten, sondern werden dem allgemeineren Begriff \acf{hmi} zugeordnet. Es handelt sich bei ihnen um anzeigende Elemente. Dementsprechend ist auch der Knotenbegriff Ausgabeeinheit gewählt. \\
+Das Wort \textit{Interface} suggeriert jedoch einen Datenaustausch in zwei Richtungen. Das \ac{hmi} im Sinne einer Eingabeeinheit ist in der Industrie meist ein touchfähiges Display, das sowohl Daten Anzeigen kann, als auch Befehle entgegennehmen. Im Fall des Positioniersystems ist solch ein \ac{hmi} in Form eines Tablets oder Smartphones implementiert, welches vom Anlagennutzer entweder selbst mitgebracht wird oder an der Anlage in einer entsprechenden Halterung befestigt ist.\\
+Der Knoten Ethernetswitch beschreibt die Schnittstelle zu Nachbarsystemen über das Laborinterne Netzwerk. Dieser wird in der Laboranlage verbaut, um externe Computer und \acsp{sps} mit der Steuerung der Positioniereinheit zu verbinden. Ziel ist es eine Schnittstelle zur verfügung zu stellen, über die von den Laborcomputern das Automatisierungsprogramm auf die Steuerung des Systems gespielt werden kann. \\
+Der letzte zu erkennende Knoten, betitelt mit Server auf der \ac{sps}, meint den \ac{opc} UA Server, über welchen Prozessdaten von der Steuerung des Systems (LMC101) bereitgestellt werden. Diese können dann von einem OPC Client, wie \zB dem im Diagramm zu erkennenden \ac{ar} Server entgegengenommen werden, um von diesem anschließend verarbeitet \bzw genutzt zu werden.
 
 \subsubsection{Zweiter Partitionierungsschritt}
 Im zweiten Schritt wird die genaue Realisierung der Knoten und der Aufbau des Systems geklärt. Dazu werden die Systemprozessbeschreibungen aus \autoref{AnwfallSpez} benötigt. Ziel ist es das System unter funktionalen Gesichtspunkten in Komponenten \bzw Einheiten zu zerlegen. Dabei wird noch nicht festgelegt, wie die Realisierung der Einheiten mit konkreter Hardware und Software umgesetzt wird. Es findet lediglich eine Aufteilung in funktionale Komponenten statt, welche wiederum in Form von Knoten Symbolisiert werden. \\
@@ -23,21 +27,21 @@ Im zweiten Schritt wird die genaue Realisierung der Knoten und der Aufbau des Sy
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Images/phys_abgrenzung.pdf}
+    \includegraphics[width=\textwidth]{Images/zweiter_schritt.pdf}
     \caption[Zweiter Partitionierungsschritt]{Zweiter Partitionierungsschritt}
     \label{fig:my-img11}
 \end{figure}
 
-Für diesen Partitionierungsschriit sind die \textit{essenziellen Schritte} und die \textit{Kurzbeschreibung} aus unter anderem \autoref{tab:my-table41} relevant. Für die Erstellung der kompletten Grafik müssen alle Anwendungsfallbeschreibungen berücksichtigt werden. Es fällt auf, dass im Vergleich zu Grundlegenden Anwendungsfallbeschreibung im Anwendungsfalldiagramm (\autoref{fig:my-img3}), die Betriebsmodi nicht mit aufgenommen wurden. Grund dafür ist, dass bei der Partitionierung nur die normale Arbeitsweise im Vordergrund steht. Erst bei der Realisierung der in diesem Unterabschnitt gefundenen funktionalen Knoten werden diese wieder betrachtet, da sie eigenschaften dieser Knoten beschreiben.\\
-% Ergänzen mit Informationen Grafik11 und Tabelle41 ff
+Für diesen Partitionierungsschritt sind die \textit{essenziellen Schritte} und die \textit{Kurzbeschreibung} aus unter anderem \autoref{tab:my-table41} relevant. Für die Erstellung der kompletten Grafik müssen alle Anwendungsfallbeschreibungen berücksichtigt werden. Es fällt auf, dass im Vergleich zu Grundlegenden Anwendungsfallbeschreibung im Anwendungsfalldiagramm (\autoref{fig:my-img3}), die Betriebsmodi nicht mit aufgenommen wurden. Grund dafür ist, dass bei der Partitionierung nur die normale Arbeitsweise im Vordergrund steht. Erst bei der Realisierung der in diesem Unterabschnitt gefundenen funktionalen Knoten werden diese wieder betrachtet, da sie eigenschaften dieser Knoten beschreiben.\\
+Da zwischen der Aufnahme eines Transportobjektes von der Aufnahmeposition und der Ablage selbigen Objektes auf der Ablageposition nur der Aufnahmeprozess über einen Greifer und der Transportprozess des Positioniersystems selbst stehen, ist im Diagramm nur ein neuer Knoten wiederzufinden. Dieser ist mit dem Begriff \textit{Greifer} betitelt, da es sich bei dem Greifer um die Interaktionsschnittstelle zwischen dem System und dem zu transportierenden Objekt handelt.
 
 \subsubsection{Dritter Partitionierungsschritt}
-Im dritten SChritt der Partitionierung findet eine Aufteilung der Komponenten/Einheiten in Software-, Hardware und Anlagenteil statt. Dabei ist die Aufteilung der Einheit unabhängig von der Aktuell betrachteten Einheit. Soweit es möglich ist wird die Unterteilung für jede Komponente \bzw Einheit vorgenommen. Existiert eine der drei Unterteilungen nicht für die betrachtete Einheit, entfällt diese.\\
+Im dritten Schritt der Partitionierung findet eine Aufteilung der Komponenten/Einheiten in Software-, Hardware und Anlagenteil statt. Dabei ist die Aufteilung der Einheit unabhängig von der aktuell betrachteten Einheit. dfas heißt, soweit es möglich ist, wird die Unterteilung für jede Komponente \bzw Einheit vorgenommen. Existiert eine der drei Unterteilungen nicht für die betrachtete Einheit, entfällt diese.\\
 Die \autoref{fig:my-img12} zeigt die prinzipielle Aufteilung der einzelnen Einheiten des Systems.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Images/phys_abgrenzung.pdf}
+    \includegraphics[width=0.8\textwidth]{Images/dritter_schritt.pdf}
     \caption[Dritter Partitionierungsschritt]{Dritter Partitionierungsschritt - Aufteilungsprinzip}
     \label{fig:my-img12}
 \end{figure}
