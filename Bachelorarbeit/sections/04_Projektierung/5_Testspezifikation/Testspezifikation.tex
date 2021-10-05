@@ -1,0 +1,72 @@
+\documentclass[../../../Bachelorarbeit.tex]{subfiles}
+\begin{document}
+
+\subsection{Testspezifikation}
+Dieses letzte Unterkapitel der Konzeptionsphase der Arbeit behandelt die entstehung und den Aufbau der Testspezifikation. Die Testspezifikation ist an sich kein eigener Schritt in der Analysephase, sondern entwickelt sich in über die verschiedenen Schritte der Analyse hinweg.\\
+Testkriterien werden bereits in den Anforderungen aufgestellt und dienen als Abnahmekriterium für diese. Neben den funktionalen und nicht funktionalen Anforderungen, entsteht die Testspezifikation aus sowohl der Anwendungsfallspezifikation, der Verhaltensspezifikation und den Partitionierungsinformationen.\\
+Die Dokumentation der Testinformationen erfolgt in Tabellenform. Die Tabelle unterteilt sich in die Einträge \textbf{Name}, \textbf{Typ}, \textbf{Beschreibung}, \textbf{Kriterium}, \textbf{Spezialfälle} und \textbf{Stakeholder}. Im Feld \textit{Typ} wird der Geltungsbereich des Tests festgehalten. Mögliche Werte sind hier \textit{System}, \textit{Anlage}, \textit{Hardware}, \textit{Software}. Auch das Tabellenfeld \textit{Spezialfälle} bedarf einer gesonderten Erklärung. Es handelt sich um besonders kritische Testfälle eine Anforderung betreffend. Das könnten \zB Testfälle an der Toleranzgrenze sein.\\
+Die Testspezifikation schließt an die Testkriterien aus den bereits erwähnten Unterkapiteln der Analysephase an und hat zum Ziel diese zu konkretisieren und gesammelt darzustellen. Nachfolgend finden sich die essenziellen Testkriterien des mehrachsigen Positioniersystems. Für eine vollständige Auflistung wird auch an dieser Stelle auf den Anhang verwiesen.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Name} & Test der Betriebsmodusauswahl \\ \hline
+        \textbf{Typ} & System \\ \hline
+        \textbf{Beschreibung} & Über die Signalisierung mittels Hardware und Softwarevisualisierungen, sowie der erfolgreichen Nutzung von Betriebsmodi spezifischen Funktionen kann die Bereitstellung der Auswahlmöglichkeit zwischen den beiden Betriebsmodi geprüft werden. \\ \hline
+        \textbf{Kriterium} & Ist ein Betriebsmodus ausgewählt worden, leuchtet die entsprechende Lampe mit der Aufschrift \glqq Hand\grqq{} \bzw \glqq Auto\grqq{} an der Schaltschrankfront auf (Betriebsmodus wird später auch auf einem Display als Text angezeigt). Die Betriebsmodispezifischen Funktionen können im Anschluss genutzt werden. \\ \hline
+        \textbf{Spezialfälle} & Befindet sich die Anlage im Not-Halt, so kann keiner der Betriebsmodi genutzt werden. \\ \hline
+        \textbf{Stakeholder} & Prozessentwickler siehe Stakeholderliste. \\ \hline
+    \end{tabular}
+    \caption[Testkriterium - Betriebsmodus]{Testkriterium - Auswahl des Betriebsmodus}
+    \label{tab:my-table60}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Name} & Test der Positionierfähigkeit(en) \\ \hline
+        \textbf{Typ} & Anlage \\ \hline
+        \textbf{Beschreibung} & Sowohl Programmatisch als auch über Tastereingaben kann verífiziert werden, dass die beiden Achsen der Positioniereinheit bewegungen durchführen können. \\ \hline
+        \textbf{Kriterium} & Der Prozessentwickler kann über das Automatisierungsprogramm Trajektorien den Fahrweg betreffend angeben. Diese sollten bei der Ausführung der Positionieraufgabe sichtbar sein und fehlerfrei durchgeführt werden. Auch die Nutzerinteraktion mit dem Vierwegeschalter führt zu Bewegungen der beiden Achsen. \\ \hline
+        \textbf{Spezialfälle} & Befindet sich die Anlage im Not-Halt, muss diese zunächst freigegeben werden, sodass die Laboranlage wieder nutzbar ist. \\ \hline
+        \textbf{Stakeholder} & Prozessentwickler siehe Stakeholderliste. \\ \hline
+    \end{tabular}
+    \caption[Testkriterium - Positionieren]{Testkriterium - Positionieren der Achsen}
+    \label{tab:my-table61}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Name} & Test der Programmierschnittstelle \\ \hline
+        \textbf{Typ} & Hardware \\ \hline
+        \textbf{Beschreibung} & Durch Prüfung der Verbindung von Laborcomputern zum Systemcontroller soll die Programmierschnittstelle und die Verbindung aus dem Netzwerk zum Controller verifiziert werden. \\ \hline
+        \textbf{Kriterium} & Der LMC400 kann im LogicBuilder über einen PC im selben Netzwerk (\zB ein Laborcomputer) gefunden und ausgewählt werden. Es besteht anschließend die Möglichkeit Programme auf die Steuerung zu transferieren und diese zu testen. \\ \hline
+        \textbf{Spezialfälle} & Zugriff von einem unbekannten Drittrechner. \\ \hline
+        \textbf{Stakeholder} & Lehrpersonal siehe Stakeholderliste. \\ \hline
+    \end{tabular}
+    \caption[Testkriterium - Programmieren]{Testkriterium - Programmierschnittstelle des Systems}
+    \label{tab:my-table62}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+        \hline
+        \textbf{Name} & Test der Prozessdatenbereitstellung \\ \hline
+        \textbf{Typ} & Software \\ \hline
+        \textbf{Beschreibung} & Über einen OPC Client können Prozessdaten von den beiden Controllern des Systems empfangen werden. \\ \hline
+        \textbf{Kriterium} & Über einen Laborcomputer im selben Netzwerk kann eine Verbindung via OPC UA hergestellt werden. Dies wird verifiziert über das Programm \glqq OPC Watch\grqq{}. Dort kann die Adresse des/der OPC UA Server(s) eingegeben und dessen/deren Daten ausgelesen werden. \\ \hline
+        \textbf{Spezialfälle} & Verbindung von OPC UA Clients zur Weitervararbeitung des Datensatzes (\ac{ar} Server, Verwaltungsschale(n)) \\ \hline
+        \textbf{Stakeholder} & Prozessentwickler siehe Stakeholderliste. \\ \hline
+    \end{tabular}
+    \caption[Testkriterium - Prozessdaten]{Testkriterium - Bereitstellung von Prozessdaten via OPC}
+    \label{tab:my-table63}
+\end{table}
+
+Die während der Analyse erstellte Testspezifikation stellt die Grundlage für spätere Tests in der System Integrations- und Testphase dar, welche sich im letzten Kapitel zur Inbetriebnahme des Systems wiederfindet.
+
+\end{document}
