@@ -66,7 +66,7 @@ Zunächst findet eine schrittweise Auflistung zur Umsetzung der Steuerungssoftwa
 
 \begin{itemize}
     \item Anlegen des Projektes
-    \item Zuweisen der Ein- und Ausgänge der Steuerungen und deren Erweiterungsmodule
+    \item Zuweisen der Ein- und Ausgänge der Steuerungen und deren Erweiterungsmodule (\eng Mapping)
     \item Parametrierung und Inbetriebnahme des Servoreglers für die x-Achse
     \item Parametrierung und Inbetriebnahme des Servoreglers für die z-Achse
     \item Parametrierung und Inbetriebnahme des Netzteils
@@ -86,19 +86,231 @@ Für das \textbf{Anlegen des Projektes} wird die Software Machine Expert Logic B
     \item Es erscheinen neue tabellarisch angeordnete Einträge in der Mitte des Fensters (Einträge sind rot eingefärbt)
     \item Unten rechts im offenen Fenster auf \textit{Geräteparameter übernehmen} klicken (Alle vorhandenen Einträge sollten die Farbe zu grün wechseln)
     \item Den \textit{IEC Bezeichner} des Powersupplies ändern zu \textit{PSM\_PowerSupply}
-    \item Den \textit{IEC Bezeichner} des von Drive A und B ändern zu \textit{DRV\_Slave1} \bzw \textit{DRV\_Slave2}
+    \item Den \textit{IEC Bezeichner} des von Drive A und B ändern zu \textit{DRV\_Slave1} \bzw \\ \textit{DRV\_Slave2}
     \item Oben links im offenen Fenster über Kombobox drei neue LXM62DxS hinzufügen
     \item \textit{IEC Bezeichner} des ersten neuen Eintrages auf \textit{DRV\_Master} ändern (Wichtig: Gerät sollte auf virtuell eingestellt sein)
-    \item \textit{IEC Bezeichner} der beiden anderen Einträge ändern zu \textit{DRV\_Slave3} \bzw \textit{DRV\_Slave4} (Wichtig: Geräte sollte auf virtuell eingestellt sein)
+    \item \textit{IEC Bezeichner} der beiden anderen Einträge ändern zu \textit{DRV\_Slave3} \bzw \\ \textit{DRV\_Slave4} (Wichtig: Geräte sollte auf virtuell eingestellt sein)
 \end{enumerate}
 
 % Bild zur Geräteaddressierung hinzufügen
 
-Um die anliegenden Sensor- und Eingabegerätesignale an den SPS Eingängen, sowie die Aktuatoren und Indikatoren an den SPS Ausgängen nutzen zu können, müssen den Hardwareaddressen im Programm Variablen zugewiesen werden (\eng Mapping). Damit alle \acs{ea}-Variablen an einem Ort als auch global im gesamten Programm verfügbar sind, sollte eine Globale Variablenliste angelegt werden, in der alle Variablen eingetragen werden können. Folgendes Bild zeigt die Globale Variablenliste für die Ein- und Ausgänge des mehrachsigen Positioniersystems.\\
+Um die anliegenden Sensor- und Eingabegerätesignale an den SPS Eingängen, sowie die Aktuatoren und Indikatoren an den SPS Ausgängen nutzen zu können, müssen den Hardwareaddressen im Programm Variablen zugewiesen werden (\eng \textbf{Mapping}). Damit alle \acs{ea}-Variablen an einem Ort als auch global im gesamten Programm verfügbar sind, sollte eine Globale Variablenliste angelegt werden, in der alle Variablen eingetragen werden können. Folgendes Bild zeigt die Globale Variablenliste für die Ein- und Ausgänge des mehrachsigen Positioniersystems.\\
 
 %  Bild zur GVL hinzufügen
 
 Nachfolgend wird das Mapping schrittweise für die Ein- und Ausgangsmodule der mit dem LMC verbundenen Modicon TM5 Geräte vorgenommen. Bei den zuzuordnenden Variablen handelt es sich um die im Datenmodell aufgelisteten Variablen. Dieses dient somit als Grundlage für die Zuweisung der Ein- und Ausgänge.
+
+\begin{itemize}
+    % Digitale Eingänge
+    \item Zuweisung der digitalen Eingänge des Modicon \textit{TM5SDI16D} Modul:
+    \begin{enumerate}
+        \item Im Gerätebaum öffnen der Geräteeinstellungen des Moduls unter \textit{Sercos\_Master (Sercos Master)} ->\small \textit{BC\_TM5NS31 (BC\_TM5NS31)} -> \textit{TM5SDI16D (TM5SDI16D)}
+        \item \normalsize Öffnen des Reiters \textit{SERCOS III Module E/A-Abbild}
+        \item \begin{minipage}[t]{\linewidth}
+            \raggedright
+            \adjustbox{valign=t}{%
+                \includegraphics[width=.8\linewidth]{Images/TM5DI.PNG}%
+            }
+            \captionof{figure}{Zuweisung der digitalen Eingänge des \small TM5SDI16D \normalsize Moduls}
+            \label{fig:my-img26}
+        \end{minipage}
+    \end{enumerate}
+    % Digitale Ausgänge
+    \item Zuweisung der digitalen Ausgänge des Modicon \textit{TM5SDO16T} Modul:
+    \begin{enumerate}
+        \item Im Gerätebaum öffnen der Geräteeinstellungen des Moduls unter \textit{Sercos\_Master (Sercos Master)} ->\small \textit{BC\_TM5NS31 (BC\_TM5NS31)} -> \textit{TM5SDO16T (TM5SDO16T)}
+        \item \normalsize Öffnen des Reiters \textit{SERCOS III Module E/A-Abbild}
+        \item \begin{minipage}[t]{\linewidth}
+            \raggedright
+            \adjustbox{valign=t}{%
+                \includegraphics[width=.8\linewidth]{Images/TM5DO.PNG}%
+            }
+            \captionof{figure}{Zuweisung der digitalen Ausgänge des \small TM5SDO16T \normalsize Moduls}
+            \label{fig:my-img27}
+        \end{minipage}
+    \end{enumerate}
+    % Sichere Digitale Eingänge
+    \item Zuweisung der sicheren digitalen Eingänge des Modicon \textit{TM5SDI4DFS} Modul:
+    \begin{enumerate}
+        \item Im Gerätebaum öffnen der Geräteeinstellungen des Moduls unter \textit{Sercos\_Master (Sercos Master)} ->\small \textit{BC\_TM5NS31 (BC\_TM5NS31)} -> \textit{TM5SDI4DFS}
+        \item \normalsize Öffnen des Reiters \textit{TM5 Modul E/A-Abbild}
+        \item \begin{minipage}[t]{\linewidth}
+            \raggedright
+            \adjustbox{valign=t}{%
+                \includegraphics[width=.8\linewidth]{Images/TM5SDI.PNG}%
+            }
+            \captionof{figure}{Zuweisung der sicheren digitalen Eingänge des \small TM5SDI4DFS \normalsize Moduls}
+            \label{fig:my-img28}
+        \end{minipage}
+    \end{enumerate}
+    % Sichere Digitale Ausgänge
+    \item Zuweisung der sicheren digitalen Ausgänge des Modicon \textit{TM5SDO4TFS} Modul:
+    \begin{enumerate}
+        \item Im Gerätebaum öffnen der Geräteeinstellungen des Moduls unter \textit{Sercos\_Master (Sercos Master)} ->\small \textit{BC\_TM5NS31 (BC\_TM5NS31)} -> \textit{TM5SDO4TFS}
+        \item \normalsize Öffnen des Reiters \textit{TM5 Modul E/A-Abbild}
+        \item \begin{minipage}[t]{\linewidth}
+            \raggedright
+            \adjustbox{valign=t}{%
+                \includegraphics[width=.8\linewidth]{Images/TM5SDO.PNG}%
+            }
+            \captionof{figure}{Zuweisung der sicheren digitalen Ausgänge des \small TM5SDO4TFS \normalsize Moduls}
+            \label{fig:my-img29}
+        \end{minipage}
+    \end{enumerate}
+    % Analoge Eingänge
+    \item Zuweisung der analogen Eingänge des Modicon \textit{TM5SAI4L} Modul:
+    \begin{enumerate}
+        \item Im Gerätebaum öffnen der Geräteeinstellungen des Moduls unter \textit{Sercos\_Master (Sercos Master)} ->\small \textit{BC\_TM5NS31 (BC\_TM5NS31)} -> \textit{TM5SAI4L}
+        \item \normalsize Öffnen des Reiters \textit{TM5 Module E/A-Abbild}
+        \item \begin{minipage}[t]{\linewidth}
+            \raggedright
+            \adjustbox{valign=t}{%
+                \includegraphics[width=.8\linewidth]{Images/TM5AI.PNG}%
+            }
+            \captionof{figure}{Zuweisung der analogen Eingänge des \small TM5SAI4L \normalsize Moduls}
+            \label{fig:my-img30}
+        \end{minipage}
+    \end{enumerate}
+    % Analoge Ausgänge
+    \item Zuweisung der analogen Ausgänge des Modicon \textit{TM5SAO4L} Modul:
+    \begin{enumerate}
+        \item Im Gerätebaum öffnen der Geräteeinstellungen des Moduls unter \textit{Sercos\_Master (Sercos Master)} ->\small \textit{BC\_TM5NS31 (BC\_TM5NS31)} -> \textit{TM5SAO4L}
+        \item \normalsize Öffnen des Reiters \textit{TM5 Module E/A-Abbild}
+        \item \begin{minipage}[t]{\linewidth}
+            \raggedright
+            \adjustbox{valign=t}{%
+                \includegraphics[width=.8\linewidth]{Images/TM5AO.PNG}%
+            }
+            \captionof{figure}{Zuweisung der analogen Ausgänge des \small TM5SAO4L \normalsize Moduls}
+            \label{fig:my-img31}
+        \end{minipage}
+    \end{enumerate}
+    % LMC <-> SLC E/A
+    \item Zuweisung der Ein- \bzw Ausgänge der \textit{SLC\_TM5CSLC} Sicherheitssteuerung für den Datenaustausch mit dem \acs{lmc}:
+    \begin{enumerate}
+        \item Im Gerätebaum öffnen der Geräteeinstellungen der Sicherheitssteuerung unter \textit{Sercos\_Master (Sercos Master)} ->\small \textit{SLC\_TM5CSLCx00FS (SLC\_TM5CSLCx00FS)}
+        \item \normalsize Öffnen des Reiters \textit{E/A-Abbild}
+        \item \begin{minipage}[t]{\linewidth}
+            \raggedright
+            \adjustbox{valign=t}{%
+                \includegraphics[width=.8\linewidth]{Images/SLC100.PNG}%
+            }
+            \captionof{figure}{Zuweisung der Variablen für den Datentransfer vom \acs{slc} zum \acs{lmc}}
+            \label{fig:my-img32}
+        \end{minipage}
+        \item \begin{minipage}[t]{\linewidth}
+            \raggedright
+            \adjustbox{valign=t}{%
+                \includegraphics[width=.8\linewidth]{Images/SLC100_2.PNG}%
+            }
+            \captionof{figure}{Zuweisung der Variablen für den Datentransfer vom \acs{lmc} zum \acs{slc}}
+            \label{fig:my-img32}
+        \end{minipage}
+    \end{enumerate}
+\end{itemize}
+
+Für die Nutzung der beiden Achsen des Systems muss die \textbf{Parametrierung und die Inbetriebnahme des Servoreglers} vorgenommen werden. Physisch gesehen handelt es sich zwar um ein Gerät, dass zwei Servoantriebe betreiben kann, in der Konfiguration im Programm werden die x-Achse und die z-Achse jedoch separat in Betrieb genommen. Die Parametrierung und die Inbetriebnahme erfolgt für beide Achsen Analog, da es sich bei beiden um die selben Motoren handelt, die in der selben Konfiguration genutzt werden.\\
+Zunächst müssen einige physikalische Daten der beiden Achsen und deren zugehörigen Hardwarekomponenten in der Geräteparametrierung aufgenommen werden:
+
+\begin{enumerate}
+    \item Im Projektbaum öffnen der Datei \textit{Application} -> \textit{TemplateFullProgrammingFramework} -> \textit{EquipmentModules} -> \textit{SR\_BravoModule (PRG)} -> \textit{Init\_Slave1}
+    \item Bis zum Kommentar \textit{***Manual***} scrollen (Zeile 171)
+    \item \begin{minipage}[t]{\linewidth}
+        \raggedright
+        \adjustbox{valign=t}{%
+            \includegraphics[width=.8\linewidth]{Images/Bewegungsparameter.png}%
+        }
+        \captionof{figure}{Einstellen der Bewegungsparameter für langsame manuelle Testfahrt}
+        \label{fig:my-img33}
+    \end{minipage}
+    \bigskip \\
+    rVel gibt die Geschwindigkeit in \si{mm/s} an, rAcc die Beschleunigung in \si{mm/s^2} und rDec die negative Beschleunigung \si{mm/s^2}.
+    \item Im Projektbaum öffnen der Gerätedatei \textit{Sercos\_Master (Sercos Master)} -> \\ \textit{DRV\_Slave1}
+    \item \begin{minipage}[t]{\linewidth}
+        \raggedright
+        \adjustbox{valign=t}{%
+            \includegraphics[width=.8\linewidth]{Images/Motorparametrierung.png}%
+        }
+        \captionof{figure}{Parametrierung des Motors für die x-Achse}
+        \label{fig:my-img34}
+    \end{minipage}
+    \bigskip \\
+    Der Wert \textit{MotorTemperatureMonitoring} wurde zur Temperaturüberwachung des Servomotors auf \textit{Thermisches Modell} gesetzt.
+    \item \begin{minipage}[t]{\linewidth}
+        \raggedright
+        \adjustbox{valign=t}{%
+            \includegraphics[width=.8\linewidth]{Images/Mechanikparametrierung.png}%
+        }
+        \captionof{figure}{Parametrierung der Machanik für die x-Achse}
+        \label{fig:my-img35}
+    \end{minipage}
+    \bigskip \\
+    Der Wert \textit{Direction} gibt den Drehsinn des Servomotors an. Die Einstellung \textit{rechts / 1} bedeutet, dass bei der Bedienung des Motors über die Steuerungsvisualisierung die Eingabe \textit{Jog+} zu einer Bewegungs der Achse nach links führt. Der Wert \textit{FeederConstant} muss selbst berechnet werden aus dem Motordurchmesser (\si{pi*M60mm}). Der \textit{JLoad} Wert gibt das Lastenträgheitsmoment in \si{kg*cm^2} an. Der einzusetzende Wert kann über die Software \textit{Machine Expert MotionBuilder} bestimmt werden. 
+\end{enumerate}
+
+Die gleichen Schritte müssen für die z-Achse analog zu der obigen Beschreibung durchgeführt werden.\\
+\bigskip
+Für den sicheren Betrieb der Achsen ist es erforderlich im \textit{MotionTemplateFull} Programmänderungen vorzunehmen, damit die Achsen bei den Endlagesensoren des Positioniersystems stoppen und nicht darüber hinaus bewegt werden können. Folgende Schritte sind dazu nötig:
+
+\begin{enumerate}
+    \item Im Projektbaum öffnen der Datei \textit{Application} -> \textit{TemplateFullProgrammingFramework} -> \textit{EquipmentModules} -> \textit{SR\_BravoModule (PRG)} -> \textit{SubModules\_Action}
+    \item Bis zum Abschnitt 3 Scrollen und diesen auskommentieren oder löschen
+    \item Abschnitt 4 (beinhaltet den Funktionsbaustein und Variablenzuweisungen für den \textit{DRV\_Slave2} \bzw die z-Achse) kopieren und wieder einfügen (duplizieren)
+    \item Die Kopie editieren, so dass an jeder Stelle, wo \textit{DRV\_Slave2} aufgeführt ist nun \textit{DRV\_Slave1} steht
+    \item \begin{minipage}[t]{\linewidth}
+        \raggedright
+        \adjustbox{valign=t}{%
+            \includegraphics[width=.8\linewidth]{Images/Endlagesensoren.png}%
+            % Hier muss ein Screenshot mit den richtigen Globalen Variablen eingefügt werden !!!
+        }
+        \captionof{figure}{Einbinden der Endlagesensoren}
+        \label{fig:my-img36}
+    \end{minipage}
+    \bigskip \\
+    Sowohl für den \textit{DRV\_Slave1} als auch den \textit{DRV\_Slave2} die globalen Variablen für die Endlagesensoren an den Stellen \textit{i\_xHwLimitPos} \bzw \textit{i\_xHwLimitNeg} einsetzen.
+\end{enumerate}
+
+Im nächsten Schritt wird die \textbf{Parametrierung und Inbetriebnahme des Netzteils} durchgeführt. Dafür muss zunächst wieder eine Hardwareparametrierung nach folgenden Schritten vorgenommen werden:
+
+\begin{enumerate}
+    \item Im Projektbaum öffnen der Gerätedatei \textit{Sercos\_Master (Sercos Master)} -> \\ \textit{PSM\_PowerSupply}
+    \item \begin{minipage}[t]{\linewidth}
+        \raggedright
+        \adjustbox{valign=t}{%
+            \includegraphics[width=.8\linewidth]{Images/Netzteilparameter.png}%
+        }
+        \captionof{figure}{Konfiguration des Netzteils}
+        \label{fig:my-img37}
+    \end{minipage}
+    \bigskip \\
+    Der \textit{PhaseCheckerMode} muss auf \textit{Dreiphasige Überwachung / 2} eingestellt werden, da das Netzteil dreiphasig angeschlossen und genutzt wird. Der \textit{MainsVoltageMode} wird gesetzt auf \textit{400\si{V} / 2} und der \textit{BrakingResistorMode} wird ebenfalls gesetzt auf \textit{400\si{V} Modus / 1}. Diese Werte ergeben sich ebenfalls aus dem dreiphasigen Anschluss des Netzteils.
+\end{enumerate}
+
+Je nachdem, ob bei der Verdrahtung ein Netzschütz verbaut oder diese weggelassen wurde, müssen nun weitere Programmänderungen am \textit{MotionTemplateFull} vorgenommen werden. An erster Stelle wird erklärt, wie ohne ein Netzschütz vorgegangen werden muss:
+
+\begin{enumerate}
+    \item Im Projektbaum öffnen der Datei \textit{Application} -> \textit{TemplateFullProgrammingFramework} -> \textit{TaskCalls} -> \textit{SR\_MainMachine (PRG)} -> \textit{Input\_Action}
+    \item \begin{minipage}[t]{\linewidth}
+        \raggedright
+        \adjustbox{valign=t}{%
+            \includegraphics[width=\linewidth]{Images/MainsWatch.png}%
+        }
+        \captionof{figure}{Deaktivierung der Netzüberwachung}
+        \label{fig:my-img38}
+    \end{minipage}
+    \bigskip \\
+    Das Netzwerk in Abschnitt 17 muss erweitert werden um einen \textit{OR-Funktionsbaustein}, zu dem die Eingangsvariable \textit{xVirtualSystem} einmal negiert und einmal nicht-negiert zugewiesen wird. Diese Änderung deaktiviert die Netzüberwachung. Grundsätzlich sollte dieser Weg nicht gewählt und ein Netzschütz verbaut werden. 
+\end{enumerate}
+
+Bei der Verwendung eines Netzschützes sollte wie folgt vorgegangen werden:
+
+\begin{enumerate}
+    \item Mappen der Eingangsvariablen am LMC für die Netzschützrückmeldung
+    \item Im Projektbaum öffnen der Datei \textit{Application} -> \textit{TemplateFullProgrammingFramework} -> \textit{TaskCalls} -> \textit{SR\_MainMachine (PRG)} -> \textit{Input\_Action}
+    \item Zuweisen der Globalen Variablen für \textit{G\_xMainsContactorIn} und \textit{G\_xMainsContactorOut}
+\end{enumerate}
+
+im letzten Schritt der Software-Implementation findet die \textbf{Implementation der funktionalen Sicherheit} statt. Dazu wird zunächst der Safety Logic Controller (\acs{slc}) konfiguriert:
 
 
 
