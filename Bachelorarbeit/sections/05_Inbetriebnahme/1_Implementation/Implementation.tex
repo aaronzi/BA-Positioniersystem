@@ -92,11 +92,28 @@ Für das \textbf{Anlegen des Projektes} wird die Software Machine Expert Logic B
     \item \textit{IEC Bezeichner} der beiden anderen Einträge ändern zu \textit{DRV\_Slave3} \bzw \\ \textit{DRV\_Slave4} (Wichtig: Geräte sollte auf virtuell eingestellt sein)
 \end{enumerate}
 
-% Bild zur Geräteaddressierung hinzufügen
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.66\textwidth]{Images/Sercos.png}
+    \caption[Geräteaddressierung]{Geräteaddressierung der SERCOS III Busteilnehmer}
+    \label{fig:my-img24}
+\end{figure}
 
 Um die anliegenden Sensor- und Eingabegerätesignale an den SPS Eingängen, sowie die Aktuatoren und Indikatoren an den SPS Ausgängen nutzen zu können, müssen den Hardwareaddressen im Programm Variablen zugewiesen werden (\eng \textbf{Mapping}). Damit alle \acs{ea}-Variablen an einem Ort als auch global im gesamten Programm verfügbar sind, sollte eine Globale Variablenliste angelegt werden, in der alle Variablen eingetragen werden können. Folgendes Bild zeigt die Globale Variablenliste für die Ein- und Ausgänge des mehrachsigen Positioniersystems.\\
 
-%  Bild zur GVL hinzufügen
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[c]{0.42\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{Images/GVL1.png}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.42\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{Images/GVL2.png}
+    \end{subfigure}
+    \caption[Globale Variablenliste]{Globale Variablenliste der \acs{ea}-Variablen}
+    \label{fig:my-img25}
+\end{figure}
 
 Nachfolgend wird das Mapping schrittweise für die Ein- und Ausgangsmodule der mit dem LMC verbundenen Modicon TM5 Geräte vorgenommen. Bei den zuzuordnenden Variablen handelt es sich um die im Datenmodell aufgelisteten Variablen. Dieses dient somit als Grundlage für die Zuweisung der Ein- und Ausgänge.
 
@@ -204,7 +221,7 @@ Nachfolgend wird das Mapping schrittweise für die Ein- und Ausgangsmodule der m
                 \includegraphics[width=.8\linewidth]{Images/SLC100_2.PNG}%
             }
             \captionof{figure}{Zuweisung der Variablen für den Datentransfer vom \acs{lmc} zum \acs{slc}}
-            \label{fig:my-img32}
+            \label{fig:my-img33}
         \end{minipage}
     \end{enumerate}
 \end{itemize}
@@ -221,7 +238,7 @@ Zunächst müssen einige physikalische Daten der beiden Achsen und deren zugehö
             \includegraphics[width=.8\linewidth]{Images/Bewegungsparameter.png}%
         }
         \captionof{figure}{Einstellen der Bewegungsparameter für langsame manuelle Testfahrt}
-        \label{fig:my-img33}
+        \label{fig:my-img34}
     \end{minipage}
     \bigskip \\
     rVel gibt die Geschwindigkeit in \si{mm/s} an, rAcc die Beschleunigung in \si{mm/s^2} und rDec die negative Beschleunigung \si{mm/s^2}.
@@ -232,7 +249,7 @@ Zunächst müssen einige physikalische Daten der beiden Achsen und deren zugehö
             \includegraphics[width=.8\linewidth]{Images/Motorparametrierung.png}%
         }
         \captionof{figure}{Parametrierung des Motors für die x-Achse}
-        \label{fig:my-img34}
+        \label{fig:my-img35}
     \end{minipage}
     \bigskip \\
     Der Wert \textit{MotorTemperatureMonitoring} wurde zur Temperaturüberwachung des Servomotors auf \textit{Thermisches Modell} gesetzt.
@@ -242,7 +259,7 @@ Zunächst müssen einige physikalische Daten der beiden Achsen und deren zugehö
             \includegraphics[width=.8\linewidth]{Images/Mechanikparametrierung.png}%
         }
         \captionof{figure}{Parametrierung der Machanik für die x-Achse}
-        \label{fig:my-img35}
+        \label{fig:my-img36}
     \end{minipage}
     \bigskip \\
     Der Wert \textit{Direction} gibt den Drehsinn des Servomotors an. Die Einstellung \textit{rechts / 1} bedeutet, dass bei der Bedienung des Motors über die Steuerungsvisualisierung die Eingabe \textit{Jog+} zu einer Bewegungs der Achse nach links führt. Der Wert \textit{FeederConstant} muss selbst berechnet werden aus dem Motordurchmesser (\si{pi*M60mm}). Der \textit{JLoad} Wert gibt das Lastenträgheitsmoment in \si{kg*cm^2} an. Der einzusetzende Wert kann über die Software \textit{Machine Expert MotionBuilder} bestimmt werden. 
@@ -264,7 +281,7 @@ Für den sicheren Betrieb der Achsen ist es erforderlich im \textit{MotionTempla
             % Hier muss ein Screenshot mit den richtigen Globalen Variablen eingefügt werden !!!
         }
         \captionof{figure}{Einbinden der Endlagesensoren}
-        \label{fig:my-img36}
+        \label{fig:my-img37}
     \end{minipage}
     \bigskip \\
     Sowohl für den \textit{DRV\_Slave1} als auch den \textit{DRV\_Slave2} die globalen Variablen für die Endlagesensoren an den Stellen \textit{i\_xHwLimitPos} \bzw \textit{i\_xHwLimitNeg} einsetzen.
@@ -280,7 +297,7 @@ Im nächsten Schritt wird die \textbf{Parametrierung und Inbetriebnahme des Netz
             \includegraphics[width=.8\linewidth]{Images/Netzteilparameter.png}%
         }
         \captionof{figure}{Konfiguration des Netzteils}
-        \label{fig:my-img37}
+        \label{fig:my-img38}
     \end{minipage}
     \bigskip \\
     Der \textit{PhaseCheckerMode} muss auf \textit{Dreiphasige Überwachung / 2} eingestellt werden, da das Netzteil dreiphasig angeschlossen und genutzt wird. Der \textit{MainsVoltageMode} wird gesetzt auf \textit{400\si{V} / 2} und der \textit{BrakingResistorMode} wird ebenfalls gesetzt auf \textit{400\si{V} Modus / 1}. Diese Werte ergeben sich ebenfalls aus dem dreiphasigen Anschluss des Netzteils.
@@ -296,7 +313,7 @@ Je nachdem, ob bei der Verdrahtung ein Netzschütz verbaut oder diese weggelasse
             \includegraphics[width=\linewidth]{Images/MainsWatch.png}%
         }
         \captionof{figure}{Deaktivierung der Netzüberwachung}
-        \label{fig:my-img38}
+        \label{fig:my-img39}
     \end{minipage}
     \bigskip \\
     Das Netzwerk in Abschnitt 17 muss erweitert werden um einen \textit{OR-Funktionsbaustein}, zu dem die Eingangsvariable \textit{xVirtualSystem} einmal negiert und einmal nicht-negiert zugewiesen wird. Diese Änderung deaktiviert die Netzüberwachung. Grundsätzlich sollte dieser Weg nicht gewählt und ein Netzschütz verbaut werden. 
@@ -307,11 +324,85 @@ Bei der Verwendung eines Netzschützes sollte wie folgt vorgegangen werden:
 \begin{enumerate}
     \item Mappen der Eingangsvariablen am LMC für die Netzschützrückmeldung
     \item Im Projektbaum öffnen der Datei \textit{Application} -> \textit{TemplateFullProgrammingFramework} -> \textit{TaskCalls} -> \textit{SR\_MainMachine (PRG)} -> \textit{Input\_Action}
-    \item Zuweisen der Globalen Variablen für \textit{G\_xMainsContactorIn} und \textit{G\_xMainsContactorOut}
+    \item Zuweisen der Globalen Variablen für \textit{G\_xMainsContactorIn} und \\ \textit{G\_xMainsContactorOut}
 \end{enumerate}
 
-im letzten Schritt der Software-Implementation findet die \textbf{Implementation der funktionalen Sicherheit} statt. Dazu wird zunächst der Safety Logic Controller (\acs{slc}) konfiguriert:
+Im letzten Schritt der Software-Implementation findet die \textbf{Implementation der funktionalen Sicherheit} statt. Dazu wird zunächst der Safety Logic Controller (\acs{slc}) konfiguriert:
 
+\begin{enumerate}
+    \item Im Projektbaum öffnen der Gerätedatei \textit{Sercos\_Master (Sercos Master)} -> \\ \textit{SLC\_TM5CSLCx00FS (TM5CSLCx00FS)}
+    \item \begin{minipage}[t]{\linewidth}
+        \raggedright
+        \adjustbox{valign=t}{%
+            \includegraphics[width=\linewidth]{Images/SLCParameter.png}%
+        }
+        \captionof{figure}{I/O-Konfiguration des \acs{slc}}
+        \label{fig:my-img40}
+    \end{minipage}
+    \bigskip \\
+    Der Wert \textit{SLC2LMC\_NumberOFBOOLs} muss auf \textit{8 Bool / 1} gesetzt werden, sodass bis zu 8 Bool Werte vom Safety Logic Controller an den \acs{lmc} übertragen werden können. Analog muss der Wert \textit{LMC2SLC\_NumberOfBOOLs} auf \textit{8 Bool / 1} gesetzt werden, dass bis zu 8 Bool Werte vom \acs{LMC} an den \acs{SLC} gesendet werden können.
+    \item Mapping der der neu verfügbaren \acs{ea}-Variablen von \bzw zu dem \acs{slc} (siehe \autoref{fig:my-img32} und \autoref{fig:my-img33})
+\end{enumerate}
 
+Anschließend kann das Programm für die Software-Implementation der funktionalen Sicherheit geschrieben werden. Dazu wird wie folgt vorgegangen:
+
+\begin{enumerate}
+    \item Im Projektbaum REchtsklick auf \textit{Sercos\_Master (Sercos Master)} -> \\ \textit{SLC\_TM5CSLCx00FS (TM5CSLCx00FS)}
+    \item Im sich geöffneten Menü den Punkt \textit{SoSafe} -> \textit{SoSafe Programmable starten} auswählen
+    \item Zunächst muss sowohl ein Passwort für die Entwicklung und die Inbetriebnahme des Sicherheitsprogramms festgelegt werden. Im der Arbeit beigefügten Programm ist das Passwort \text{admin1} für sowohl die Entwicklung als auch die Inbetriebnahme.
+    \item Es müssen im sich nun geöffneten Dialogfenster alle Module (drei Module) per Chechbox ausgewählt werden
+    \item Nun kann mit der Programmierung der Sicherheitsfunktionalitäten begonnen werden in der Funktionsbausteinsprache (FUP) nach IEC 61131-3
+    \item \begin{minipage}[t]{\linewidth}
+        \raggedright
+        \adjustbox{valign=t}{%
+            \includegraphics[width=.7\linewidth]{Images/SoSafe1.PNG}%
+        }
+        \captionof{figure}{Hardwareprüfung der sicheren \acs{ea}-Module}
+        \label{fig:my-img41}
+    \end{minipage}
+    \bigskip \\
+    Die sichere Variable \textit{sHardwareOK} wird auf den Wert \textbf{TRUE} gesetzt, wenn sowohl die beiden \acs{ea}-Module keine Hardwarefehler aufweisen und die Verdrahtung der Eingänge und Ausgänge korrekt ist. Weiterhin wird der Wert über die Variable \textit{Application\_EA\_bHardwareOK} auch an den \acs{lmc} weitergeleitet, um im Hauptprogramm genutzt zu werden (\zB für die Ausgabe über OPC UA).
+    \item \begin{minipage}[t]{\linewidth}
+        \raggedright
+        \adjustbox{valign=t}{%
+            \includegraphics[width=\linewidth]{Images/SoSafe2.PNG}%
+        }
+        \captionof{figure}{Sicherer SF\_Antivalent Funktionbaustein für die Verarbeitung der Not-Halt-Auslösung}
+        \label{fig:my-img42}
+    \end{minipage}
+    \bigskip \\
+    Bei dem sicheren Funktionsbaustein \textit{SF\_Antivalent\_V1\_00\_1} handelt es sich um einen Baustein, der die beiden Antivalenten Eingänge für die Not-Halt-Taster Auslösung verarbeitet. Ist die Variable \textit{Application\_EA\_g\_ixSafe\_IN\_01} \textbf{FALSE} und die Variable \textit{Application\_EA\_g\_ixSafe\_IN\_00} \textbf{TRUE}, so schaltet der Ausgang \textit{S\_AntivalentOut} auf \textbf{TRUE}. Der Wert des Ausgangs wird im nächsten Bild weiterverarbeitet. Für die Weitergabe des Gleichen Wertes an den \acs{lmc} wird der Baustein nicht benötigt und die beiden Eingänge können per \textit{AND\_S}-Baustein verundet werden (unter Berücksichtigung, dass der Eingang \textit{Application\_EA\_g\_ixSafe\_IN\_01} negiert werden muss). Der \textit{Error} Ausgang kann auch verbunden und die Information an den \acs{lmc} weitergegeben werden in der Variable \textit{Application\_EA\_bError\_Out}.
+    \item \begin{minipage}[t]{\linewidth}
+        \raggedright
+        \adjustbox{valign=t}{%
+            \includegraphics[width=\linewidth]{Images/SoSafe3.PNG}%
+        }
+        \captionof{figure}{Verarbeitung des Not-Halt-Signals und der Lichtvorhangssignale}
+        \label{fig:my-img43}
+    \end{minipage}
+    \item Zunächst wird der sichere Funktionsbaustein \textit{SF\_EmergencyStop\_V1\_00\_1} hinzugefügt. In den Eingang \textit{S\_EStopIn} wird das Ausgangssignal des Antivalent-Funktionsbausteins gelegt. Wird der Not-Halt aktiviert, schaltet der Ausgang \\ \textit{S\_EStopOut} des Bausteins auf \textbf{TRUE}. Über den \textit{Reset}-Eingang muss der Baustein wieder Freigegeben werden, so dass der Ausgang wieder auf \textbf{FALSE} umschaltet. Auf den Reset-Eingang wird die Variable \textit{>Safety\_Reset} gelegt, die vom \acs{lmc} an den \acs{slc} weitergeleitet wird. Somit kann durch das Auslösen des Hardware Reset-Tasters am \acs{lmc} der Funktionsbaustein wieder freigegeben \bzw zurückgesetzt werden. Die Eingänge \textit{S\_StartReset} und \textit{S\_AutoReset} sollten auf \textbf{SAFEFALSE} gesetzt werden. Im Bild ist jedoch vorerst zu erkennen, dass die Werte auf \textbf{SAFETRUE} gesetzt sind, da zum Testen des Sicherheitsprogramms ein automatisches zurücksetzen das Drücken des Reset-Tasters hinfällig macht und somit Zeit spart.
+    \item Anschließend werden die beiden sicheren Eingänge \textit{Application\_EA\_g\_ixSafe\_IN\_02} und \textit{Application\_EA\_g\_ixSafe\_IN\_03} verarbeitet. Dabei handelt es sich um den Lichtvorhang (OSSD1 und OSSD2). Die beiden Eingänge müssen jeweils verundet werden mit der Variable \textit{bHardwareOK}. Ist eines der beiden Signale des Lichtvorhangs \textbf{FALSE}, so muss der Ausgang, dessen Signal später mit dem Not-Halt-Signal verodert wird \textbf{TRUE} sein (umgesetzt durch ein \textit{S\_ODER}- und ein \textit{S\_Not}-Baustein).
+    \item Wie bereits im vorherigen Schritt angedeutet wird nun das Ausgangssignal der LichtvorhangSchaltung mit dem Ausgang der Not-Halt-Schlatung verodert. Wichtig ist, dass das Not-Halt-Signal auch mit dem Wert der Variablen \textit{sHardwareOK} verundet wird, um Hardwarefehler auszuschließen.
+    \item Im nächsten Schritt wird das Not-Halt-Signal zu einem nicht-sicheren Bool-Wert umgewandelt, welcher über die Variable \textit{Application\_EA\_bNotHalt} an den \acs{lmc} übergeben wird.
+    \item Der letzte Schritt in der Programmierung des Sicherheitsprogrammes ist das setzen der Ausgänge des \acs{slc}. Wichtig ist zu beachten, dass die Ausgänge mit dem \textit{IverterEnable}-Eingang des Servoreglers (LXM 62D) verbunden sind. Nehmen die Ausgänge den Wert \textbf{FALSE} an, schaltet der Servoregler ab. Das soll dann passieren, wenn der Not-Halt ausgelöst \bzw der Lichtvorhang durchbrochen wurde. Jedoch ist es notwendig, dass die Motoren zunächst angehalten haben, bevor der Regler abgeschaltet wird, da sonst bei zu frühem Abschalten des Reglers der Bremsvorgang nicht fortgesetzt wird und die beiden Achsen des Positioniersystems austrudeln würden. Dies könnte dafür sorgen, dass die Schlitten auf den Achsen über die Endlagen hinausrutschen und Beschädigungen an der ANlage verursachen. Deshalb wird über ein \textit{S\_TON}-Baustein die Abschaltung der Ausgänge um 250\si{ms} verzögert. In \autoref{fig:my-img43} ist zu erkennen, dass zwei weitere nicht-sichere TONs genutzt wurden. Diese sind für das Lösen der Ausgänge nach einem Signalwechsel zuständig. Es handelt sich dabei um eine Sicherheitsmaßnahme, so das Ausgänge nach Wertänderung immer gesteuert wieder freigegeben werden.
+\end{enumerate}
+
+Nachdem nun das Sicherheitsprogramm komplettiert ist, kann die SoSafe Programmable Umgebung wieder verlassen werden. Abschließend muss eine letzte Änderung am \textit{MotionTemplateFull} vorgenommen werden, um den Not-Halt auch auf \acs{lmc}-Seite zu implementieren. Dazu sind folgende Schritte nötig:
+
+\begin{enumerate}
+    \item Im Projektbaum öffnen der Datei \textit{Application} -> \textit{TemplateFullProgrammingFramework} -> \textit{TaskCalls} -> \textit{SR\_HWCopyIO}
+    \item \begin{minipage}[t]{\linewidth}
+        \raggedright
+        \adjustbox{valign=t}{%
+            \includegraphics[width=\linewidth]{Images/NotHaltLMC.png}%
+        }
+        \captionof{figure}{Zuweisung der Not-Halt-Variable im \acs{lmc}}
+        \label{fig:my-img44}
+    \end{minipage}
+    \bigskip \\
+    Der internen Variable \textit{G\_xEmergenxIn} wird die Not-Halt-Ausgangsvariable aus dem \acs{slc} zugewiesen. Nun bekommt auch das \textit{MotionTemplateFull} das reale Not-Halt-Signal zur verfügung gestellt und kann dieses verarbeiten (\zB für den Software Not-Halt-Reset aus der Steuerungsvisualisierung).
+\end{enumerate}
+
+Mit Fertigstellung der Software-Implementation der funktionalen sicherheit ist die Implementierung sämtlicher Modelle aus der Projektierungs- \bzw Modellierungsphase abgeschlossen. Anschließend gilt es die Anforderungen an das System mit Hilfe der Testkriterien zu diesen zu überprüfen, um sicherzustellen, dass die nun implementierten Funktionalitäten die Anforderungen erfüllen.
 
 \end{document}
