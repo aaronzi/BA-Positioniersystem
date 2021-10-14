@@ -2,10 +2,79 @@
 \begin{document}
 
 \subsection{Testspezifikation}
-Dieses letzte Unterkapitel der Konzeptionsphase der Arbeit behandelt die entstehung und den Aufbau der Testspezifikation. Die Testspezifikation ist an sich kein eigener Schritt in der Analysephase, sondern entwickelt sich in über die verschiedenen Schritte der Analyse hinweg.\\
+Dieses Unterkapitel behandelt die entstehung und den Aufbau der Testspezifikation. Die Testspezifikation ist an sich kein eigener Schritt in der Analysephase, sondern entwickelt sich in über die verschiedenen Schritte der Analyse hinweg.\\
 Testkriterien werden bereits in den Anforderungen aufgestellt und dienen als Abnahmekriterium für diese. Neben den funktionalen und nicht funktionalen Anforderungen, entsteht die Testspezifikation aus sowohl der Anwendungsfallspezifikation, der Verhaltensspezifikation und den Partitionierungsinformationen.\\
-Die Dokumentation der Testinformationen erfolgt in Tabellenform. Die Tabelle unterteilt sich in die Einträge \textbf{Name}, \textbf{Typ}, \textbf{Beschreibung}, \textbf{Kriterium}, \textbf{Spezialfälle} und \textbf{Stakeholder}. Im Feld \textit{Typ} wird der Geltungsbereich des Tests festgehalten. Mögliche Werte sind hier \textit{System}, \textit{Anlage}, \textit{Hardware}, \textit{Software}. Auch das Tabellenfeld \textit{Spezialfälle} bedarf einer gesonderten Erklärung. Es handelt sich um besonders kritische Testfälle eine Anforderung betreffend. Das könnten \zB Testfälle an der Toleranzgrenze sein.\\
-Die Testspezifikation schließt an die Testkriterien aus den bereits erwähnten Unterkapiteln der Analysephase an und hat zum Ziel diese zu konkretisieren und gesammelt darzustellen. Nachfolgend finden sich die essenziellen Testkriterien des mehrachsigen Positioniersystems. Für eine vollständige Auflistung wird auch an dieser Stelle auf den Anhang verwiesen.
+Die Dokumentation der Testfälle erfolgt in Tabellenform. Die Tabelle unterteilt sich in die Einträge \textbf{ID}, \textbf{Name}, \textbf{Beschreibung}, \textbf{Vorgehensweise}, \textbf{Erwartungswert} und \textbf{Spezialfälle}. Im Feld \textit{ID} wird wie auch schon bei der Anforderungsanalyse eine Bezeichnung vergeben, über welche der \ac{tf} ohne verwechslung identifiziert und differenziert werden kann. In den Einträgen \textit{Name} und \textit{Beschreibung} wird der Testfall benannt und kurz beschrieben. Im Feld \textit{Vorgehensweise} wird die schrittweise Prüfung des jeweiligen Testfalls beschrieben. Der \textit{Erwartungswert} ist der gewünscht \bzw geforderte Wert nach Durchführung des Tests. Zuletzt werden noch \textit{Spezialfälle} mit in die Tabelle aufgenommen. Es handelt sich um besonders kritische Testfälle eine Anforderung betreffend. Das könnten \zB Testfälle an der Toleranzgrenze sein.\\
+Die Testspezifikation schließt an die Testkriterien aus den bereits erwähnten Unterkapiteln der Analysephase an und hat zum Ziel diese zu konkretisieren und gesammelt darzustellen. Nachfolgend finden sich die Testkriterien des mehrachsigen Positioniersystems.\\ % Für eine vollständige Auflistung wird auch an dieser Stelle auf den Anhang verwiesen.
+Die Durchführung der Testfälle wird im Unterkapitel Testprüfung im Implementationsteil der Arbeit protokolliert. % Verlinkung des Kapitels hinzufügen !!!
+
+% TF Vorhandensein von Systemkomponenten
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
+        \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_01} \\ \hline
+        \textbf{Name}                   & Prüfung der Vollständigkeit \\
+        \textbf{Beschreibung}           & Es soll sichergestellt werden, dass alle in den Anforderungen ermittelten Systemkomponenten verbaut wurden. \\
+        \textbf{Vorgehensweise}         &   {\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item Sichtprüfung Endlagesensoren vorhanden
+                                                \item Sichtprüfung Not-Halt-Taster vorhanden
+                                                \item Sichtprüfung Lichtvorhang vorhanden
+                                                \item Sichtprüfung Signalampel vorhanden
+                                                \item Sichtprüfung Schaltschrank vorhanden
+                                                \item Sichtprüfung Bedienpanel an Schaltschrankfront vollständig vorhanden
+                                                \item Sichtprüfung Schneider Electric \acs{lmc}400c, \acs{lxm} 62P und \acs{lxm} 62D vorhanden
+                                                \item Sichtprüfung Wago PFC200 Steuerung vorhanden
+                                                \item Sichtprüfung sichere und nicht-sichere Modicon TM5 \acs{ea}-Module vorhanden
+                                                \item Sichtprüfung Schneider Electric \acs{slc} vorhanden
+                                                \item Sichtprüfung Plexiglasscheiben vorhanden
+                                                \item Sichtprüfung E-Ketten vorhanden
+                                                \item Sichtprüfung Servomotoren angeschlossen
+                                                \item Sichtprüfung Netzschütz vorhanden
+                                                \item Sichtprüfung Netzdrossel vorhanden
+                                                \item Sichtprüfung Leitungsschutzschalter für 24V- und 400V-Ebene vorhanden
+                                            \end{itemize}} \\
+        \textbf{Erwartungswert}         & Alle in der Auflistung aufgezählten Komponenten wurden eingebaut/verbaut. \\
+        \textbf{Spezialfälle}           & --- \\ \hline
+    \end{tabular}
+    \caption[\acs{tf} - Vollständigkeitsprüfung]{Testfall - Prüfung der Vollständigkeit von Systemkomponenten}
+    \label{tab:my-table60}
+\end{table}
+% TF Vorhandensein von Systemkomponenten
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
+        \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_02} \\ \hline
+        \textbf{Name}                   & Prüfung der Verdrahtung \\
+        \textbf{Beschreibung}           & Es soll sichergestellt werden, dass alle Komponenten (richtig) verdrahtet sind. \\
+        \textbf{Vorgehensweise}         &   {\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item \acs{lmc} fährt nach Einschalten des Systems hoch (Display zeigt IP-Adresse)
+                                                \item Wago PFC200 fährt nach Einschalten des Systems hoch (Front-LEDs leuchten grün)
+                                                \item Status-LED des Netzteils (\acs{lxm} 62P) aktiv
+                                                \item Power-LED des Netzteils (\acs{lxm} 62P) aktiv
+                                                \item Status-LED des Servoreglers (\acs{lxm} 62D) aktiv
+                                                \item Power-LED des \acs{slc} leuchtet grün
+                                                \item LEDs an Modicon-Modulen leuchten auf
+                                                \item Netzschütz Schaltet die 400V-Ebene (ab)
+                                                \item Ready-Relais Ausgang des Netzteils mit Netzschütz verdrahtet
+                                                \item Initiatorklemmen für Endlagesensoren leuchten entsprechend des Schaltzustandes
+                                                \item Initiatorklemmen für den Lichtvorhang leuchten entsprechend des Schaltzustandes
+                                                \item Leitungsschutzschalter schalten die jeweilige Spannungsebende (ab)
+                                                \item Iverter-Enable Eingang des Servoreglers mit Sicherheitsausgängen des \acs{slc} verdrahtet
+                                                \item Netzdrossel in 400V-Ebene verdrahtet
+                                            \end{itemize}} \\
+        \textbf{Erwartungswert}         & Alle in der Auflistung aufgezählten Komponenten wurden eingebaut/verbaut. \\
+        \textbf{Spezialfälle}           & Der Einbau von sowohl des Netzschützes als auch der Netzdrossel sind grundsätzlich fakultativ, es wird jedoch im Handbuch empfohlen beide Komponenten aus Sicht der Verbesserung der funktionalen Sicherheit zu verbauen. \\ \hline
+    \end{tabular}
+    \caption[\acs{tf} - Verdrahtungsprüfung]{Testfall - Prüfung der vollständigen und korrekten Verdrahtung}
+    \label{tab:my-table61}
+\end{table}
+
+
+
+
+
 
 \begin{table}[H]
     \centering
@@ -19,7 +88,7 @@ Die Testspezifikation schließt an die Testkriterien aus den bereits erwähnten 
         \textbf{Stakeholder} & Prozessentwickler siehe Stakeholderliste. \\ \hline
     \end{tabular}
     \caption[Testkriterium - Betriebsmodus]{Testkriterium - Auswahl des Betriebsmodus}
-    \label{tab:my-table60}
+    \label{tab:my-table80}
 \end{table}
 
 \begin{table}[H]
@@ -34,7 +103,7 @@ Die Testspezifikation schließt an die Testkriterien aus den bereits erwähnten 
         \textbf{Stakeholder} & Prozessentwickler siehe Stakeholderliste. \\ \hline
     \end{tabular}
     \caption[Testkriterium - Positionieren]{Testkriterium - Positionieren der Achsen}
-    \label{tab:my-table61}
+    \label{tab:my-table81}
 \end{table}
 
 \begin{table}[H]
@@ -49,7 +118,7 @@ Die Testspezifikation schließt an die Testkriterien aus den bereits erwähnten 
         \textbf{Stakeholder} & Lehrpersonal siehe Stakeholderliste. \\ \hline
     \end{tabular}
     \caption[Testkriterium - Programmieren]{Testkriterium - Programmierschnittstelle des Systems}
-    \label{tab:my-table62}
+    \label{tab:my-table82}
 \end{table}
 
 \begin{table}[H]
@@ -64,7 +133,7 @@ Die Testspezifikation schließt an die Testkriterien aus den bereits erwähnten 
         \textbf{Stakeholder} & Prozessentwickler siehe Stakeholderliste. \\ \hline
     \end{tabular}
     \caption[Testkriterium - Prozessdaten]{Testkriterium - Bereitstellung von Prozessdaten via OPC}
-    \label{tab:my-table63}
+    \label{tab:my-table83}
 \end{table}
 
 Die während der Analyse erstellte Testspezifikation stellt die Grundlage für spätere Tests in der System Integrations- und Testphase dar, welche sich im letzten Kapitel zur Inbetriebnahme des Systems wiederfindet.
