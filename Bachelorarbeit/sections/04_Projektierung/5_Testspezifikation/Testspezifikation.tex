@@ -1,7 +1,7 @@
 \documentclass[../../../Bachelorarbeit.tex]{subfiles}
 \begin{document}
 
-\subsection{Testspezifikation}
+\subsection{Testspezifikation} \label{testspez}
 Dieses Unterkapitel behandelt die entstehung und den Aufbau der Testspezifikation. Die Testspezifikation ist an sich kein eigener Schritt in der Analysephase, sondern entwickelt sich in über die verschiedenen Schritte der Analyse hinweg.\\
 Testkriterien werden bereits in den Anforderungen aufgestellt und dienen als Abnahmekriterium für diese. Neben den funktionalen und nicht funktionalen Anforderungen, entsteht die Testspezifikation aus sowohl der Anwendungsfallspezifikation, der Verhaltensspezifikation und den Partitionierungsinformationen.\\
 Die Dokumentation der Testfälle erfolgt in Tabellenform. Die Tabelle unterteilt sich in die Einträge \textbf{ID}, \textbf{Name}, \textbf{Beschreibung}, \textbf{Vorgehensweise}, \textbf{Erwartungswert} und \textbf{Spezialfälle}. Im Feld \textit{ID} wird wie auch schon bei der Anforderungsanalyse eine Bezeichnung vergeben, über welche der \ac{tf} ohne verwechslung identifiziert und differenziert werden kann. In den Einträgen \textit{Name} und \textit{Beschreibung} wird der Testfall benannt und kurz beschrieben. Im Feld \textit{Vorgehensweise} wird die schrittweise Prüfung des jeweiligen Testfalls beschrieben. Der \textit{Erwartungswert} ist der gewünscht \bzw geforderte Wert nach Durchführung des Tests. Zuletzt werden noch \textit{Spezialfälle} mit in die Tabelle aufgenommen. Es handelt sich um besonders kritische Testfälle eine Anforderung betreffend. Das könnten \zB Testfälle an der Toleranzgrenze sein.\\
@@ -29,7 +29,9 @@ Die Durchführung der Testfälle wird im Unterkapitel Testprüfung im Implementa
                                                 \item Sichtprüfung Schneider Electric \acs{slc} vorhanden
                                                 \item Sichtprüfung Plexiglasscheiben vorhanden
                                                 \item Sichtprüfung E-Ketten vorhanden
-                                                \item Sichtprüfung Servomotoren angeschlossen
+                                                \item Sichtprüfung zwei Achsen vorhanden (eine Vertikale, eine Horizontale)
+                                                \item Sichtprüfung zwei Servomotoren angeschlossen
+                                                \item Sichtprüfung Greifkomponente vorhanden
                                                 \item Sichtprüfung Netzschütz vorhanden
                                                 \item Sichtprüfung Netzdrossel vorhanden
                                                 \item Sichtprüfung Leitungsschutzschalter für 24V- und 400V-Ebene vorhanden
@@ -40,7 +42,7 @@ Die Durchführung der Testfälle wird im Unterkapitel Testprüfung im Implementa
     \caption[\acs{tf} - Vollständigkeitsprüfung]{Testfall - Prüfung der Vollständigkeit von Systemkomponenten}
     \label{tab:my-table60}
 \end{table}
-% TF Vorhandensein von Systemkomponenten
+% TF Verdrahtungsprüfung
 \begin{table}[H]
     \centering
     \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
@@ -70,72 +72,225 @@ Die Durchführung der Testfälle wird im Unterkapitel Testprüfung im Implementa
     \caption[\acs{tf} - Verdrahtungsprüfung]{Testfall - Prüfung der vollständigen und korrekten Verdrahtung}
     \label{tab:my-table61}
 \end{table}
-
-
-
-
-
-
+% TF Hardwarekonfigurationsprüfung
 \begin{table}[H]
     \centering
-    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
         \hline
-        \textbf{Name} & Test der Betriebsmodusauswahl \\ \hline
-        \textbf{Typ} & System \\ \hline
-        \textbf{Beschreibung} & Über die Signalisierung mittels Hardware und Softwarevisualisierungen, sowie der erfolgreichen Nutzung von Betriebsmodi spezifischen Funktionen kann die Bereitstellung der Auswahlmöglichkeit zwischen den beiden Betriebsmodi geprüft werden. \\ \hline
-        \textbf{Kriterium} & Ist ein Betriebsmodus ausgewählt worden, leuchtet die entsprechende Lampe mit der Aufschrift \glqq Hand\grqq{} \bzw \glqq Auto\grqq{} an der Schaltschrankfront auf (Betriebsmodus wird später auch auf einem Display als Text angezeigt). Die Betriebsmodispezifischen Funktionen können im Anschluss genutzt werden. \\ \hline
-        \textbf{Spezialfälle} & Befindet sich die Anlage im Not-Halt, so kann keiner der Betriebsmodi genutzt werden. \\ \hline
-        \textbf{Stakeholder} & Prozessentwickler siehe Stakeholderliste. \\ \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_03} \\ \hline
+        \textbf{Name}                   & Prüfung der Hardwarekonfiguration \\
+        \textbf{Beschreibung}           & Es soll sichergestellt werden, dass alle Komponenten korrekt konfiguriert und parametriert wurden. \\
+        \textbf{Vorgehensweise}         &   {\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item Reale Steuerung wurde in Steuerungsauswahl selektiert
+                                                \item Jeder SERCOS Busteilnehmer hat eine eigene Topologische Adresse entsprechend der realen Anordnung in der Ringstruktur des Busses
+                                                \item Der SERCOS-Bus befindet sich in Phase 4 (Ringkommunikation) und ermöglicht den Datenaustausch zwischen allen Busteilnehmern
+                                                \item Bewegungsparameter (Geschwindigkeit, Beschleunigung) der beiden Achsen wurden in den Servoreglereinstellungen konfiguriert
+                                                \item Physikalische Parameter der beiden Motoren wurden in den Servoeinstellungen aufgenommen
+                                                \item Netzteil wurde entsprechend der realen Verdrahtung konfiguriert
+                                                \item Diagnosemaske für offene Ausgänge am \acs{lmc} wurde gesetzt
+                                                \item Adressbereiche des \acs{slc} für den Datenaustausch mit dem \acs{lmc} wurden freigegeben
+                                                \item Verdrahtete Ein- und Ausgänge wurden in einer globalen Variablenliste gemappt
+                                                \item Sichere Ein- und Ausgangsmodule wurden entsprechend der zeitlichen Anforderungen parametriert
+                                            \end{itemize}} \\
+        \textbf{Erwartungswert}         & Die aufgelisteten Einstellungen zu den jeweiligen Komponenten wurden entsprechend der Anforderungen und des realen Aufbaus angewendet. \\
+        \textbf{Spezialfälle}           & --- \\ \hline
     \end{tabular}
-    \caption[Testkriterium - Betriebsmodus]{Testkriterium - Auswahl des Betriebsmodus}
+    \caption[\acs{tf} - Hardwarekonfigurationsprüfung]{Testfall - Prüfung der Korrektheit der Hardwarekonfiguration und Parametrierung}
+    \label{tab:my-table62}
+\end{table}
+
+Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrischen Aufbau des mehrachsigen Positioniersystems inklusive der Konfiguration and Parametrierung der einzelnen Steuerungskomponenten (Steuerungshardware), folgen nun konkrete Testfälle zu den einzelnen Funktionalitäten des Systems. Dazu werden erneut die Testkriterien aus den einzelnen Anforderungen der Anforderungsanalyse herangezogen.
+
+% TF Handmodus
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
+        \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_03} \\ \hline
+        \textbf{Name}                   & Prüfung Handmodus \\
+        \textbf{Beschreibung}           & Durch Nutzereingaben ist es möglich den Handmodus des Systems auszuwählen und diesen anschließend zu nutzen. \\
+        \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item Anlage einschalten und vollständig hochfahren lassen
+                                                \item Über Wahlschalter am Schaltschrank oder Button in \acs{gui} Handmodus auswählen
+                                                \item Bestätigung der Auswahl des Handmodus über \textit{START}-Taster (in \acs{gui} oder realer Taster)
+                                                \item Betätigung der schwarzen Richtungsgeber-Taster (oder \textit{Jog+} / \textit{Jog-} in \acs{gui})
+                                                \item Betätigung der weißen Greifer Taster
+                                            \end{enumerate}} \\
+        \textbf{Erwartungswert}         & Zunächst wird der ausgewählte Handmodus über das Aufleuchten der weißen Bedientaster am Schaltschrank signalisiert \bzw durch die grüne Hinterlegung des Modus in der \acs{gui}. Die Bestätigung der Auswahl führt zum Einschalten der LED am \textit{START}-Taster. Das Anschließende Tasten der Richtungsgeber-Taster führt zu sichtbaren Bewegungen der Positioniereinheit. Die Betätigung des oberen weißen Taster schwenk den Greifarm um 180°. Der untere weiße Taster öffnet/schließt den Greifer. \\
+        \textbf{Spezialfälle}           & Sehr kurzes Tasten der Jog-Buttons \bzw der Richtungsgeber-Taster führt nur zu minimalen nicht sichtbaren Bewegungen. \\ \hline
+    \end{tabular}
+    \caption[\acs{tf} - Handmodus]{Testfall - Prüfung der Handmodusfunktionalität}
+    \label{tab:my-table63}
+\end{table}
+% TF Automatikmodus
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
+        \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_04} \\ \hline
+        \textbf{Name}                   & Prüfung Automatikmodus \\
+        \textbf{Beschreibung}           & Nach Auswahl des Automatikmodus findet eine autonome Abarbeitung des vorgegebenen Positionierprogrammes statt. \\
+        \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item Programm mit absoluten Positionierpunkten auf die Steuerung downloaden
+                                                \item Anlage einschalten und vollständig hochfahren lassen
+                                                \item Über Wahlschalter am Schaltschrank oder Button in \acs{gui} Automatikmodus auswählen
+                                                \item Bestätigung der Auswahl des Automatikmodus über \textit{START}-Taster (in \acs{gui} oder realer Taster)
+                                                \item Betätigung des \textit{STOP}-Tasters nach beliebiger Zeit
+                                            \end{enumerate}} \\
+        \textbf{Erwartungswert}         & Die Positioniereinheit fährt selbstständig die definierten Positionen ab, solange bis der \textit{STOP}-Taster gedrückt wird. Das System beendet dann den aktuellen Zyklus und hält am Ausgangspunkt. \\
+        \textbf{Spezialfälle}           & Die Vorgabe von Trajektorien und Greifaufgaben kann in das Programm integriert werden und sollte mit Hilfe von Trace-Diagrammen und simplen Testobjekten überprüft werden. \\ \hline
+    \end{tabular}
+    \caption[\acs{tf} - Automatikmodus]{Testfall - Prüfung des Automatikmodus}
+    \label{tab:my-table64}
+\end{table}
+% TF Geschwindigkeitsregulierung
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
+        \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_05} \\ \hline
+        \textbf{Name}                   & Prüfung Geschwindigkeitsvorgabe \\
+        \textbf{Beschreibung}           & Die Geschwindigkeit der Bewegung auf der x- und z-Achse ändert sich entsprechend der vorgegeben Parameter über die Bedienung. \\
+        \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item System einschalten, Handmodus auswählen und bestätigen
+                                                \item Potentiometer zur jeweiligen Achse auf die niedrigste Einstellung drehen
+                                                \item Beide Achsen getrennt voneinander einmal joggen lassen
+                                                \item Potentiometer zur jeweiligen Achse auf die höchste Einstellung drehen
+                                                \item Beide Achsen erneut joggen
+                                            \end{enumerate}} \\
+        \textbf{Erwartungswert}         & Das erstmalige Joggen der horizontalen und vertikalen Achse führt zu einer sehr langsamen Bewegung. Nach der Einstellung der Fahrgeschwindigkeit über die Potentiometer auf den höchstmöglichen Wert bewegen sich die Achsen merklich um ein vielfaches schneller. \\
+        \textbf{Spezialfälle}           & --- \\ \hline
+    \end{tabular}
+    \caption[\acs{tf} - Geschwindigkeitsvorgabe]{Testfall - Prüfung der Geschwindigkeitsvorgabe}
+    \label{tab:my-table65}
+\end{table}
+% TF Endlagen
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
+        \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_06} \\ \hline
+        \textbf{Name}                   & Prüfung Endlagenfunktion \\
+        \textbf{Beschreibung}           & Erreicht eine der Achsen seine Endlage, wird jegliche weitere Bewegung in diese Richtung verhindert. Befindet sich eine Achse in einer Endlagen nahen Position, bewegt diese sich verlangsamt. \\
+        \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item System einschalten, Handmodus auswählen und bestätigen
+                                                \item Joggen einer ausgewählten Achse (kontinuierliches Drücken des Tasters bis das Ende der jeweiligen Achse erreicht ist.)
+                                                \item Wiederholen für alle vier Endlagen des Positioniersystems
+                                            \end{enumerate}} \\
+        \textbf{Erwartungswert}         & Das erreichen eines Endlagesensors führt zum Bremsen und anschließenden Halten der Bewegung der jeweiligen Achse, die die Endlageposition erreicht hat. Anhand des Traces zu den durchgeführten Fahrten ist das langsamere Bewegen in Endlagennähe zu erkennen. \\
+        \textbf{Spezialfälle}           & --- \\ \hline
+    \end{tabular}
+    \caption[\acs{tf} - Endlagenfunktion]{Testfall - Prüfung der Endlagefunktionalität}
+    \label{tab:my-table66}
+\end{table}
+% TF funktionale Sicherheit
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
+        \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_07} \\ \hline
+        \textbf{Name}                   & Prüfung funktionale Sicherheit \\
+        \textbf{Beschreibung}           & Die Not-Halt funktion durch Tasterbetätigung oder Lichtvorhangauslösung soll zum Halt jeglicher Bewegung führen. Dabei sollen die Zeitanforderungen an die Sicherheitsfunktionen eingehalten werden. \\
+        \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item System einschalten, Handmodus auswählen und bestätigen
+                                                \item Über Potentiometer die maximale Geschwindigkeit der Achsen einstellen
+                                                \item Achsen des Systems kontinuierlich joggen lassen
+                                                \item Auslösung eines Not-Halt-Tasters während sich mindestens eine Achse bewegt (wiederholen für alle Not-Halt-Taster inklusive der Softwareimplementierung)
+                                                \item Auslösen des Lichtvorhangs mit einem Testobjekt während sich meindestens eine Achse bewegt
+                                                \item Messung des Fahrweges nach Auslösung
+                                                \item Messung der Abbremsdauer der Achse(n)
+                                                \item Messung der Auslösezeit des Lichtvorhanges
+                                                \item Messung der Abschaltzeit des Servoreglers
+                                            \end{enumerate}} \\
+        \textbf{Erwartungswert}         & Nach spätestens 50\si{ms} schaltet der ausgelöste Lichtvorhang die zugehörigen Eingänge am \acs{slc}. Die Auslösung eines Not-Halts durch Tasterbetätigung oder Lichtvorhangauslösung führt nach spätestens 200\si{ms} zum vollständigen Abbremsen des Systems und spätestens 250\si{ms} zum Abschalten des Servoreglers. Dabei darf der noch zurückgelegte Fahrweg nach Auslösung nicht mehr als 5cm betragen. \\
+        \textbf{Spezialfälle}           & --- \\ \hline
+    \end{tabular}
+    \caption[\acs{tf} - Funktionale Sicherheit]{Testfall - Prüfung der funktionalen Sicherheit}
+    \label{tab:my-table67}
+\end{table}
+% TF Reset
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
+        \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_08} \\ \hline
+        \textbf{Name}                   & Prüfung Reset-Funktion \\
+        \textbf{Beschreibung}           & Nach einem Not-Halt Ereignis kann die Anlage über den \textit{RESET}-Taster wieder in den Betrieb übergehen. \\
+        \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item System einschalten, Handmodus auswählen und bestätigen
+                                                \item Achsen des Systems joggen lassen
+                                                \item Auslösen eines Not-Halts
+                                                \item Testen der Jog-Funktion
+                                                \item Betätigen des \textit{RESET}-Tasters (gleichzeitig der Start-Taster)
+                                                \item Erneut Achsen des Systems joggen lassen
+                                            \end{enumerate}} \\
+        \textbf{Erwartungswert}         & Nach Auslösung des Not-Halts führt der Jog-Befehl zu keiner Bewegung der Achsen. Erst nach quittierung des Fehlers über den Reset-Taster führt ein erneuter Jog-Befehl wieder zu Achsenbewegungen. \\
+        \textbf{Spezialfälle}           & --- \\ \hline
+    \end{tabular}
+    \caption[\acs{tf} - Reset-Funktion]{Testfall - Prüfung der Reset-Funktion}
+    \label{tab:my-table68}
+\end{table}
+% TF Programmierung
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
+        \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_09} \\ \hline
+        \textbf{Name}                   & Prüfung Programmierschnittstelle \\
+        \textbf{Beschreibung}           & Es gilt die Möglichkeit von jedem Laborrechner aus die Anlage zu programmieren zu überprüfen. \\
+        \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item System einschalten
+                                                \item LogicBuilder Software auf Laborrechner öffnen
+                                                \item Neues Projekt anlegen
+                                                \item Im Reiter Steuerungsauswahl den Systemzugehörigen \acs{lmc} finden
+                                                \item Auslösen der Funktion \glqq Visuelles Signalisieren\grqq{}
+                                                \item Wiederholen von jedem Laborrechner
+                                            \end{enumerate}} \\
+        \textbf{Erwartungswert}         & Jeder Laborrechner kann die Steuerung des Systems finden und über die Funktion \glqq Visuelles Signalisieren\grqq{} die Status-LED des \acs{lmc} zum blinken bringen. \\
+        \textbf{Spezialfälle}           & --- \\ \hline
+    \end{tabular}
+    \caption[\acs{tf} - Programmierschnittstelle]{Testfall - Prüfung der Programmierschnittstelle}
+    \label{tab:my-table69}
+\end{table}
+% TF OPC
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
+        \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_10} \\ \hline
+        \textbf{Name}                   & Prüfung OPC UA Kommunikation \\
+        \textbf{Beschreibung}           & Über einen OPC Client sollen ausgewählte Prozessdaten von dem als OPC Server fungierenden \acs{lmc} empfangen werden. \\
+        \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item System einschalten und hochfahren lassen
+                                                \item Die Software OPC-Watch auf einem Laborcomputer ausführen
+                                                \item OPC Adresse, Nutzername und Passwort des Positioniersystems eingeben
+                                                \item Verbindung zur Laboranlage starten
+                                            \end{enumerate}} \\
+        \textbf{Erwartungswert}         & In der Baumstruktur des OPC-Datensatzen können im Vorgegebenen Unterverzeichnis mit dem Namen der globalen Variablenliste des Steuerungsprogramms alle übertragenen Prozessdaten ausgelesen werden. \\
+        \textbf{Spezialfälle}           & Die Messdaten der Wago Energieklemme stehen über einen separaten OPC Server mit eigener Adresse bereit. Das Vorgehen bleibt jedoch das gleiche. \\ \hline
+    \end{tabular}
+    \caption[\acs{tf} - OPC UA Komminikation]{Testfall - Prüfung der OPC UA Kommunikation}
     \label{tab:my-table80}
 \end{table}
-
+% TF Signalampel
 \begin{table}[H]
     \centering
-    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
+    \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
         \hline
-        \textbf{Name} & Test der Positionierfähigkeit(en) \\ \hline
-        \textbf{Typ} & Anlage \\ \hline
-        \textbf{Beschreibung} & Sowohl Programmatisch als auch über Tastereingaben kann verífiziert werden, dass die beiden Achsen der Positioniereinheit bewegungen durchführen können. \\ \hline
-        \textbf{Kriterium} & Der Prozessentwickler kann über das Automatisierungsprogramm Trajektorien den Fahrweg betreffend angeben. Diese sollten bei der Ausführung der Positionieraufgabe sichtbar sein und fehlerfrei durchgeführt werden. Auch die Nutzerinteraktion mit dem Vierwegeschalter führt zu Bewegungen der beiden Achsen. \\ \hline
-        \textbf{Spezialfälle} & Befindet sich die Anlage im Not-Halt, muss diese zunächst freigegeben werden, sodass die Laboranlage wieder nutzbar ist. \\ \hline
-        \textbf{Stakeholder} & Prozessentwickler siehe Stakeholderliste. \\ \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_11} \\ \hline
+        \textbf{Name}                   & Prüfung Signalampel \\
+        \textbf{Beschreibung}           & Die rot-grüne Signalampel \bzw Signalsäule soll den aktuellen Betriebszustand anzeigen. \\
+        \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+                                                \item System einschalten und hochfahren lassen
+                                                \item Handmodus auswählen und bestätigen
+                                                \item Achse(n) des Systems joggen lassen
+                                                \item Not-Halt auslösen
+                                            \end{enumerate}} \\
+        \textbf{Erwartungswert}         & Ist das System hochgefahren, leuchtet die Ampel ausschließlich grün (Leerlaug -> grünes Dauerleuchten). Bewegt sich mindestens eine Achse blink die Ampel abwechselnd rot-grün (Signalisierung Gefahrensituation). Liegt ein Not-Halt-Ereignis vor, leuchtet die Signalsäule dauerhaft rot. \\
+        \textbf{Spezialfälle}           & --- \\ \hline
     \end{tabular}
-    \caption[Testkriterium - Positionieren]{Testkriterium - Positionieren der Achsen}
+    \caption[\acs{tf} - Signalampel]{Testfall - Prüfung der Signalampel}
     \label{tab:my-table81}
 \end{table}
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
-        \hline
-        \textbf{Name} & Test der Programmierschnittstelle \\ \hline
-        \textbf{Typ} & Hardware \\ \hline
-        \textbf{Beschreibung} & Durch Prüfung der Verbindung von Laborcomputern zum Systemcontroller soll die Programmierschnittstelle und die Verbindung aus dem Netzwerk zum Controller verifiziert werden. \\ \hline
-        \textbf{Kriterium} & Der LMC400 kann im LogicBuilder über einen PC im selben Netzwerk (\zB ein Laborcomputer) gefunden und ausgewählt werden. Es besteht anschließend die Möglichkeit Programme auf die Steuerung zu transferieren und diese zu testen. \\ \hline
-        \textbf{Spezialfälle} & Zugriff von einem unbekannten Drittrechner. \\ \hline
-        \textbf{Stakeholder} & Lehrpersonal siehe Stakeholderliste. \\ \hline
-    \end{tabular}
-    \caption[Testkriterium - Programmieren]{Testkriterium - Programmierschnittstelle des Systems}
-    \label{tab:my-table82}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{| p{0.34\linewidth} | p{0.6\linewidth} |}
-        \hline
-        \textbf{Name} & Test der Prozessdatenbereitstellung \\ \hline
-        \textbf{Typ} & Software \\ \hline
-        \textbf{Beschreibung} & Über einen OPC Client können Prozessdaten von den beiden Controllern des Systems empfangen werden. \\ \hline
-        \textbf{Kriterium} & Über einen Laborcomputer im selben Netzwerk kann eine Verbindung via OPC UA hergestellt werden. Dies wird verifiziert über das Programm \glqq OPC Watch\grqq{}. Dort kann die Adresse des/der OPC UA Server(s) eingegeben und dessen/deren Daten ausgelesen werden. \\ \hline
-        \textbf{Spezialfälle} & Verbindung von OPC UA Clients zur Weitervararbeitung des Datensatzes (\ac{ar} Server, Verwaltungsschale(n)) \\ \hline
-        \textbf{Stakeholder} & Prozessentwickler siehe Stakeholderliste. \\ \hline
-    \end{tabular}
-    \caption[Testkriterium - Prozessdaten]{Testkriterium - Bereitstellung von Prozessdaten via OPC}
-    \label{tab:my-table83}
-\end{table}
-
-Die während der Analyse erstellte Testspezifikation stellt die Grundlage für spätere Tests in der System Integrations- und Testphase dar, welche sich im letzten Kapitel zur Inbetriebnahme des Systems wiederfindet.
 
 \end{document}
