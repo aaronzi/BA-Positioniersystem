@@ -58,10 +58,10 @@ Die Durchführung der Testfälle wird im Unterkapitel Testprüfung im Implementa
                                                 \item Status-LED des Servoreglers (\acs{lxm} 62D) aktiv
                                                 \item Power-LED des \acs{slc} leuchtet grün
                                                 \item LEDs an Modicon-Modulen leuchten auf
-                                                \item Netzschütz Schaltet die 400V-Ebene (ab)
                                                 \item Ready-Relais Ausgang des Netzteils mit Netzschütz verdrahtet
                                                 \item Initiatorklemmen für Endlagesensoren leuchten entsprechend des Schaltzustandes
                                                 \item Initiatorklemmen für den Lichtvorhang leuchten entsprechend des Schaltzustandes
+                                                \item LEDs der Not-Halt Sicherheitseingänge leuchten entsprechend des Schaltzustandes
                                                 \item Leitungsschutzschalter schalten die jeweilige Spannungsebende (ab)
                                                 \item Iverter-Enable Eingang des Servoreglers mit Sicherheitsausgängen des \acs{slc} verdrahtet
                                                 \item Netzdrossel in 400V-Ebene verdrahtet
@@ -106,7 +106,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
     \centering
     \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
         \hline
-        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_03} \\ \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_04} \\ \hline
         \textbf{Name}                   & Prüfung Handmodus \\
         \textbf{Beschreibung}           & Durch Nutzereingaben ist es möglich den Handmodus des Systems auszuwählen und diesen anschließend zu nutzen. \\
         \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
@@ -127,7 +127,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
     \centering
     \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
         \hline
-        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_04} \\ \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_05} \\ \hline
         \textbf{Name}                   & Prüfung Automatikmodus \\
         \textbf{Beschreibung}           & Nach Auswahl des Automatikmodus findet eine autonome Abarbeitung des vorgegebenen Positionierprogrammes statt. \\
         \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
@@ -148,7 +148,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
     \centering
     \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
         \hline
-        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_05} \\ \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_06} \\ \hline
         \textbf{Name}                   & Prüfung Geschwindigkeitsvorgabe \\
         \textbf{Beschreibung}           & Die Geschwindigkeit der Bewegung auf der x- und z-Achse ändert sich entsprechend der vorgegeben Parameter über die Bedienung. \\
         \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
@@ -169,7 +169,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
     \centering
     \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
         \hline
-        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_06} \\ \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_07} \\ \hline
         \textbf{Name}                   & Prüfung Endlagenfunktion \\
         \textbf{Beschreibung}           & Erreicht eine der Achsen seine Endlage, wird jegliche weitere Bewegung in diese Richtung verhindert. Befindet sich eine Achse in einer Endlagen nahen Position, bewegt diese sich verlangsamt. \\
         \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
@@ -188,7 +188,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
     \centering
     \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
         \hline
-        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_07} \\ \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_08} \\ \hline
         \textbf{Name}                   & Prüfung funktionale Sicherheit \\
         \textbf{Beschreibung}           & Die Not-Halt funktion durch Tasterbetätigung oder Lichtvorhangauslösung soll zum Halt jeglicher Bewegung führen. Dabei sollen die Zeitanforderungen an die Sicherheitsfunktionen eingehalten werden. \\
         \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
@@ -213,7 +213,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
     \centering
     \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
         \hline
-        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_08} \\ \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_09} \\ \hline
         \textbf{Name}                   & Prüfung Reset-Funktion \\
         \textbf{Beschreibung}           & Nach einem Not-Halt Ereignis kann die Anlage über den \textit{RESET}-Taster wieder in den Betrieb übergehen. \\
         \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
@@ -235,7 +235,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
     \centering
     \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
         \hline
-        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_09} \\ \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_10} \\ \hline
         \textbf{Name}                   & Prüfung Programmierschnittstelle \\
         \textbf{Beschreibung}           & Es gilt die Möglichkeit von jedem Laborrechner aus die Anlage zu programmieren zu überprüfen. \\
         \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
@@ -257,7 +257,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
     \centering
     \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
         \hline
-        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_10} \\ \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_11} \\ \hline
         \textbf{Name}                   & Prüfung OPC UA Kommunikation \\
         \textbf{Beschreibung}           & Über einen OPC Client sollen ausgewählte Prozessdaten von dem als OPC Server fungierenden \acs{lmc} empfangen werden. \\
         \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
@@ -277,7 +277,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
     \centering
     \begin{tabular}{ p{0.34\linewidth}  p{0.6\linewidth} }
         \hline
-        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_11} \\ \hline
+        \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_12} \\ \hline
         \textbf{Name}                   & Prüfung Signalampel \\
         \textbf{Beschreibung}           & Die rot-grüne Signalampel \bzw Signalsäule soll den aktuellen Betriebszustand anzeigen. \\
         \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
