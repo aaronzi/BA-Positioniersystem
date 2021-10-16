@@ -14,11 +14,11 @@ Die Konstruktion des Zustandsdiagrammes kann in folgende sieben Schritte untergl
     \item Den letzten Schritt der Konstruktion stellt die Anreicherung der Übergänge mit \acp{nfa} dar. Dazu gehört unter anderem auch das Zeitverhalten aus den Anwendungsfallbeschreibungen. 
 \end{itemize}
 
-Die nun Folgenden Grafiken zeigen die Zustandsdiagramme zu den ermittelten Systemprozessen. Die Modellierung dieser folgt der zuvor beschriebenen Methodik. Auf Grund der starken Abweichungen des Systemverhaltens im Automatikmodus und im Handmodus, werden beide Betriebsmodi in getrennten Diagrammen dargestellt, auch wenn der zugrundeliegende Prozess gleich ist. 
+Die nun Folgenden Grafiken zeigen die Zustandsdiagramme zu den ermittelten Systemprozessen. Die Modellierung dieser folgt der zuvor beschriebenen Methodik. Auf Grund der starken Abweichungen des Systemverhaltens im Automatikmodus und im Handmodus, werden beide Betriebsmodi in getrennten Diagrammen dargestellt, auch wenn der zugrundeliegende Prozess gleich ist. Das Zeichen \glqq /\grqq{} vor einem Text zeigt die Ausführung einer Aktion durch die Anlage an. Die Notation \glqq do /\grqq{} beschreibt eine Aktion des Positioniersystems in einem Zustand.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Images/auto_zustand.pdf}
+    \includegraphics[width=0.9\textwidth]{Images/auto_zustand.pdf}
     \caption[Zustandsdiagramm Automatikmodus]{Zustandsdiagramm - Systemprozess: Objekttransport im Automatikmodus}
     \label{fig:my-img4}
 \end{figure}
@@ -32,16 +32,18 @@ Die nun Folgenden Grafiken zeigen die Zustandsdiagramme zu den ermittelten Syste
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{Images/programm_zustand.pdf}
+    \includegraphics[width=0.6\textwidth]{Images/programm_zustand.pdf}
     \caption[Zustandsdiagramm Programmänderungen]{Zustandsdiagramm - Programmänderungen vornehmen}
     \label{fig:my-img6}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Images/prozdata_zustand.pdf}
+    \includegraphics[width=0.9\textwidth]{Images/prozdata_zustand.pdf}
     \caption[Zustandsdiagramm Prozessdaten]{Zustandsdiagramm - Prozessdaten bereitstellen}
     \label{fig:my-img7}
 \end{figure}
+
+\autoref{fig:my-img4} zeigt einen Beispielhaften Programmablauf im Automatikmodus. Wie in der bisherigen Modellierung wird ein Anwendungsfall für den Transport von Objekten zwischen Aufnahme-/Ablageschalen betrachtet. Grundsätzlich geht es beim Automatikmodus um das Absolute Positionieren (über Punkt- oder Trajektorievorgaben), ohne das Nutzereingaben erforderlich sind. Der Handmodus ist im Gegesatz dazu als Testmodus konzipiert, um Anlagefunktionen zu validieren. Voraussetzung dafür sind sowohl die Fähigkeit des Positioniersystems von jedem Laborrechner programmiert zu werden, als auch eine OPC Kommunikation im Labornetzwerk zu ermöglichen.
 
 \end{document}
