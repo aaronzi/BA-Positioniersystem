@@ -79,8 +79,10 @@
 \usepackage{ifthen}
 \usepackage{xstring}
 \usepackage{calc}
-\usepackage{pst-plot,pst-bar} %Balkendiagramme
+\usepackage{pst-plot,pst-bar} % Balkendiagramme
 \usepackage{capt-of}
+\usepackage{incgraph} % Fullscreen Images
+\usepackage{pdfpages} % Include external pdf pages
 
 % Paket für Literaturverzeichnis
 \usepackage[
@@ -127,6 +129,13 @@
 \newcommand{\vA}{v.\,a.\xspace}
 \newcommand{\eng}{engl.\xspace}
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\newcommand{\fakesection}[1]{%
+  \par\refstepcounter{section}% Increase section counter
+  \sectionmark{#1}% Add section mark (header)
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
+  % Add more content here, if needed.
+}
 
 \usepackage[nottoc,numbib]{tocbibind}
 % \usepackage{tocbibind} % damit Verzeichnisse im Inhaltsverzeichnis aufgeführt werden
@@ -197,11 +206,11 @@
 \clearpage
 
 % Aufgabenstellung
-\section*{Aufgabenstellung}
 \addcontentsline{toc}{section}{Aufgabenstellung}
-\color{red}
-Aufgabenstellung aus PDF vom Prüfungsamt übernehmen!!!
-\color{black}
+% \color{red}
+% Aufgabenstellung aus PDF vom Prüfungsamt übernehmen!!!
+% \color{black}
+\includepdf{Images/Aufgabenstellung.pdf}
 \clearpage
 
 % ABBILDUNGSVERZEICHNIS
