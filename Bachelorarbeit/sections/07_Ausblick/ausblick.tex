@@ -2,7 +2,31 @@
 \begin{document}
 
 \section{Ausblick}
-\color{red}
-Ausblick sollte noch hinzugefügt werden. Hier Aufgreifen der Steuerung des Systems per Toucheingaben und Komminikation per OPC. Möglicherweise OpenBasys Projekt erwähnen.
+% \color{red}
+% Ausblick sollte noch hinzugefügt werden. Hier Aufgreifen der Steuerung des Systems per Toucheingaben und Komminikation per OPC. Möglicherweise OpenBasys Projekt erwähnen.
+Mit der Fertigstellung des mehrachsigen Positioniersystems ergibt sich die Möglichkeit der Einbindung des Systems in Nachbarprojekte, sowie die Erweiterung in Folgeprojekten. Dieses letzte Kapitel dient als kurzer Überblick zu möglichen und geplanten Erweiterungen sowie anschließenden Projekten.\\
+Zunächst werden mögliche Erweiterungen Aufgeführt:
+
+\begin{itemize}
+    \item Umsetzung der bereits in dieser Arbeit postulierten Greiffunktionalität über ein anbaubares Greifsystem
+    \item Erweiterung des Systems um Ablage- und Abtransportsysteme (\zB Förderband, Lager)
+    \item Projektionssystem zur Visualisierung von virtuellen Hindernissen
+\end{itemize}
+
+Da es sich nur um mögliche und nicht geplante Erweiterungen handelt, werden diese nicht weiter aufgegriffen.\\
+\bigskip \newline
+Anders als die zuvor erwähnten Erweiterungen sind die folgenden Projekte bereits in der Planung oder der Umsetzung:
+
+\begin{itemize}
+    \item Integration eines Augmented Reality Servers zur Visualisierung von Systemzuständen und Prozessdaten
+    \item Anbindung an ein Verwaltungsschalenmanager, der über die OPC Kommunikation das System verwalten kann (Projekt OpenBasys)
+    \item Steuerung des Systems über dezentral nutzbare Webanwendung (Projekt OPC-Gateway)
+\end{itemize}
+
+Die Einbindung eines \acs{ar} Servers ist bereits in der letzten Entwicklungsphase. Ziel soll es sein Prozessdaten über ein Smartphone oder Tablet auslesen zu können, in dem die Kamera auf Systemkomponenten ausgerichtet wird. So führt \zB die Anvisierung des Motors der x-Achse des Positioniersystems zur Ausgabe der Motortemperatur und der aktuellen Position der Achse auf dem Display des genutzen Endgerätes. Die Sicht auf den Schaltschrank ermöglicht \bspw die Einsicht des Stromlaufplanes oder der Handbücher zu den Steuerungskomponenten.\\
+Ein weiteres parallel umgesetztes Projekt beschäftigt sich mit der Generierung und dem Management von Verwaltungsschalen, welche eine digitale Repräsentanz des Systems darstellen. Ziel soll es sein ganze Fabrikkomplexe über ein Softwaresystem zu Verwalten. Das Positioniersystem wird ein Anwendungsbeispiel dieses Projektes darstellen.\\
+Zuletzt soll auf ein weniger umfangreiches Folgeprojekt eingegangen werden, welches im direkten Anschluss an die Arbeit fertiggestellt werden wird. Es handelt sich um die Umsetzung eines OPC-Gateways, welches sowohl als OPC Client als auch Backend für eine Webanwendung dient. Ziel ist es die Steuerung des Positioniersystems sowohl umfangreicher als auch leichter zu gestalten. Über die OPC Schnittstelle des mehrachsigen Positioniersystems können sowohl Steuerdaten ausgegeben werden als auch wieder entgegengenommen. Dies ermöglicht die komplette Steuerung des Systems in eine externe Anwendung auszulagern. Nach Beendigung des Projektes können alle bisherigen Bedienfunktionen anschaulicher genutzt werden, sowie unter anderem Trajektorievorgaben durch touch-basiertes zeichnen dieser vorgenommen werden. Es wird eine grafische Oberfläche geben, in der alle realen Komponenten digital repräsentiert sind.\\
+\bigskip \newline
+Weiterhin sollten \acs{ki} gesteuerte Optimierungen im Zusammenhang mit der Fahrweg- und Fahrqualitätsoptimierung evaluiert werden. Daraus gewonnene Ergebnisse würden einen erheblichen Mehrwert für verwandte Systeme ergeben und mögliche Handlungsempfehlungen zur Folge haben.
 
 \end{document}
