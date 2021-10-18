@@ -3,7 +3,7 @@
 
 \subsection{Verhaltensspezifikation}
 Dieses Unterkapitel beschäftigt sich mit der Modellierung des Systemverhaltens. Anschließend an die Systemanalyse, ist die nun folgende Modellierung Teil der detaillierten Systemanalyse. Die Verhaltensspezifikation beinhaltet sämtliche Informationen zum Verhalten des gesamten Systems und dessen Systemprozesse. Als Basis dienen die in \autoref{AnwfallSpezPraez} dargestellten Anwendungsfallbeschreibungen. Ziel dieses Abschnittes ist es ein \bzw mehrere Zustandsdiagramme aus den Informationen der Anwendungsfallbeschreibungen zu entwickeln. Auf Grundlage der Tabellen aus dem vorhergegangenen Kapitel entsteht eine Verhaltensbeschreibung der zugrundeliegenden Systemprozesse. Zunächst erfolgt eine methodische erläuterung zur konstruktion eines solchen Zustandsdiagramms. \\
-Die Konstruktion des Zustandsdiagrammes kann in folgende sieben Schritte untergliedert werden:
+Die Konstruktion des Zustandsdiagrammes kann in folgende sieben Schritte untergliedert werden \cite[438]{Goll2011}:
 \begin{itemize}
     \item Zunächst müssen sämtliche Ereignisse \bzw wesentliche Schritte des Prozesses auf Unterbrechbarkeit geprüft werden. Unterbrechbare Elemente werden anschließend als \textbf{Aktivitäten} des Zustandsdiagramms modelliert. Ununterbrechbare Elemente sind als \textbf{Aktionen} des Zustandsdiagramms zu definieren.
     \item \textbf{Aktivitäten} werden in den Zuständen des Diagrammes abgebildet. Dazu wird eine solche Aktivität hinter dem Schlüsselwort \glqq do\grqq{} aufgeschrieben. Es ist hilfreich einen prägnanten Namen zu wählen. (Übergänge, die in den Zustand führen, sind aus dem Ereignis des jeweiligen Anwendungsfalldiagramms zu entnehmen.)

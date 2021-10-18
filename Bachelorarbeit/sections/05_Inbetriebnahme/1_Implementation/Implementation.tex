@@ -16,7 +16,7 @@ Durch die Form und die Ausmaße des Laborraumes ergibt sich eine maximale Höhe 
     \label{fig:my-img20}
 \end{figure}
 
-Im nächsten Schritt der Hardware-Implementation werden die Steuerung (LMC400) das Netzgerät (LXM 62P) und der Servoregler (LXM 62D) an Querverstrebungen der beiden rechten Profile verschraubt. Es gilt die Montageanleitung zu beachten. % Quelle hinzufügen
+Im nächsten Schritt der Hardware-Implementation werden die Steuerung (LMC400) das Netzgerät (LXM 62P) und der Servoregler (LXM 62D) an Querverstrebungen der beiden rechten Profile verschraubt. Es gilt die Montageanleitung zu beachten.
 
 \begin{figure}[H]
     \centering
@@ -327,7 +327,7 @@ Bei der Verwendung eines Netzschützes sollte wie folgt vorgegangen werden:
     \item Zuweisen der Globalen Variablen für \textit{G\_xMainsContactorIn} und \\ \textit{G\_xMainsContactorOut}
 \end{enumerate}
 
-Im letzten Schritt der Software-Implementation findet die \textbf{Implementation der funktionalen Sicherheit} statt. Dazu wird zunächst der Safety Logic Controller (\acs{slc}) konfiguriert:
+Im nächsten Schritt der Software-Implementation findet die \textbf{Implementation der funktionalen Sicherheit} statt. Dazu wird zunächst der Safety Logic Controller (\acs{slc}) konfiguriert:
 
 \begin{enumerate}
     \item Im Projektbaum öffnen der Gerätedatei \textit{Sercos\_Master (Sercos Master)} -> \\ \textit{SLC\_TM5CSLCx00FS (TM5CSLCx00FS)}
@@ -400,7 +400,18 @@ Nachdem nun das Sicherheitsprogramm komplettiert ist, kann die SoSafe Programmab
         \label{fig:my-img44}
     \end{minipage}
     \bigskip \\
-    Der internen Variable \textit{G\_xEmergenxIn} wird die Not-Halt-Ausgangsvariable aus dem \acs{slc} zugewiesen. Nun bekommt auch das \textit{MotionTemplateFull} das reale Not-Halt-Signal zur verfügung gestellt und kann dieses verarbeiten (\zB für den Software Not-Halt-Reset aus der Steuerungsvisualisierung).
+    Der internen Variable \textit{G\_xEmergencyIn} wird die Not-Halt-Ausgangsvariable aus dem \acs{slc} zugewiesen. Nun bekommt auch das \textit{MotionTemplateFull} das reale Not-Halt-Signal zur verfügung gestellt und kann dieses verarbeiten (\zB für den Software Not-Halt-Reset aus der Steuerungsvisualisierung).
+\end{enumerate}
+
+Der letzte Schritt der Software Implementation ist die Einrichtung des \acs{lmc}400c asowie der Wago Wago PFC200 Steuerung für die Nutzung als OPC UA Server. Dabei sind die SChritte für beide Steuerungen identisch. Es unterscheiden sich jediglich die Daten, die über OPC kommuniziert werden können. Der \acs{lmc} soll vor allem Positionsdaten und für die Positionierung relevante Daten bereitstellen können, als auch lesen. Die Wago Steuerung ist verantwortlich für die Messung von Verbrauchswerten des Systems, wie der benmötigte Strom oder die Leistungsaufnahme. Diese Daten werden über den Wago OPC Server bereitgestellt. Für die Implementierung der OPC Funktionalität werden auf beiden Steuerungen folgende Schritte durchgeführt:
+
+\begin{enumerate}
+    \item Es wird eine weitere globale Variablenliste angelegt, die alle Variablen enthält, die per OPC versendet \bzw empfangen werden sollen.
+    \item Im Hauptprogramm werden die globalen Variablen mit den Werten der relevanten Variablen im PRogramm gefüllt.
+    \item Im nächsten Schritt wird eine Symbolkonfiguration angelegt unter beachtung der Auswahl der Checkbox für die OPC Kompatibilität.
+    \item Zunächst wird die Symbolkonfiguration einmal gebaut per Button in der oberen Leiste.
+    \item Anschließend wird die neu erstellte Variablenliste per Haken selektiert.
+    \item Nach erneutem Bauen und der Übertragung an des Programmes ist die OPC Kommunikation betriebsbereit
 \end{enumerate}
 
 Mit Fertigstellung der Software-Implementation der funktionalen sicherheit ist die Implementierung sämtlicher Modelle aus der Projektierungs- \bzw Modellierungsphase abgeschlossen. Anschließend gilt es die Anforderungen an das System mit Hilfe der Testkriterien zu diesen zu überprüfen, um sicherzustellen, dass die nun implementierten Funktionalitäten die Anforderungen erfüllen.
