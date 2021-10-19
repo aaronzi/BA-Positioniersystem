@@ -2,9 +2,9 @@
 \begin{document}
 
 \subsection{Testspezifikation} \label{testspez}
-Dieses Unterkapitel behandelt die entstehung und den Aufbau der Testspezifikation. Die Testspezifikation ist an sich kein eigener Schritt in der Analysephase, sondern entwickelt sich in über die verschiedenen Schritte der Analyse hinweg.\\
+Dieses Unterkapitel behandelt die Entstehung und den Aufbau der Testspezifikation. Die Testspezifikation ist an sich kein eigener Schritt in der Analysephase, sondern entwickelt sich in über die verschiedenen Schritte der Analyse hinweg.\\
 Testkriterien werden bereits in den Anforderungen aufgestellt und dienen als Abnahmekriterium für diese. Neben den funktionalen und nicht funktionalen Anforderungen, entsteht die Testspezifikation aus sowohl der Anwendungsfallspezifikation, der Verhaltensspezifikation und den Partitionierungsinformationen.\\
-Die Dokumentation der Testfälle erfolgt in Tabellenform. Die Tabelle unterteilt sich in die Einträge \textbf{ID}, \textbf{Name}, \textbf{Beschreibung}, \textbf{Vorgehensweise}, \textbf{Erwartungswert} und \textbf{Spezialfälle}. Im Feld \textit{ID} wird wie auch schon bei der Anforderungsanalyse eine Bezeichnung vergeben, über welche der \ac{tf} ohne verwechslung identifiziert und differenziert werden kann. In den Einträgen \textit{Name} und \textit{Beschreibung} wird der Testfall benannt und kurz beschrieben. Im Feld \textit{Vorgehensweise} wird die schrittweise Prüfung des jeweiligen Testfalls beschrieben. Der \textit{Erwartungswert} ist der gewünscht \bzw geforderte Wert nach Durchführung des Tests. Zuletzt werden noch \textit{Spezialfälle} mit in die Tabelle aufgenommen. Es handelt sich um besonders kritische Testfälle eine Anforderung betreffend. Das könnten \zB Testfälle an der Toleranzgrenze sein.\\
+Die Dokumentation der Testfälle erfolgt in Tabellenform. Die Tabelle unterteilt sich in die Einträge \textbf{ID}, \textbf{Name}, \textbf{Beschreibung}, \textbf{Vorgehensweise}, \textbf{Erwartungswert} und \textbf{Spezialfälle}. Im Feld \textit{ID} wird wie auch schon bei der Anforderungsanalyse eine Bezeichnung vergeben, über welche der \ac{tf} ohne Verwechslung identifiziert und differenziert werden kann. In den Einträgen \textit{Name} und \textit{Beschreibung} wird der Testfall benannt und kurz beschrieben. Im Feld \textit{Vorgehensweise} wird die schrittweise Prüfung des jeweiligen Testfalls beschrieben. Der \textit{Erwartungswert} ist der gewünscht \bzw geforderte Wert nach Durchführung des Tests. Zuletzt werden noch \textit{Spezialfälle} mit in die Tabelle aufgenommen. Es handelt sich um besonders kritische Testfälle eine Anforderung betreffend. Das könnten \zB Testfälle an der Toleranzgrenze sein.\\
 Die Testspezifikation schließt an die Testkriterien aus den bereits erwähnten Unterkapiteln der Analysephase an und hat zum Ziel diese zu konkretisieren und gesammelt darzustellen. Nachfolgend finden sich die Testkriterien des mehrachsigen Positioniersystems.\\ % Für eine vollständige Auflistung wird auch an dieser Stelle auf den Anhang verwiesen.
 Die Durchführung der Testfälle wird im \autoref{testpruef} im Implementationsteil der Arbeit protokolliert.
 \clearpage
@@ -35,7 +35,7 @@ Die Durchführung der Testfälle wird im \autoref{testpruef} im Implementationst
                                                 \item Sichtprüfung Greifkomponente vorhanden
                                                 \item Sichtprüfung Netzschütz vorhanden
                                                 \item Sichtprüfung Netzdrossel vorhanden
-                                                \item Sichtprüfung Leitungsschutzschalter für 24V- und 400V-Ebene vorhanden
+                                                \item Sichtprüfung Leitungsschutzschalter für 24 \si{V}- und 400 \si{V}-Ebene vorhanden
                                             \end{itemize}} \\
         \textbf{Erwartungswert}         & Alle in der Auflistung aufgezählten Komponenten wurden eingebaut/verbaut. \\
         \textbf{Spezialfälle}           & --- \\ \hline
@@ -63,9 +63,9 @@ Die Durchführung der Testfälle wird im \autoref{testpruef} im Implementationst
                                                 \item Initiatorklemmen für Endlagesensoren leuchten entsprechend des Schaltzustandes
                                                 \item Initiatorklemmen für den Lichtvorhang leuchten entsprechend des Schaltzustandes
                                                 \item LEDs der Not-Halt Sicherheitseingänge leuchten entsprechend des Schaltzustandes
-                                                \item Leitungsschutzschalter schalten die jeweilige Spannungsebende (ab)
+                                                \item Leitungsschutzschalter schalten die jeweilige Spannungsebene (ab)
                                                 \item Iverter-Enable Eingang des Servoreglers mit Sicherheitsausgängen des \acs{slc} verdrahtet
-                                                \item Netzdrossel in 400V-Ebene verdrahtet
+                                                \item Netzdrossel in 400 \si{V}-Ebene verdrahtet
                                             \end{itemize}} \\
         \textbf{Erwartungswert}         & Alle in der Auflistung aufgezählten Komponenten wurden eingebaut/verbaut. \\
         \textbf{Spezialfälle}           & Der Einbau von sowohl des Netzschützes als auch der Netzdrossel sind grundsätzlich fakultativ, es wird jedoch im Handbuch empfohlen beide Komponenten aus Sicht der Verbesserung der funktionalen Sicherheit zu verbauen. \\ \hline
@@ -83,7 +83,7 @@ Die Durchführung der Testfälle wird im \autoref{testpruef} im Implementationst
         \textbf{Beschreibung}           & Es soll sichergestellt werden, dass alle Komponenten korrekt konfiguriert und parametriert wurden. \\
         \textbf{Vorgehensweise}         &   {\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
                                                 \item Reale Steuerung wurde in Steuerungsauswahl selektiert
-                                                \item Jeder SERCOS Busteilnehmer hat eine eigene Topologische Adresse entsprechend der realen Anordnung in der Ringstruktur des Busses
+                                                \item Jeder SERCOS Busteilnehmer hat eine eigene topologische Adresse entsprechend der realen Anordnung in der Ringstruktur des Busses
                                                 \item Der SERCOS-Bus befindet sich in Phase 4 (Ringkommunikation) und ermöglicht den Datenaustausch zwischen allen Busteilnehmern
                                                 \item Bewegungsparameter (Geschwindigkeit, Beschleunigung) der beiden Achsen wurden in den Servoreglereinstellungen konfiguriert
                                                 \item Physikalische Parameter der beiden Motoren wurden in den Servoeinstellungen aufgenommen
@@ -100,7 +100,7 @@ Die Durchführung der Testfälle wird im \autoref{testpruef} im Implementationst
     \label{tab:my-table62}
 \end{table}
 
-Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrischen Aufbau des mehrachsigen Positioniersystems inklusive der Konfiguration and Parametrierung der einzelnen Steuerungskomponenten (Steuerungshardware), folgen nun konkrete Testfälle zu den einzelnen Funktionalitäten des Systems. Dazu werden erneut die Testkriterien aus den einzelnen Anforderungen der Anforderungsanalyse herangezogen.
+Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrischen Aufbau des mehrachsigen Positioniersystems inklusive der Konfiguration und Parametrierung der einzelnen Steuerungskomponenten (Steuerungshardware), folgen nun konkrete Testfälle zu den einzelnen Funktionalitäten des Systems. Dazu werden erneut die Testkriterien aus den einzelnen Anforderungen der Anforderungsanalyse herangezogen.
 
 % TF Handmodus
 \begin{table}[H]
@@ -115,9 +115,9 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
                                                 \item Über Wahlschalter am Schaltschrank oder Button in \acs{gui} Handmodus auswählen
                                                 \item Bestätigung der Auswahl des Handmodus über \textit{START}-Taster (in \acs{gui} oder realer Taster)
                                                 \item Betätigung der schwarzen Richtungsgeber-Taster (oder \textit{Jog+} / \textit{Jog-} in \acs{gui})
-                                                \item Betätigung der weißen Greifer Taster
+                                                \item Betätigung der weißen Greifer-Taster
                                             \end{enumerate}} \\
-        \textbf{Erwartungswert}         & Zunächst wird der ausgewählte Handmodus über das Aufleuchten der weißen Bedientaster am Schaltschrank signalisiert \bzw durch die grüne Hinterlegung des Modus in der \acs{gui}. Die Bestätigung der Auswahl führt zum Einschalten der LED am \textit{START}-Taster. Das Anschließende Tasten der Richtungsgeber-Taster führt zu sichtbaren Bewegungen der Positioniereinheit. Die Betätigung des oberen weißen Taster schwenk den Greifarm um 180°. Der untere weiße Taster öffnet/schließt den Greifer. \\
+        \textbf{Erwartungswert}         & Zunächst wird der ausgewählte Handmodus über das Aufleuchten der weißen Bedientaster am Schaltschrank signalisiert \bzw durch die grüne Hinterlegung des Modus in der \acs{gui}. Die Bestätigung der Auswahl führt zum Einschalten der LED am \textit{START}-Taster. Das anschließende Tasten der Richtungsgeber-Taster führt zu sichtbaren Bewegungen der Positioniereinheit. Die Betätigung des oberen weißen Taster schwenk den Greifarm um 180°. Der untere weiße Taster öffnet/schließt den Greifer. \\
         \textbf{Spezialfälle}           & Sehr kurzes Tasten der Jog-Buttons \bzw der Richtungsgeber-Taster führt nur zu minimalen nicht sichtbaren Bewegungen. \\ \hline
     \end{tabular}
     \caption[\acs{tf} - Handmodus]{Testfall - Prüfung der Handmodusfunktionalität}
@@ -139,7 +139,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
                                                 \item Betätigung des \textit{STOP}-Tasters nach beliebiger Zeit
                                             \end{enumerate}} \\
         \textbf{Erwartungswert}         & Die Positioniereinheit fährt selbstständig die definierten Positionen ab, solange bis der \textit{STOP}-Taster gedrückt wird. Das System beendet dann den aktuellen Zyklus und hält am Ausgangspunkt. \\
-        \textbf{Spezialfälle}           & Die Vorgabe von Trajektorien und Greifaufgaben kann in das Programm integriert werden und sollte mit Hilfe von Trace-Diagrammen und simplen Testobjekten überprüft werden. \\ \hline
+        \textbf{Spezialfälle}           & Die Vorgabe von Trajektorien und Greifaufgaben kann in das Programm integriert werden und sollte mithilfe von Trace-Diagrammen und simplen Testobjekten überprüft werden. \\ \hline
     \end{tabular}
     \caption[\acs{tf} - Automatikmodus]{Testfall - Prüfung des Automatikmodus}
     \label{tab:my-table64}
@@ -151,15 +151,15 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
         \hline
         \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_06} \\ \hline
         \textbf{Name}                   & Prüfung Geschwindigkeitsvorgabe \\
-        \textbf{Beschreibung}           & Die Geschwindigkeit der Bewegung auf der x- und z-Achse ändert sich entsprechend der vorgegeben Parameter über die Bedienung. \\
+        \textbf{Beschreibung}           & Die Geschwindigkeit der Bewegung auf der x- und z-Achse ändert sich entsprechend der vorgegebenen Parameter über die Bedienung. \\
         \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
                                                 \item System einschalten, Handmodus auswählen und bestätigen
                                                 \item Potentiometer zur jeweiligen Achse auf die niedrigste Einstellung drehen
                                                 \item Beide Achsen getrennt voneinander einmal joggen lassen
                                                 \item Potentiometer zur jeweiligen Achse auf die höchste Einstellung drehen
-                                                \item Beide Achsen erneut joggen
+                                                \item Beide Achsen erneut joggen lassen
                                             \end{enumerate}} \\
-        \textbf{Erwartungswert}         & Das erstmalige Joggen der horizontalen und vertikalen Achse führt zu einer sehr langsamen Bewegung. Nach der Einstellung der Fahrgeschwindigkeit über die Potentiometer auf den höchstmöglichen Wert bewegen sich die Achsen merklich um ein vielfaches schneller. \\
+        \textbf{Erwartungswert}         & Das erstmalige Joggen der horizontalen und vertikalen Achse führt zu einer sehr langsamen Bewegung. Nach der Einstellung der Fahrgeschwindigkeit über die Potentiometer auf den höchstmöglichen Wert bewegen sich die Achsen merklich um ein Vielfaches schneller. \\
         \textbf{Spezialfälle}           & --- \\ \hline
     \end{tabular}
     \caption[\acs{tf} - Geschwindigkeitsvorgabe]{Testfall - Prüfung der Geschwindigkeitsvorgabe}
@@ -178,7 +178,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
                                                 \item Joggen einer ausgewählten Achse (kontinuierliches Drücken des Tasters bis das Ende der jeweiligen Achse erreicht ist.)
                                                 \item Wiederholen für alle vier Endlagen des Positioniersystems
                                             \end{enumerate}} \\
-        \textbf{Erwartungswert}         & Das erreichen eines Endlagesensors führt zum Bremsen und anschließenden Halten der Bewegung der jeweiligen Achse, die die Endlageposition erreicht hat. Anhand des Traces zu den durchgeführten Fahrten ist das langsamere Bewegen in Endlagennähe zu erkennen. \\
+        \textbf{Erwartungswert}         & Das Erreichen eines Endlagesensors führt zum Bremsen und anschließenden Halten der Bewegung der jeweiligen Achse, die die Endlageposition erreicht hat. Anhand des Traces zu den durchgeführten Fahrten ist das langsamere Bewegen in Endlagennähe zu erkennen. \\
         \textbf{Spezialfälle}           & --- \\ \hline
     \end{tabular}
     \caption[\acs{tf} - Endlagenfunktion]{Testfall - Prüfung der Endlagefunktionalität}
@@ -191,19 +191,19 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
         \hline
         \textbf{Identifikationsnummer}  & \multicolumn{1}{r}{TF\_08} \\ \hline
         \textbf{Name}                   & Prüfung funktionale Sicherheit \\
-        \textbf{Beschreibung}           & Die Not-Halt funktion durch Tasterbetätigung oder Lichtvorhangauslösung soll zum Halt jeglicher Bewegung führen. Dabei sollen die Zeitanforderungen an die Sicherheitsfunktionen eingehalten werden. \\
+        \textbf{Beschreibung}           & Die Not-Halt Funktion durch Tasterbetätigung oder Lichtvorhangauslösung soll zum Halt jeglicher Bewegung führen. Dabei sollen die Zeitanforderungen an die Sicherheitsfunktionen eingehalten werden. \\
         \textbf{Vorgehensweise}         &   {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
                                                 \item System einschalten, Handmodus auswählen und bestätigen
                                                 \item Über Potentiometer die maximale Geschwindigkeit der Achsen einstellen
                                                 \item Achsen des Systems kontinuierlich joggen lassen
                                                 \item Auslösung eines Not-Halt-Tasters während sich mindestens eine Achse bewegt (wiederholen für alle Not-Halt-Taster inklusive der Softwareimplementierung)
-                                                \item Auslösen des Lichtvorhangs mit einem Testobjekt während sich meindestens eine Achse bewegt
+                                                \item Auslösen des Lichtvorhangs mit einem Testobjekt während sich mindestens eine Achse bewegt
                                                 \item Messung des Fahrweges nach Auslösung
-                                                \item Messung der Abbremsdauer der Achse(n)
+                                                \item Messung der Bremsdauer der Achse(n)
                                                 \item Messung der Auslösezeit des Lichtvorhanges
                                                 \item Messung der Abschaltzeit des Servoreglers
                                             \end{enumerate}} \\
-        \textbf{Erwartungswert}         & Nach spätestens 50\si{ms} schaltet der ausgelöste Lichtvorhang die zugehörigen Eingänge am \acs{slc}. Die Auslösung eines Not-Halts durch Tasterbetätigung oder Lichtvorhangauslösung führt nach spätestens 200\si{ms} zum vollständigen Abbremsen des Systems und spätestens 250\si{ms} zum Abschalten des Servoreglers. Dabei darf der noch zurückgelegte Fahrweg nach Auslösung nicht mehr als 5cm betragen. \\
+        \textbf{Erwartungswert}         & Nach spätestens 50\si{ms} schaltet der ausgelöste Lichtvorhang die zugehörigen Eingänge am \acs{slc}. Die Auslösung eines Not-Halts durch Tasterbetätigung oder Lichtvorhangauslösung führt nach spätestens 200\si{ms} zum vollständigen Abbremsen des Systems und spätestens 250\si{ms} zum Abschalten des Servoreglers. Dabei darf der noch zurückgelegte Fahrweg nach Auslösung nicht mehr als 5 \si{cm} betragen. \\
         \textbf{Spezialfälle}           & --- \\ \hline
     \end{tabular}
     \caption[\acs{tf} - Funktionale Sicherheit]{Testfall - Prüfung der funktionalen Sicherheit}
@@ -225,7 +225,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
                                                 \item Betätigen des \textit{RESET}-Tasters (gleichzeitig der Start-Taster)
                                                 \item Erneut Achsen des Systems joggen lassen
                                             \end{enumerate}} \\
-        \textbf{Erwartungswert}         & Nach Auslösung des Not-Halts führt der Jog-Befehl zu keiner Bewegung der Achsen. Erst nach quittierung des Fehlers über den Reset-Taster führt ein erneuter Jog-Befehl wieder zu Achsenbewegungen. \\
+        \textbf{Erwartungswert}         & Nach Auslösung des Not-Halts führt der Jog-Befehl zu keiner Bewegung der Achsen. Erst nach Quittierung des Fehlers über den Reset-Taster führt ein erneuter Jog-Befehl wieder zu Achsenbewegungen. \\
         \textbf{Spezialfälle}           & --- \\ \hline
     \end{tabular}
     \caption[\acs{tf} - Reset-Funktion]{Testfall - Prüfung der Reset-Funktion}
@@ -247,7 +247,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
                                                 \item Auslösen der Funktion \glqq Visuelles Signalisieren\grqq{}
                                                 \item Wiederholen von jedem Laborrechner
                                             \end{enumerate}} \\
-        \textbf{Erwartungswert}         & Jeder Laborrechner kann die Steuerung des Systems finden und über die Funktion \glqq Visuelles Signalisieren\grqq{} die Status-LED des \acs{lmc} zum blinken bringen. \\
+        \textbf{Erwartungswert}         & Jeder Laborrechner kann die Steuerung des Systems finden und über die Funktion \glqq Visuelles Signalisieren\grqq{} die Status-LED des \acs{lmc} zum Blinken bringen. \\
         \textbf{Spezialfälle}           & --- \\ \hline
     \end{tabular}
     \caption[\acs{tf} - Programmierschnittstelle]{Testfall - Prüfung der Programmierschnittstelle}
@@ -267,10 +267,10 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
                                                 \item OPC Adresse, Nutzername und Passwort des Positioniersystems eingeben
                                                 \item Verbindung zur Laboranlage starten
                                             \end{enumerate}} \\
-        \textbf{Erwartungswert}         & In der Baumstruktur des OPC-Datensatzen können im Vorgegebenen Unterverzeichnis mit dem Namen der globalen Variablenliste des Steuerungsprogramms alle übertragenen Prozessdaten ausgelesen werden. \\
-        \textbf{Spezialfälle}           & Die Messdaten der Wago Energieklemme stehen über einen separaten OPC Server mit eigener Adresse bereit. Das Vorgehen bleibt jedoch das gleiche. \\ \hline
+        \textbf{Erwartungswert}         & In der Baumstruktur des OPC-Datensatzes können im vorgegebenen Unterverzeichnis mit dem Namen der globalen Variablenliste des Steuerungsprogramms alle übertragenen Prozessdaten ausgelesen werden. \\
+        \textbf{Spezialfälle}           & Die Messdaten der Wago-Energieklemme stehen über einen separaten OPC-Server mit eigener Adresse bereit. Das Vorgehen bleibt jedoch das gleiche. \\ \hline
     \end{tabular}
-    \caption[\acs{tf} - OPC UA Komminikation]{Testfall - Prüfung der OPC UA Kommunikation}
+    \caption[\acs{tf} - OPC UA Kommunikation]{Testfall - Prüfung der OPC UA Kommunikation}
     \label{tab:my-table80}
 \end{table}
 % TF Signalampel
@@ -287,7 +287,7 @@ Anschließend an die allgemeinen Testfälle zu dem physikalischen und elektrisch
                                                 \item Achse(n) des Systems joggen lassen
                                                 \item Not-Halt auslösen
                                             \end{enumerate}} \\
-        \textbf{Erwartungswert}         & Ist das System hochgefahren, leuchtet die Ampel ausschließlich grün (Leerlaug -> grünes Dauerleuchten). Bewegt sich mindestens eine Achse blink die Ampel abwechselnd rot-grün (Signalisierung Gefahrensituation). Liegt ein Not-Halt-Ereignis vor, leuchtet die Signalsäule dauerhaft rot. \\
+        \textbf{Erwartungswert}         & Ist das System hochgefahren, leuchtet die Ampel ausschließlich grün (Leerlauf -> grünes Dauerleuchten). Bewegt sich mindestens eine Achse blink die Ampel abwechselnd rot-grün (Signalisierung Gefahrensituation). Liegt ein Not-Halt-Ereignis vor, leuchtet die Signalsäule dauerhaft rot. \\
         \textbf{Spezialfälle}           & --- \\ \hline
     \end{tabular}
     \caption[\acs{tf} - Signalampel]{Testfall - Prüfung der Signalampel}

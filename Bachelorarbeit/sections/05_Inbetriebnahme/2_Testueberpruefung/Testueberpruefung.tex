@@ -3,8 +3,8 @@
 
 \subsection{Verifizierung der Testspezifikation} \label{testpruef}
 Nachdem im \autoref{testspez} alle Testfälle zu den aus der Anforderungsanalyse ermittelten Testspezifikationen modelliert wurden, müssen diese nun durchgeführt und in einem Testprotokoll dokumentiert werden.\\
-Aus den Vorgehensweisen der einzelnen Testfälle sind bereits verschiedene Methoden zur Prüfung der Testspezifikationen zu erkennen. Das Vorgehen unterscheidet sich in der Komplexität der Durchführung. Aus den Testabläufen ist bereits zu erkennen, das die Durchführung und Bestätigung grundlegender Testfälle Voraussetzung für nachfolgende Testdurchführungen ist. \\
-Es ergibt sich eine Methodische Abfolge, die in der \autoref{fig:my-img50} dargestellt ist.
+Aus den Vorgehensweisen der einzelnen Testfälle sind bereits verschiedene Methoden zur Prüfung der Testspezifikationen zu erkennen. Das Vorgehen unterscheidet sich in der Komplexität der Durchführung. Aus den Testabläufen ist bereits zu erkennen, dass die Durchführung und Bestätigung grundlegender Testfälle Voraussetzung für nachfolgende Testdurchführungen ist. \\
+Es ergibt sich eine methodische Abfolge, die in der \autoref{fig:my-img50} dargestellt ist.
 
 \begin{figure}[H]
     \centering
@@ -13,7 +13,7 @@ Es ergibt sich eine Methodische Abfolge, die in der \autoref{fig:my-img50} darge
     \label{fig:my-img50}
 \end{figure}
 
-Die Protokollierung der Tests erfolgt nach der vorgenommenen Einteilung des dargestellten Diagrammes. Die Einzelnen Punkte werden in den nachfolgenden Unterabschnitten abgearbeitet. Erneut kommt eine tabellarische darstellung zum einsatz, in der einzelne Testfälle mit den Schlüsselwörtern \textbf{bestanden}, \textbf{nicht bestanden} und \textbf{nicht getestet} protokolliert werden. Nicht durchgeführte Tests müssen nachgeholt werden. Ist ein Testfall nicht bestanden, so wird im anschließenden Unterkapitel die Korrektur der Implementierung diskutiert.
+Die Protokollierung der Tests erfolgt nach der vorgenommenen Einteilung des dargestellten Diagrammes. Die einzelnen Punkte werden in den nachfolgenden Unterabschnitten abgearbeitet. Erneut kommt eine tabellarische Darstellung zum Einsatz, in der einzelne Testfälle mit den Schlüsselwörtern \textbf{bestanden}, \textbf{nicht bestanden} und \textbf{nicht getestet} protokolliert werden. Nicht durchgeführte Tests müssen nachgeholt werden. Ist ein Testfall nicht bestanden, so wird im anschließenden Unterkapitel die Korrektur der Implementierung diskutiert.
 
 \subsubsection{Sichtprüfung}
 % Vorhandensein Endlagen, Not-Halt-Taster, Lichtvorhang, Bedienelemente, Signalsäule
@@ -85,7 +85,7 @@ Nach Abschließen der Sichtprüfung des Systems kann mit der Prüfung der Elektr
 
 \subsubsection{Prüfung der Geräteparametrierung}
 % läuft der sercos, können daten zwischen den PLCs versendet werden, ist der Servoregler eingerichtet, ist das Netzteil eingerichtet, funktionieren die sicheren Ein-/Ausgänge, könne Daten per OPC ausgelesen werden?
-Bevor konkrete Funktionen verifiziert werden können, müssen zunächst die eingestellten Geräteparameter geprüft werden. Dabei wird Bezug genommen auf den Testfall \textit{TF\_03} (Siehe \autoref{tab:my-table62}). Die Nichterfüllung voraussetzender Testkriterien führt auch in dieser Tabelle zu der Freilassung des Ergebnisfeldes. Die Überprüfung und Verifizierung der Geräteparameter erfolgt in der Software \textit{MachineExpert LogicBuilder}. Sämtliche zu treffende Einstellungen sind Voraussetzung für die korrekte Inbetriebnahme. Ist ein Testkriterium nicht erfüllt, da eine Systemkomponente nicht vorhanden ist oder Änderungen am Aufbau der Anlage vorgenommen wurden, muss die Parametrierung angepasst werden, so dass der Testfall zu 100\% bestanden wird. Ein Nichtbestehen sorgt zu einer Fehlermeldung im Programm oder verhindert die Ausführung von Systemfunktionen. 
+Bevor konkrete Funktionen verifiziert werden können, müssen zunächst die eingestellten Geräteparameter geprüft werden. Dabei wird Bezug genommen auf den Testfall \textit{TF\_03} (Siehe \autoref{tab:my-table62}). Die Nichterfüllung voraussetzender Testkriterien führt auch in dieser Tabelle zu der Freilassung des Ergebnisfeldes. Die Überprüfung und Verifizierung der Geräteparameter erfolgt in der Software \textit{MachineExpert LogicBuilder}. Sämtliche zu treffende Einstellungen sind Voraussetzung für die korrekte Inbetriebnahme. Ist ein Testkriterium nicht erfüllt, da eine Systemkomponente nicht vorhanden ist oder Änderungen am Aufbau der Anlage vorgenommen wurden, muss die Parametrierung angepasst werden, sodass der Testfall zu 100\% bestanden wird. Ein Nichtbestehen sorgt zu einer Fehlermeldung im Programm oder verhindert die Ausführung von Systemfunktionen.
 
 \begin{longtable}[C]{| R{0.1\linewidth} | R{0.62\linewidth} | R{0.2\linewidth} | }
     \hline
@@ -96,7 +96,7 @@ Bevor konkrete Funktionen verifiziert werden können, müssen zunächst die eing
     4               &   Physikalische Parameter der Achsen wurden in den Servoreglereinstallungen aufgenommen                                       &   bestanden           \\ \hline
     5               &   Das Netzteil ist auf 400 \si{V} und 3-phasige Überwachung eingestellt (\textit{PhaseCheckMode}, \textit{MainsVoltageMode})  &   bestanden           \\ \hline
     6               &   Diagnosemaske für offene Ausgänge des \acs{lmc} wurde gesetzt (\textit{OpenDiagMask})                                       &   bestanden           \\ \hline
-    7               &   Addressbereiche des \acs{slc} wurden für den Datenaustausch mit dem \acs{lmc} Freigegeben (\textit{LMC2SLCNumberOfBOOLs})   &   bestanden           \\ \hline
+    7               &   Adressbereiche des \acs{slc} wurden für den Datenaustausch mit dem \acs{lmc} freigegeben (\textit{LMC2SLCNumberOfBOOLs})   &   bestanden           \\ \hline
     8               &   \acs{ea}-Abbild wurde in einer globalen Variablenliste angelegt                                                             &   bestanden           \\ \hline
     9               &   Sichere \acs{ea}-Module wurden entsprechend der zeitlichen Anforderungen parametriert                                       &   bestanden           \\ \hline
     \caption[Prüfung der Geräteparametrierung]{Testprotokoll - Prüfung der Geräteparametrierung in der Steuerungskonfiguration}
@@ -105,7 +105,7 @@ Bevor konkrete Funktionen verifiziert werden können, müssen zunächst die eing
 
 \subsubsection{Prüfung der Programmfunktionen}
 % Führt die Programmierung des Systems zum geplanten Verhalten?
-Zuletzt werden die eigentlichen Funktionen des mehrachsigen Positioniersystems verifiziert. Anders als die bisherigen Tabellen im Testprotokoll sind nun nicht mehrere Testkriterien in einer Tabelle aufgeführt. Jeder Testfall eine Funktion betreffend besitzt eine eigene Tabelle mit allen geforderten Kiterien für die Erfüllung des jeweiligen Testfalls. Die nachfolgenden Tabellen beziehen sich auf die Testfälle \textit{TF\_04} bis \textit{TF\_12}. Der betrachtete Testfall wird im Titel der jeweiligen Tabelle referenziert.
+Zuletzt werden die eigentlichen Funktionen des mehrachsigen Positioniersystems verifiziert. Anders als die bisherigen Tabellen im Testprotokoll sind nun nicht mehrere Testkriterien in einer Tabelle aufgeführt. Jeder Testfall eine Funktion betreffend besitzt eine eigene Tabelle mit allen geforderten Kriterien für die Erfüllung des jeweiligen Testfalls. Die nachfolgenden Tabellen beziehen sich auf die Testfälle \textit{TF\_04} bis \textit{TF\_12}. Der betrachtete Testfall wird im Titel der jeweiligen Tabelle referenziert.
 
 \begin{longtable}[C]{| R{0.1\linewidth} | R{0.62\linewidth} | R{0.2\linewidth} | }
     \hline
@@ -113,10 +113,10 @@ Zuletzt werden die eigentlichen Funktionen des mehrachsigen Positioniersystems v
     1               &   Weiße Taster leuchten nach Handmodusauswahl                                                                                 &   nicht bestanden     \\ \hline
     2               &   Handmodus-Button wird nach Handmodusauswahl in \acs{gui} grün hinterlegt                                                    &   bestanden           \\ \hline
     3               &   Bestätigung der Auswahl führt zur Aktivierung der grünen LED des Start-Tasters                                              &   nicht bestanden     \\ \hline
-    4               &   Bestätigung der Auswahl führt zum Anlagen der Aufgabe in der \acs{gui}                                                      &   bestanden           \\ \hline
-    5               &   Tasten der Vier-Wege-Richtungsgebers führt zu Bewegungen der jeweiligen Achse                                               &   nicht bestanden     \\ \hline
+    4               &   Bestätigung der Auswahl führt zum Anlegen der Aufgabe in der \acs{gui}                                                      &   bestanden           \\ \hline
+    5               &   Tasten des vierfach Drucktasters führt zu Bewegungen der jeweiligen Achse                                               &   nicht bestanden     \\ \hline
     6               &   Drücken der \textit{Jog+} und \textit{Jog-} Buttons führt nach Auswahl der Achse zu Bewegungen an dieser Achse              &   bestanden           \\ \hline
-    7               &   Tasten der Weißen Bedienelemente bewegt den Greifer \bzw den Greifarm                                                       &   nicht bestanden     \\ \hline
+    7               &   Tasten der weißen Bedienelemente bewegt den Greifer \bzw den Greifarm                                                       &   nicht bestanden     \\ \hline
     \caption[Prüfung Handmodus]{Testprotokoll - Prüfung der Handmodusfunktionalität siehe \autoref{tab:my-table63}}
     \label{tab:my-table93}
 \end{longtable}
@@ -124,7 +124,7 @@ Zuletzt werden die eigentlichen Funktionen des mehrachsigen Positioniersystems v
 \begin{longtable}[C]{| R{0.1\linewidth} | R{0.62\linewidth} | R{0.2\linewidth} | }
     \hline
     \textbf{Nr.}    &   \textbf{Testfall}                                                                                                           &   \textbf{Ergebnis}   \\ \hline
-    1               &   Positioniersystem arbeitet absolut-Positionieraufgaben nach Programmvorgaben ohne Nutzereingaben ab                         &   nicht getestet      \\ \hline
+    1               &   Positioniersystem arbeitet Absolut-Positionieraufgaben nach Programmvorgaben ohne Nutzereingaben ab                         &   nicht getestet      \\ \hline
     2               &   Positioniersystem fährt programmatisch vorgegebene Trajektorien ohne Nutzereingaben ab                                      &   nicht getestet      \\ \hline
     3               &   System führt automatische Greifoperationen zur Aufnahme und Ablage von Transportobjekten durch                              &   ---                 \\ \hline
     4               &   System fährt leer nach Betätigung des Stop-Tasters                                                                          &   nicht getestet      \\ \hline
@@ -160,8 +160,8 @@ Zuletzt werden die eigentlichen Funktionen des mehrachsigen Positioniersystems v
     \textbf{Nr.}    &   \textbf{Testfall}                                                                                                           &   \textbf{Ergebnis}   \\ \hline
     1               &   Erster sicherer Eingang detektiert Lichtvorhangauslösung nach spätestens 50\si{ms}                                          &   bestanden           \\ \hline
     2               &   Zweiter sicherer Eingang detektiert Lichtvorhangauslösung nach spätestens 50\si{ms}                                         &   bestanden           \\ \hline
-    3               &   Not-Halt Auslösung stoppt jegliche Bewegung nach spätestens 200\si{ms}                                                      &   nicht getestet      \\ \hline
-    4               &   Not-Halt Auslösung schaltet Servoregler nach spätestens 250\si{ms} ab                                                       &   bestanden           \\ \hline
+    3               &   Not-Halt-Auslösung stoppt jegliche Bewegung nach spätestens 200\si{ms}                                                      &   nicht getestet      \\ \hline
+    4               &   Not-Halt-Auslösung schaltet Servoregler nach spätestens 250\si{ms} ab                                                       &   bestanden           \\ \hline
     5               &   Der zurückgelegte Weg einer Achse nach Not-Halt Auslösung ist kleiner als 5\si{cm}                                          &   bestanden           \\ \hline
     \caption[Prüfung funktionale Sicherheit]{Testprotokoll - Prüfung der funktionalen Sicherheit siehe \autoref{tab:my-table67}}
     \label{tab:my-table97}
@@ -182,7 +182,7 @@ Zuletzt werden die eigentlichen Funktionen des mehrachsigen Positioniersystems v
     \textbf{Nr.}    &   \textbf{Testfall}                                                                                                                   &   \textbf{Ergebnis}   \\ \hline
     1               &   Software \textit{MachineExpert LogicBuilder} auf jedem Laborrechner installiert                                                     &   bestanden           \\ \hline
     2               &   Steuerung \acs{lmc}400c des Positioniersystems kann bei Steuerungsauswahl von jedem Laborcomputer gefunden werden                   &   bestanden           \\ \hline
-    3               &   Betätigung des Buttons \glqq Visuelles Signalisieren\grqq{} in Steuerungsauswahloberfläche lässt Status-LED am \acs{lmc} blinken    &   bestanden           \\ \hline
+    3               &   Betätigung des Buttons \glqq visuelles Signalisieren\grqq{} in Steuerungsauswahloberfläche lässt Status-LED am \acs{lmc} blinken    &   bestanden           \\ \hline
     4               &   Es können Programme von jedem Rechner im Labor auf die Steuerung gespielt werden                                                    &   bestanden           \\ \hline
     5               &   Jeder Laborcomputer kann sich auf der Steuerung einloggen                                                                           &   bestanden           \\ \hline
     \caption[Prüfung Programmierschnittstelle]{Testprotokoll - Prüfung der Programmierschnittstelle \autoref{tab:my-table69}}
